@@ -1,7 +1,7 @@
 import { FaRegLightbulb } from "react-icons/fa";
-import { IoIosArrowRoundDown } from "react-icons/Io";
+// import { BiRightArrowAlt } from "react-icons/Io";
 
-import { GiHelicopter } from "react-icons/Gi";
+// import { BiRightArrowAlt } from "react-icons/Gi";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { FaCloud, FaDatabase } from "react-icons/fa";
 import { MdOutlineDesignServices } from "react-icons/md";
@@ -295,70 +295,70 @@ export const ProjectCount = {
 
 export const TestimonialSliderData = [
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
     type: "UI/UX designer",
   },
   {
-    icons: <IoIosArrowRoundDown />,
+    icons: <BiRightArrowAlt />,
     description:
       "What a load of rubbish bits and bobs pear shaped owt to do with me bubble and squeak jolly good morish tinkety tonk old fruit, car boot my good sir buggered plastered cheeky David, haggle young delinquent say so I said bite your arm off easy peasy.",
     header: "Lurch Schpellchek",
@@ -369,7 +369,7 @@ export const TestimonialSliderData = [
 export const dataPricing = [
   {
     type: "Silver",
-    icons: <GiHelicopter />,
+    icons: <BiRightArrowAlt />,
     pricing: "49.00",
     duratin: "mon",
     feature: [
@@ -382,7 +382,7 @@ export const dataPricing = [
   },
   {
     type: "Gold",
-    icons: <GiHelicopter />,
+    icons: <BiRightArrowAlt />,
     pricing: "49.00",
     duratin: "mon",
     feature: [
@@ -395,7 +395,7 @@ export const dataPricing = [
   },
   {
     type: "Platinum",
-    icons: <GiHelicopter />,
+    icons: <BiRightArrowAlt />,
     pricing: "49.00",
     duratin: "mon",
     feature: [

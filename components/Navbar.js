@@ -17,10 +17,10 @@ import {
   FaInstagram,
   FaLinkedinIn,
 } from "react-icons/fa";
-import { useRouter } from 'next/router'
-import { BsPersonFill, BsFillTelephoneFill } from "react-icons/Bs";
+import { useRouter } from "next/router";
+// import { BsPersonFill, BsFillTelephoneFill } from "react-icons/Bs";
 
-import { BiRightArrowAlt, BiMessageAltDetail } from "react-icons/Bi";
+// import { BiRightArrowAlt, BiMessageAltDetail } from "react-icons/Bi";
 import { MdOutlineEmail } from "react-icons/Md";
 
 import Modal from "react-modal";
@@ -71,10 +71,7 @@ export default function Navbar() {
     service: service,
   };
 
-
   const Contacthandler = async () => {
-
-
     const posted = await axios.post(
       "http://admin.opediatech.com/api/message",
       {
@@ -89,11 +86,9 @@ export default function Navbar() {
     if (posted.status === 200) {
       alert("ok");
       toast("Wow so easy!");
-    
     } else {
       alert("error");
       toast("Wow so easy!");
-
     }
   };
 
@@ -116,16 +111,13 @@ export default function Navbar() {
     setIsOpenModal(false);
   }
 
-
   const [isLink, setLink] = useState(false);
 
   const navChageRef = useRef();
   const router = useRouter();
- 
+
   useEffect(() => {
-    router.pathname == "/"
-      ? setLink(true)
-      : setLink(false);
+    router.pathname == "/" ? setLink(true) : setLink(false);
 
     // training
 
@@ -518,9 +510,7 @@ export default function Navbar() {
                                 placeholder="First Name *"
                                 onChange={(e) => setFirstName(e.target.value)}
                               />
-                              <span>
-                                <BsPersonFill />
-                              </span>
+                              <span>{/* <BsPersonFill /> */}</span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -530,9 +520,7 @@ export default function Navbar() {
                                 placeholder="First Name *"
                                 onChange={(e) => setLastName(e.target.value)}
                               />
-                              <span>
-                                <BsPersonFill />
-                              </span>
+                              <span>{/* <BsPersonFill /> */}</span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -554,9 +542,7 @@ export default function Navbar() {
                                 placeholder="Phone Number "
                                 onChange={(e) => setPhone(e.target.value)}
                               />
-                              <span>
-                                <BsFillTelephoneFill />
-                              </span>
+                              <span>{/* <BsFillTelephoneFill /> */}</span>
                             </div>
                           </div>
                           <div className="col-lg-12 mb-5">
@@ -597,9 +583,7 @@ export default function Navbar() {
                                 onChange={(e) => setText(e.target.value)}
                               ></textarea>
 
-                              <span>
-                                <BiMessageAltDetail />
-                              </span>
+                              <span>{/* <BiMessageAltDetail /> */}</span>
                             </div>
                           </div>
                         </div>
@@ -614,7 +598,8 @@ export default function Navbar() {
                           className="btn-brand mt-4"
                           onClick={Contacthandler}
                         >
-                          Submit Request <BiRightArrowAlt />{" "}
+                          Submit Request
+                          {/* Submit Request <BiRightArrowAlt />{" "} */}
                         </button>
                       </form>
                     </div>

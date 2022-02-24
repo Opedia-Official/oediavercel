@@ -9,7 +9,7 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import { GoLocation } from "react-icons/Go";
+// import { GoLocation } from "react-icons/Go";
 
 // Import Swiper styles
 import "swiper/css";
@@ -187,7 +187,7 @@ export default function Footer() {
                           <ul className="link-items">
                             <li>
                               {" "}
-                              <GoLocation />
+                              {/* <GoLocation /> */}
                               <span>254 Lillian Blvd, Holbrook</span>
                             </li>
                           </ul>
