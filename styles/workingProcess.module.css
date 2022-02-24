@@ -1,0 +1,119 @@
+/* progress area */
+
+.wpItem h2 {
+    font-size: 55px;
+    color: #000000;
+    font-weight: 700;
+    width: 85px;
+}
+
+.wpItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.workingProcessWrap {
+    display: flex;
+    justify-content: space-around;
+}
+
+.wpItem p {
+    color: #949494;
+}
+
+.wpCountWrap {
+    display: flex;
+    align-items: center;
+}
+
+span.wpPlus {
+    font-size: 18px;
+    display: inline-block;
+    margin-left: 4px;
+}
+
+.workingProgressItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #Fff;
+    position: relative;
+    box-shadow: 0px 0px 6px 1px rgb(203 203 203 / 61%);
+    padding: 26px 13px;
+    transition: .3s;
+}
+
+.workingProgressItems span.wpIcon {
+    background: #FCF4F5;
+    height: 85px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: .3s;
+}
+
+.workingProgressItems span.wpIcon svg {
+    color: var(--clr-primary);
+    font-size: 37px;
+}
+
+.workingProgressItems h3 {
+    font-size: 25px;
+    line-height: 26px;
+    font-weight: 700;
+    color: #0B1E33;
+    margin: 22px 0;
+}
+
+.workingProgressItems span.wpArrow {
+    height: 38px;
+    width: 38px;
+    background: #Fff;
+    box-shadow: 0px 0px 6px 1px rgb(195 195 195 / 61%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -13px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.workingProgressItems span.wpArrow svg {
+    color: var(--clr-primary);
+    font-size: 18px;
+    transition: .3s;
+}
+
+.workingProgressItems span.wpArrow:hover {
+    background: var(--clr-primary);
+}
+
+.workingProgressItems span.wpArrow:hover svg {
+    color: #Fff;
+}
+
+.workingProgressItems:hover {
+    background: #F1F5FE;
+}
+
+.workingProgressItems:hover .wpIcon {
+    background: var(--clr-secondary);
+}
+
+.workingProgressItems:hover span.wpIcon svg {
+    color: #fff;
+}
+
+@media (min-width: 320px) and (max-width: 480.98px) {
+    .wpItem h2 {
+        font-size: 40px;
+    }
+}
+
+
+/* progress area */

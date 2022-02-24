@@ -1,0 +1,45 @@
+.heroBackground {
+    background-image: url("../public/hero/banner.png");
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 643px;
+    max-height: 643px;
+}
+
+.viewServiceBg {
+    background-image: url("../public/ViewService/pic-1.png");
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .heroBackground {
+        height: 560px;
+        max-height: 560px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .heroBackground {
+        height: 420px;
+        max-height: 420px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .heroBackground {
+        height: 770px;
+        max-height: 770px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .heroBackground {
+        height: 700px;
+        max-height: 700px;
+    }
+}
