@@ -1,7 +1,7 @@
 // import React from "react";
 import Style from "../../styles/singleService.module.css";
 
-import { BsArrowRightCircleFill } from "react-icons/bs";
+// import { BsArrowRightCircleFill } from "react-icons/bs";
 import dynamic from "next/dynamic";
 import WhatsappChat from "../../components/whatsappChat";
 
@@ -17,15 +17,11 @@ let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
 
-
-
-
 // export const getStaticPaths = async() => {
 //   const { id } = router.query;
 
 //   const res = await fetch(`${server}/api/service`);
 //   const services = await res.json();
-
 
 //   const paths = services.map(item => {
 //     console.log("logged item", item)
@@ -34,22 +30,16 @@ let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
 //     }
 //   })
 
-
 //   return {
 //     paths,
-//     fallback: false 
+//     fallback: false
 
 // }
 // }
-
-
-
-
 
 // export async function getStaticProps(context) {
 
 //   const id = context.params.id
-
 
 //   const res = await fetch(`${server}/api/service-category/${id}`);
 //   const singleService = await res.json();
@@ -62,11 +52,7 @@ let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
 //   };
 // }
 
-
-
-
-
-function SinglePage({singleService}) {
+function SinglePage({ singleService }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -165,9 +151,10 @@ function SinglePage({singleService}) {
               <p>9.00 - 20.00</p>
             </div>
             <div className={Style.serviceBtn}>
-                <Link href='/service'>
-                   <a >Service Details <BsArrowRightCircleFill />{" "}</a>
-                </Link>
+              <Link href="/service">
+                <a>Service Details </a>
+                {/* <a >Service Details <BsArrowRightCircleFill />{" "}</a> */}
+              </Link>
             </div>
           </div>
           {/* <div className="mt-5">
@@ -202,8 +189,6 @@ function SinglePage({singleService}) {
 
 export default SinglePage;
 
-
-
 function ServiceDetails({ slug, setFeatureImage }) {
   const [content, setContent] = useState(null);
 
@@ -231,4 +216,3 @@ function ServiceDetails({ slug, setFeatureImage }) {
     </>
   );
 }
-

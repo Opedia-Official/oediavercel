@@ -6,9 +6,9 @@ import { useState, useEffect } from "react";
 import MyVerticallyCentredModal from "../components/MyVerticallyCentredModal";
 
 import { FaStar } from "react-icons/Fa";
-import { BsPlayFill } from "react-icons/Bs";
+// import { BsPlayFill } from "react-icons/Bs";
 import dynamic from "next/dynamic";
-import {server} from '../config/index'
+import { server } from "../config/index";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,8 +18,6 @@ import ExpertWorker from "../components/ExpertWorker";
 import { expertWorker } from "../Utils/fakeData";
 import TeamExpert from "../components/TeamExpert";
 import WhatsappChat from "../components/whatsappChat";
-
-
 
 let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
@@ -41,7 +39,7 @@ export default function Abouta({ services }) {
       <WhatsappChat />
       <InnerHead title="About Us" />
       {/* Youtube section */}
-       <div className="about-us-area">
+      <div className="about-us-area">
         <div className="container">
           <div className="row">
             <div className="col-lg-6  wow slideInLeft" data-wow-duration="1s">
@@ -107,7 +105,7 @@ export default function Abouta({ services }) {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       {/* Youtube section */}
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 mt-120">
@@ -135,7 +133,7 @@ export default function Abouta({ services }) {
       </div>
       {/* VIEW SERVICE AREA */}
 
-       <div className="about-youtube-section-area about-bg">
+      <div className="about-youtube-section-area about-bg">
         <div className="about-youtube-wrap">
           <MyVerticallyCentredModal
             url="https://youtu.be/iO40U7nP6mY"
@@ -144,12 +142,13 @@ export default function Abouta({ services }) {
           />
 
           <div className="ptflo-button">
-            <span onClick={() => setModalShow(true)}>
+            <span onClick={() => setModalShow(true)}></span>
+            {/* <span onClick={() => setModalShow(true)}>
               <BsPlayFill />
-            </span>
+            </span> */}
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* CLIENTS FEEDBACK */}
       <div
@@ -316,7 +315,7 @@ export default function Abouta({ services }) {
             </SwiperSlide>
           </Swiper>
         </div>
-      </div> 
+      </div>
 
       <AnimatedCursor
         innerSize={8}
@@ -325,16 +324,15 @@ export default function Abouta({ services }) {
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
-      /> 
+      />
 
-   <TeamExpert services={services} /> 
+      <TeamExpert services={services} />
     </>
   );
 }
 
 export async function getStaticProps() {
   const res = await fetch(`${server}/api/team`);
-
 
   const services = await res.json();
 

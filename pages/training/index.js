@@ -1,14 +1,14 @@
 import { Card } from "react-bootstrap";
-import { BiRightArrowAlt } from "react-icons/bi";
+// import { BiRightArrowAlt } from "react-icons/bi";
 import InnerHead from "../../components/innerHead";
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../components/whatsappChat";
 // import AnimatedCursor from "react-animated-cursor";
 import { server } from "../../config";
-import Meta from '../../components/Meta'
+import Meta from "../../components/Meta";
 
-export default function Training({courses} ) {
+export default function Training({ courses }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
@@ -19,8 +19,8 @@ export default function Training({courses} ) {
 
   return (
     <>
-    <Meta title = "training" />
-    <WhatsappChat/>
+      <Meta title="training" />
+      <WhatsappChat />
       <InnerHead title="Portfolio" />
       <div className="portfolio-area">
         <div className="container">
@@ -37,10 +37,9 @@ export default function Training({courses} ) {
             data-wow-duration="1s"
             data-wow-delay="1s"
           >
-            {
-              courses?.map(course=>{
-                return (
-                  <div key={course.id} className="col-lg-4 col-sm-6">
+            {courses?.map((course) => {
+              return (
+                <div key={course.id} className="col-lg-4 col-sm-6">
                   <div className="portfolio-items mb-100">
                     <Card>
                       <Card.Img src={`${server}/${course.Featured_img}`} />
@@ -51,22 +50,21 @@ export default function Training({courses} ) {
                       <div>
                         <Link href={`/training/${course.slug}`}>
                           <a>
-                            View details <BiRightArrowAlt />
+                            View details
+                            {/* View details <BiRightArrowAlt /> */}
                           </a>
                         </Link>
                       </div>
                     </div>
                   </div>
                 </div>
-                )
-              })
-            }
-        
+              );
+            })}
           </div>
         </div>
       </div>
 
-{/* 
+      {/* 
       <AnimatedCursor
       innerSize={8}
       outerSize={8}
@@ -75,25 +73,18 @@ export default function Training({courses} ) {
       innerScale={0.7}
       outerScale={5}
     /> */}
-
     </>
   );
 }
 
-
-
 export async function getStaticProps() {
-  
-  const res = await fetch( `${server}/api/course`);
+  const res = await fetch(`${server}/api/course`);
   const courses = await res.json();
 
-  
   return {
-    props:{
-        courses
+    props: {
+      courses,
     },
     revalidate: 10,
-  }
+  };
 }
-
-

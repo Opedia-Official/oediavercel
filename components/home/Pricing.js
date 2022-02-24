@@ -1,21 +1,21 @@
 import { Card } from "react-bootstrap";
-import {
-  FaCloud,
-  FaDatabase,
-  FaRegHeart,
-  FaHeart,
-  FaRegSmileBeam,
-  FaFacebookF,
-  FaRegPaperPlane,
-  FaRegLightbulb,
-  FaPlaneDeparture,
-  FaAngleDoubleRight,
-  FaInstagram,
-  FaTwitter,
-  FaGithub,
-  FaHeadphonesAlt,
-} from "react-icons/fa";
-import { GiHelicopter } from "react-icons/Gi";
+// import {
+//   FaCloud,
+//   FaDatabase,
+//   FaRegHeart,
+//   FaHeart,
+//   FaRegSmileBeam,
+//   FaFacebookF,
+//   FaRegPaperPlane,
+//   FaRegLightbulb,
+//   FaPlaneDeparture,
+//   FaAngleDoubleRight,
+//   FaInstagram,
+//   FaTwitter,
+//   FaGithub,
+//   FaHeadphonesAlt,
+// } from "react-icons/fa";
+// import { GiHelicopter } from "react-icons/Gi";
 
 // Import Swiper styles
 import "swiper/css";

@@ -6,19 +6,19 @@ import dynamic from "next/dynamic";
 import ServiceItem from "./serviceItem";
 import Meta from "../../components/Meta";
 import axios from "axios";
-import { server } from "../../config";
+import { server } from "../../config/index";
 
 import { Card } from "react-bootstrap";
 import Link from "next/link";
 
-import { BiRightArrowAlt } from "react-icons/bi";
+// import { BiRightArrowAlt } from "react-icons/bi";
 import { FaCloud } from "react-icons/fa";
 
 const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
   ssr: false,
 });
 
-export default function Home({services}) {
+export default function Home({ services }) {
   const [allServices, setAllServices] = useState(services);
 
   useEffect(() => {
@@ -66,26 +66,27 @@ export default function Home({services}) {
                         >
                           {/* <ServiceItem item={item} /> */}
                           <Card>
-                          <Card.Body>
-                          <FaCloud />
-                          <Card.Title>{item.service_title}</Card.Title>
-                          <Card.Text>
-                            <p
-                              dangerouslySetInnerHTML={{
-                                __html: `${item.service_desc}`,
-                              }}
-                            ></p>
+                            <Card.Body>
+                              <FaCloud />
+                              <Card.Title>{item.service_title}</Card.Title>
+                              <Card.Text>
+                                <p
+                                  dangerouslySetInnerHTML={{
+                                    __html: `${item.service_desc}`,
+                                  }}
+                                ></p>
 
-                            <div>
-                              <Link href={`/service/${item.service_slug}`}>
-                                <a>
-                                  Service Details <BiRightArrowAlt />
-                                </a>
-                              </Link>
-                            </div>
-                          </Card.Text>
-                        </Card.Body>
-                      </Card>
+                                <div>
+                                  <Link href={`/service/${item.service_slug}`}>
+                                    <a>
+                                      Service Details
+                                      {/* Service Details <BiRightArrowAlt /> */}
+                                    </a>
+                                  </Link>
+                                </div>
+                              </Card.Text>
+                            </Card.Body>
+                          </Card>
                         </div>
                       ))
                     : "Loading..."}

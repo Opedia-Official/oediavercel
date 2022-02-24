@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
-import { BsTelephone } from "react-icons/bs";
+// import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+// import { BsTelephone } from "react-icons/bs";
 
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -183,9 +183,7 @@ export default function Navbar() {
                     href="tel:+8801978159172"
                     className={styles.socialIconItem}
                   >
-                    <span className="s-icon">
-                      <BsTelephone />
-                    </span>
+                    <span className="s-icon">{/* <BsTelephone /> */}</span>
                     01978159172
                   </a>
                 </li>
@@ -328,7 +326,7 @@ export default function Navbar() {
                     }}
                     onClick={() => setIsMore(!isMore)}
                   >
-                    {isMore ? (
+                    {/* {isMore ? (
                       <AiOutlineArrowUp
                         style={{
                           border: "1px solid #f49735",
@@ -342,7 +340,7 @@ export default function Navbar() {
                           borderRadius: "50%",
                         }}
                       />
-                    )}
+                    )} */}
                   </p>
                 </div>
               </li>

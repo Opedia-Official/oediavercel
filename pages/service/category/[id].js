@@ -2,10 +2,10 @@ import { Card } from "react-bootstrap";
 import InnerHead from "../../../components/innerHead";
 import Link from "next/link";
 
-import { BiRightArrowAlt } from "react-icons/bi";
-import { SiSimpleanalytics } from "react-icons/si";
-import { FaCloud, FaDatabase } from "react-icons/fa";
-import { MdOutlineDesignServices } from "react-icons/md";
+// import { BiRightArrowAlt } from "react-icons/bi";
+// import { SiSimpleanalytics } from "react-icons/si";
+// import { FaCloud, FaDatabase } from "react-icons/fa";
+// import { MdOutlineDesignServices } from "react-icons/md";
 import WhatsappChat from "../../../components/whatsappChat";
 import { useEffect } from "react";
 import dynamic from "next/dynamic";

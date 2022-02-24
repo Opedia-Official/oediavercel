@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { BiRightArrowAlt } from "react-icons/bi";
+// import { BiRightArrowAlt } from "react-icons/bi";
 import InnerHead from "../../components/innerHead";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -8,7 +8,7 @@ import WhatsappChat from "../../components/whatsappChat";
 import { server } from "../../config";
 import Meta from "../../components/Meta";
 
-export default function Portfolio({categories} ) {
+export default function Portfolio({ categories }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
@@ -18,8 +18,8 @@ export default function Portfolio({categories} ) {
   }, []);
   return (
     <>
-    <Meta title='Our Portfolio' />
-    <WhatsappChat/>
+      <Meta title="Our Portfolio" />
+      <WhatsappChat />
       <InnerHead title="Portfolio" />
       <div className="portfolio-area">
         <div className="container">
@@ -36,10 +36,9 @@ export default function Portfolio({categories} ) {
             data-wow-duration="1s"
             data-wow-delay="1s"
           >
-            {
-              categories?.map(category=>{
-                return (
-                  <div key={category.id} className="col-lg-4 col-sm-6">
+            {categories?.map((category) => {
+              return (
+                <div key={category.id} className="col-lg-4 col-sm-6">
                   <div className="portfolio-items mb-100">
                     <Card>
                       <Card.Img src={`${server}/${category.img}`} />
@@ -48,23 +47,23 @@ export default function Portfolio({categories} ) {
                       <span>{category.title}</span>
                       <h2>{category.category_name}</h2>
                       <div>
-                        <Link href={`/portfolio/category/${category.category_slug}`}>
+                        <Link
+                          href={`/portfolio/category/${category.category_slug}`}
+                        >
                           <a>
-                            View Projects <BiRightArrowAlt />
+                            View Projects
+                            {/* View Projects <BiRightArrowAlt /> */}
                           </a>
                         </Link>
                       </div>
                     </div>
                   </div>
                 </div>
-                )
-              })
-            }
-        
+              );
+            })}
           </div>
         </div>
       </div>
-
 
       {/* <AnimatedCursor
       innerSize={8}
@@ -74,26 +73,20 @@ export default function Portfolio({categories} ) {
       innerScale={0.7}
       outerScale={5}
     /> */}
-
     </>
   );
 }
 
-
 // }
 
 export async function getStaticProps() {
-  
-  const res = await fetch( `${server}/api/portfolio/category`);
+  const res = await fetch(`${server}/api/portfolio/category`);
   const categories = await res.json();
 
-  
   return {
-    props:{
-      categories
+    props: {
+      categories,
     },
     revalidate: 10,
-  }
+  };
 }
-
-

@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
+// import { FaFacebookF, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
 import InnerHead from "../components/innerHead";
 import TeamExpert from "../components/TeamExpert";
 import WhatsappChat from "../components/whatsappChat";
