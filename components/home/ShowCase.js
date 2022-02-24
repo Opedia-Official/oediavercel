@@ -1,10 +1,7 @@
 import { useState } from "react";
 
-import {
-  FaRegHeart,
-  FaHeart,
-} from "react-icons/fa";
-import { FiShare2 } from "react-icons/Fi";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+// import { FiShare2 } from "react-icons/Fi";
 
 import SectionTitle from "../SectionTitle";
 // Import Swiper styles
@@ -41,14 +38,16 @@ export default function ShowCase({ portCats }) {
             data-wow-duration="1s"
             data-wow-delay="0.5s"
           >
-             {
-               portCats.map((cat)=>{
-                 return (
-                  cat.isFeatured == 1 && (
-                    <div key={cat.id} className="col-md-5 col-sm-8">
+            {portCats.map((cat) => {
+              return (
+                cat.isFeatured == 1 && (
+                  <div key={cat.id} className="col-md-5 col-sm-8">
                     <div className="showCase-wrap mb-4 mb-md-0">
                       <div className="show-case-features  s-img-wrap">
-                        <img src={`${server}/${cat.img}`} alt={cat.category_name} />
+                        <img
+                          src={`${server}/${cat.img}`}
+                          alt={cat.category_name}
+                        />
                       </div>
                       <div className="show-case-info">
                         <div className="s-action">
@@ -61,28 +60,24 @@ export default function ShowCase({ portCats }) {
                               <FaRegHeart />
                             </span>
                           )}
-                          <span>
-                            <FiShare2 />
-                          </span>
+                          <span>{/* <FiShare2 /> */}</span>
                         </div>
                         <div className="show-case-text">
                           <h4>
-                          <Link href={`/portfolio/category/${cat.category_slug}`}>
-                                <a> {cat.category_name}</a>
-                              </Link>
+                            <Link
+                              href={`/portfolio/category/${cat.category_slug}`}
+                            >
+                              <a> {cat.category_name}</a>
+                            </Link>
                           </h4>
                           <p>{cat.title}</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  )
-
-                 
-                 )
-               })
-             }
-
+                )
+              );
+            })}
 
             <div className="col-md-7">
               <div className="row justify-content-center">
@@ -90,52 +85,49 @@ export default function ShowCase({ portCats }) {
                   return (
                     port.isFeatured == null && (
                       <div
-                      className="col-md-6 col-sm-6  wow fadeIn"
-                      data-wow-duration="1s"
-                      data-wow-delay="0.5s"
-                      key={port.id}
-                    >
-                      <div className="showCase-wrap mb-4 ">
-                        <div className="show-case-child s-img-wrap">
-                          <img
-                            src={`${server}/${port.img}`}
-                            alt={port.category_name}
-                          />
-                        </div>
-                        <div className="show-case-info">
-                          <div className="s-action">
-                            {isReact ? (
-                              <span onClick={() => setIsReact(!isReact)}>
-                                <FaHeart />
-                              </span>
-                            ) : (
-                              <span onClick={() => setIsReact(!isReact)}>
-                                <FaRegHeart />
-                              </span>
-                            )}
-                            <span>
-                              <FiShare2 />
-                            </span>
+                        className="col-md-6 col-sm-6  wow fadeIn"
+                        data-wow-duration="1s"
+                        data-wow-delay="0.5s"
+                        key={port.id}
+                      >
+                        <div className="showCase-wrap mb-4 ">
+                          <div className="show-case-child s-img-wrap">
+                            <img
+                              src={`${server}/${port.img}`}
+                              alt={port.category_name}
+                            />
                           </div>
-                          <div className="show-case-text">
-                            <h4>
-                              <Link href={`/portfolio/category/${port.category_slug}`}>
-                                <a> {port.category_name}</a>
-                              </Link>
-                            </h4>
-                            <p>{port.title}</p>
+                          <div className="show-case-info">
+                            <div className="s-action">
+                              {isReact ? (
+                                <span onClick={() => setIsReact(!isReact)}>
+                                  <FaHeart />
+                                </span>
+                              ) : (
+                                <span onClick={() => setIsReact(!isReact)}>
+                                  <FaRegHeart />
+                                </span>
+                              )}
+                              <span>{/* <FiShare2 /> */}</span>
+                            </div>
+                            <div className="show-case-text">
+                              <h4>
+                                <Link
+                                  href={`/portfolio/category/${port.category_slug}`}
+                                >
+                                  <a> {port.category_name}</a>
+                                </Link>
+                              </h4>
+                              <p>{port.title}</p>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
                     )
-                   
-                  )
+                  );
                 })}
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

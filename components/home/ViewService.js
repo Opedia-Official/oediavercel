@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import { BiRightArrowAlt } from "react-icons/bi";
+// import { BiRightArrowAlt } from "react-icons/bi";
 
 import { FaCloud } from "react-icons/fa";
 
@@ -67,7 +67,8 @@ export default function ViewService() {
                             <div>
                               <Link href={`/service/category/${service.id}`}>
                                 <a>
-                                  Service Details <BiRightArrowAlt />
+                                  Service Details
+                                  {/* Service Details <BiRightArrowAlt /> */}
                                 </a>
                               </Link>
                             </div>

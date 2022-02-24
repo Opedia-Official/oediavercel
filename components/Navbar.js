@@ -21,7 +21,7 @@ import { useRouter } from "next/router";
 // import { BsPersonFill, BsFillTelephoneFill } from "react-icons/Bs";
 
 // import { BiRightArrowAlt, BiMessageAltDetail } from "react-icons/Bi";
-import { MdOutlineEmail } from "react-icons/Md";
+// import { MdOutlineEmail } from "react-icons/Md";
 
 import Modal from "react-modal";
 
@@ -528,9 +528,7 @@ export default function Navbar() {
                                 placeholder="Mail Address *"
                                 onChange={(e) => setEmail(e.target.value)}
                               />
-                              <span>
-                                <MdOutlineEmail />
-                              </span>
+                              <span>{/* <MdOutlineEmail /> */}</span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
