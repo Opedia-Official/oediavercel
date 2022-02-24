@@ -1,11 +1,11 @@
 import { Card } from "react-bootstrap";
-import { FaPlay } from "react-icons/Fa";
+import { FaPlay } from "react-icons/fa";
 import InnerHead from "../components/innerHead";
 import Meta from "../components/Meta";
 import { useState, useEffect } from "react";
 import MyVerticallyCentredModal from "../components/MyVerticallyCentredModal";
 
-import { FaStar } from "react-icons/Fa";
+import { FaStar } from "react-icons/fa";
 // import { BsPlayFill } from "react-icons/Bs";
 import dynamic from "next/dynamic";
 import { server } from "../config/index";
