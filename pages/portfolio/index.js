@@ -7,7 +7,7 @@ import WhatsappChat from "../../components/whatsappChat";
 // import AnimatedCursor from "react-animated-cursor";
 import { server } from "../../config";
 import Meta from "../../components/Meta";
-
+import { FaAngleRight } from "react-icons/fa";
 export default function Portfolio({ categories }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,8 +51,7 @@ export default function Portfolio({ categories }) {
                           href={`/portfolio/category/${category.category_slug}`}
                         >
                           <a>
-                            View Projects
-                            {/* View Projects <BiRightArrowAlt /> */}
+                            View Projects <FaAngleRight />
                           </a>
                         </Link>
                       </div>

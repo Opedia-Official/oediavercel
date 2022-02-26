@@ -1,4 +1,4 @@
-// import { BsPlayFill} from "react-icons/Bs";
+import { FaPlay } from "react-icons/fa";
 import InnerHead from "../../components/innerHead";
 import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
 import { useState } from "react";
@@ -7,9 +7,7 @@ import dynamic from "next/dynamic";
 
 import { server } from "../../config/index";
 
-let AnimatedCursors = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+
 
 import Meta from "../../components/Meta";
 
@@ -35,9 +33,9 @@ export default function TrainingDetails({ training }) {
                 </div>
 
                 <div className="ptflo-button">
-                  <span onClick={() => setModalShow(true)}></span>
-                  {/* <span onClick={() => setModalShow(true)}>
-                                <BsPlayFill/></span> */}
+                  
+                  <span onClick={() => setModalShow(true)}>
+                                <FaPlay/></span>
                 </div>
               </div>
             </div>
@@ -93,14 +91,6 @@ export default function TrainingDetails({ training }) {
         </div>
       </div>
 
-      <AnimatedCursors
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
     </>
   );
 }
@@ -118,7 +108,7 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 

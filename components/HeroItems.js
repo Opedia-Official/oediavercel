@@ -96,13 +96,13 @@ export default class AsNavFor extends Component {
               <div className="col-md-6 wow bounceInLeft" data-wow-duration="3s">
                 <div className="hero-left">
                   {/* <h4>Optimized It System</h4> */}
-                  <h2>Web & Software solution</h2>
+                  <h2>Web & Software</h2>
                   <div className="hero-action">
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
 
-                    <a className="btn-two" href="#">
+                    <a className="btn-two" href="/service/category/web-software-service">
                       Learn More
                     </a>
                   </div>
@@ -140,7 +140,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a className="btn-two" href="#">
+                    <a className="btn-two" href="/service/category/product-design-service">
                       Learn More
                     </a>
                   </div>
@@ -176,7 +176,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a className="btn-two" href="#">
+                    <a className="btn-two" href="/service/category/digital-marketing-service">
                       Learn More
                     </a>
                   </div>
@@ -209,7 +209,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a className="btn-two" href="#">
+                    <a className="btn-two" href="/service/category/ecommerce-service">
                       Learn More
                     </a>
                   </div>
@@ -232,6 +232,8 @@ export default class AsNavFor extends Component {
           {/* hero top */}
         </Slider>
 
+        {/* Slider two */}
+
         <div className="hero-bottom-wrap">
           <Slider
             {...settings2}
@@ -247,7 +249,7 @@ export default class AsNavFor extends Component {
                   <FaRegLightbulb />
                 </div>
                 <div className="hero-bottom-info">
-                  <h4>Web Design</h4>
+                  <h4>Web & Software</h4>
                   <p className="pera">
                     Static, Dynamic & Responsive solution with recursive UI
                   </p>
@@ -262,8 +264,8 @@ export default class AsNavFor extends Component {
                   <FaRegLightbulb />
                 </div>
                 <div className="hero-bottom-info">
-                  <h4>Web Development</h4>
-                  <p>Bespoke software, Custom Apps & Web solution</p>
+                  <h4>Product Design</h4>
+                  <p>We provide attractive product design </p>
                 </div>
               </div>
             </div>
@@ -275,8 +277,8 @@ export default class AsNavFor extends Component {
                   <FaRegLightbulb />
                 </div>
                 <div className="hero-bottom-info">
-                  <h4>SAAS</h4>
-                  <p>CRM, ERP & Document management software solution </p>
+                  <h4>Digital Marketing</h4>
+                  <p>Our Best Digital Marketing Services </p>
                 </div>
               </div>
             </div>
@@ -288,12 +290,13 @@ export default class AsNavFor extends Component {
                   <FaRegLightbulb />
                 </div>
                 <div className="hero-bottom-info">
-                  <h4>UI & UX </h4>
-                  <p>Mobile App, Web App and Graphical design </p>
+                  <h4>Ecommerce Solution </h4>
+                  <p> Improve your ecommerce with us! </p>
                 </div>
               </div>
             </div>
             {/* single item */}
+      
           </Slider>
         </div>
       </div>

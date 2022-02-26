@@ -1,6 +1,6 @@
 import React from "react";
 
-// import { HiOutlineArrowNarrowUp } from "react-icons/hi";
+import { FaAngleUp } from "react-icons/fa";
 import dynamic from "next/dynamic";
 
 import WhatsAppWidget from "react-whatsapp-widget";
@@ -17,7 +17,7 @@ function WhatsappChat() {
       />
 
       <a href="#">
-        <p className="Top">{/* <HiOutlineArrowNarrowUp/> */}</p>
+        <p className="Top"><FaAngleUp/></p>
       </a>
     </>
   );

@@ -1,7 +1,7 @@
 // import React from "react";
 import Style from "../../styles/singleService.module.css";
 
-// import { BsArrowRightCircleFill } from "react-icons/bs";
+
 import dynamic from "next/dynamic";
 import WhatsappChat from "../../components/whatsappChat";
 
@@ -13,9 +13,7 @@ import { useState } from "react";
 import Meta from "../../components/Meta";
 import Link from "next/link";
 
-let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+
 
 // export const getStaticPaths = async() => {
 //   const { id } = router.query;
@@ -77,14 +75,7 @@ function SinglePage({ singleService }) {
   return (
     <div className="container my-5 py-5">
       <WhatsappChat />
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
+    
       <Meta title={id} />
       {/* <p>Service sategory: {id} </p> */}
       <div className={"row"}>
@@ -135,7 +126,7 @@ function SinglePage({ singleService }) {
               </ul>
             </div>
           </div>
-          <div className={Style.opningHour}>
+          {/* <div className={Style.opningHour}>
             <h2 className={Style.title}>Opening Hours</h2>
 
             <div className={Style.option}>
@@ -153,10 +144,10 @@ function SinglePage({ singleService }) {
             <div className={Style.serviceBtn}>
               <Link href="/service">
                 <a>Service Details </a>
-                {/* <a >Service Details <BsArrowRightCircleFill />{" "}</a> */}
+                <a >Service Details <BsArrowRightCircleFill />{" "}</a>
               </Link>
             </div>
-          </div>
+          </div> */}
           {/* <div className="mt-5">
             <h2 className={Style.title}>Image Gallery</h2>
             <img
@@ -175,14 +166,7 @@ function SinglePage({ singleService }) {
         </div>
       </div>
 
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
+
     </div>
   );
 }

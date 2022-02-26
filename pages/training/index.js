@@ -1,19 +1,19 @@
 import { Card } from "react-bootstrap";
-// import { BiRightArrowAlt } from "react-icons/bi";
+
 import InnerHead from "../../components/innerHead";
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../components/whatsappChat";
-// import AnimatedCursor from "react-animated-cursor";
+
 import { server } from "../../config";
 import Meta from "../../components/Meta";
+import { FaAngleRight} from "react-icons/fa";
 
 export default function Training({ courses }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, []);
 
@@ -50,8 +50,7 @@ export default function Training({ courses }) {
                       <div>
                         <Link href={`/training/${course.slug}`}>
                           <a>
-                            View details
-                            {/* View details <BiRightArrowAlt /> */}
+                            View details <FaAngleRight />
                           </a>
                         </Link>
                       </div>
@@ -64,15 +63,8 @@ export default function Training({ courses }) {
         </div>
       </div>
 
-      {/* 
-      <AnimatedCursor
-      innerSize={8}
-      outerSize={8}
-      color='251, 129, 0'
-      outerAlpha={0.2}
-      innerScale={0.7}
-      outerScale={5}
-    /> */}
+      
+    
     </>
   );
 }

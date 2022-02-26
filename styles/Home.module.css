@@ -9,7 +9,7 @@
 }
 
 .viewServiceBg {
-    background-image: url("../public/ViewService/pic-1.png");
+    /* background-image: url("../public/ViewService/pic-1.png"); */
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;

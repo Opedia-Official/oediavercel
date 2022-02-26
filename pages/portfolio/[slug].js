@@ -5,18 +5,15 @@ import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
-  FaLinkedinIn,
+  FaLinkedinIn,FaPlay
 } from "react-icons/fa";
+
 import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
 import { useState } from "react";
 import WhatsappChat from "../../components/whatsappChat";
-import dynamic from "next/dynamic";
 import { server } from "../../config/index";
 import Meta from "../../components/Meta";
 
-let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
 
 export default function PortfolioDetails({ portfolios }) {
   const portfolio = portfolios[0];
@@ -42,9 +39,8 @@ export default function PortfolioDetails({ portfolios }) {
                 </div>
 
                 <div className="ptflo-button">
-                  <span onClick={() => setModalShow(true)}></span>
-                  {/* <span onClick={() => setModalShow(true)}>
-                                <BsPlayFill/></span> */}
+                  <span onClick={() => setModalShow(true)}>
+                                <FaPlay/></span>
                 </div>
               </div>
             </div>
@@ -122,14 +118,7 @@ export default function PortfolioDetails({ portfolios }) {
         </div>
       </div>
 
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
+      
     </>
   );
 }
@@ -147,7 +136,7 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 

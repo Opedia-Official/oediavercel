@@ -19,9 +19,7 @@ import { expertWorker } from "../Utils/fakeData";
 import TeamExpert from "../components/TeamExpert";
 import WhatsappChat from "../components/whatsappChat";
 
-let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+
 
 export default function Abouta({ services }) {
   const [modalShow, setModalShow] = useState(false);
@@ -107,31 +105,7 @@ export default function Abouta({ services }) {
         </div>
       </div>
       {/* Youtube section */}
-      {/* VIEW SERVICE AREA */}
-      <div className="view-service-page mb-100 mt-120">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="section-title text-center mb-50">
-                <h5>Our Tech Services</h5>
-                <h3>Our Expert Worker.</h3>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12">
-              <div className={"view-service-right-wrapper service"}>
-                <div className="row">
-                  {expertWorker.map((item) => (
-                    <ExpertWorker key={item} item={item} />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* VIEW SERVICE AREA */}
+ 
 
       <div className="about-youtube-section-area about-bg">
         <div className="about-youtube-wrap">
@@ -142,17 +116,17 @@ export default function Abouta({ services }) {
           />
 
           <div className="ptflo-button">
-            <span onClick={() => setModalShow(true)}></span>
-            {/* <span onClick={() => setModalShow(true)}>
-              <BsPlayFill />
-            </span> */}
+            
+            <span onClick={() => setModalShow(true)}>
+              <FaPlay />
+            </span>
           </div>
         </div>
       </div>
 
       {/* CLIENTS FEEDBACK */}
-      <div
-        style={{ display: "none" }}
+      {/* <div
+ 
         className="about-client-feedback-area mb-120"
       >
         <div className="container">
@@ -315,16 +289,9 @@ export default function Abouta({ services }) {
             </SwiperSlide>
           </Swiper>
         </div>
-      </div>
+      </div> */}
 
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
+     
 
       <TeamExpert services={services} />
     </>

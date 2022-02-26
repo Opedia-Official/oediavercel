@@ -1,6 +1,6 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter, FaGithub } from "react-icons/fa";
-
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
+import {server} from '../config/index'
 function TeamExpert({ services }) {
   console.log("services getStaticProps now: ", services);
   return (
@@ -25,29 +25,30 @@ function TeamExpert({ services }) {
             >
               <div className="exp-workers-item-wrapper mb-4">
                 <div className="section-img">
-                  <img src="./expert-worker/pic-1.png" alt="" />
+                  <img src={`${server}/${item.img}`} alt="" />
                 </div>
                 <ul className="exp-social">
                   <li>
-                    <a href="#">
+                    <a href={item.fb}>
                       <FaFacebookF />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href={item.instagram} >
                       <FaInstagram />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href={item.twitter}>
                       <FaTwitter />
                     </a>
                   </li>
                   <li>
-                    <a href="#">
-                      <FaGithub />
+                    <a href={item.linkedin}>
+                      <FaLinkedinIn />
                     </a>
                   </li>
+                 
                 </ul>
 
                 <div className="worker-info">

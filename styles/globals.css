@@ -563,7 +563,12 @@ a.Navbar_navlogo__SW1lT img {
 
 .top-header li {
     display: inline-block;
-    margin: 5px 10px;
+    margin: 5px 0;
+    margin-right: 10px;
+}
+
+.top-header li:last-child {
+    margin-right: 0;
 }
 
 .top-header li a {
@@ -1019,6 +1024,9 @@ ul.social {
     line-height: 26px;
     margin-top: 10px;
     transition: 0.3s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .view-service-right-wrapper .card-body a {
@@ -1368,6 +1376,8 @@ ul.social {
 .section-img img {
     width: 100%;
     max-height: 340px;
+    object-fit: cover;
+    height: 340px;
 }
 
 .exp-workers-item-wrapper {
@@ -2174,6 +2184,8 @@ ul.link-items li svg {
 
 .portfolio-details-lft-img img {
     max-height: 495px;
+    height: 495px;
+    object-fit: cover;
 }
 
 .ptflo-button {
@@ -2252,6 +2264,7 @@ ul.portfolio-details-info li p {
     font-size: 16px;
     color: #133344;
     line-height: 30px;
+    text-align: right;
 }
 
 ul.portfolio-details-info li {

@@ -19,15 +19,12 @@ import Testimonial from "../components/home/Testimonial";
 
 import { server } from "../config/index";
 
-import dynamic from "next/dynamic";
 
 import WorkingProcess from "../components/WorkingProcess";
 import WhatsappChat from "../components/whatsappChat";
 import LogoSlider from "../components/LogoSlider";
 
-let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+
 
 export default function Home({portCats}) {
 
@@ -77,14 +74,7 @@ export default function Home({portCats}) {
 
      
 
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
+    
       <WhatsappChat />
     </>
   );

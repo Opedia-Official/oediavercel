@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-// import { BsPlayFill} from "react-icons/Bs";
+
 import InnerHead from "../components/innerHead";
 import {
   FaFacebookF,
@@ -12,9 +12,7 @@ import { useState } from "react";
 import WhatsappChat from "../components/whatsappChat";
 import dynamic from "next/dynamic";
 
-let AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+
 
 export default function PortfolioDDetails() {
   const [modalShow, setModalShow] = useState(false);
@@ -141,14 +139,14 @@ export default function PortfolioDDetails() {
         </div>
       </div>
 
-      <AnimatedCursor
+      {/* <AnimatedCursor
         innerSize={8}
         outerSize={8}
         color="251, 129, 0"
         outerAlpha={0.2}
         innerScale={0.7}
         outerScale={5}
-      />
+      /> */}
     </>
   );
 }

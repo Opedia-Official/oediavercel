@@ -2,13 +2,10 @@ import { Card } from "react-bootstrap";
 import InnerHead from "../../../components/innerHead";
 import Link from "next/link";
 
-// import { BiRightArrowAlt } from "react-icons/bi";
-// import { SiSimpleanalytics } from "react-icons/si";
-// import { FaCloud, FaDatabase } from "react-icons/fa";
-// import { MdOutlineDesignServices } from "react-icons/md";
+
 import WhatsappChat from "../../../components/whatsappChat";
 import { useEffect } from "react";
-import dynamic from "next/dynamic";
+
 import ServiceItem from "../serviceItem";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -16,11 +13,9 @@ import axios from "axios";
 import { server } from "../../../config";
 import Meta from "../../../components/Meta";
 
-const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
 
-export default function Home({ services }) {
+
+export default function CateWiseServices({ services }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -108,14 +103,6 @@ export default function Home({ services }) {
       </div>
       {/* VIEW SERVICE AREA */}
 
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
     </>
   );
 }

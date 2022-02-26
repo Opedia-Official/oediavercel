@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-// import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
-// import { BsTelephone } from "react-icons/bs";
 
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -16,12 +14,13 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
+  FaPhoneAlt,FaEnvelope ,FaMale,FaAngleRight
 } from "react-icons/fa";
-import { useRouter } from "next/router";
-// import { BsPersonFill, BsFillTelephoneFill } from "react-icons/Bs";
 
-// import { BiRightArrowAlt, BiMessageAltDetail } from "react-icons/Bi";
-// import { MdOutlineEmail } from "react-icons/Md";
+
+
+import { useRouter } from "next/router";
+
 
 import Modal from "react-modal";
 
@@ -183,7 +182,7 @@ export default function Navbar() {
                     href="tel:+8801978159172"
                     className={styles.socialIconItem}
                   >
-                    <span className="s-icon">{/* <BsTelephone /> */}</span>
+                    <span className="s-icon"><FaPhoneAlt /></span>
                     01978159172
                   </a>
                 </li>
@@ -370,9 +369,7 @@ export default function Navbar() {
                       <div className="col-12">
                         <div className={styles.dropdown__inner2}>
                           <ul className={styles.dropdown__list}>
-                            <li>
-                              <h4>Trainings</h4>
-                            </li>
+                          
                             {trainings.map((training) => (
                               <li
                                 key={training.id}
@@ -508,7 +505,7 @@ export default function Navbar() {
                                 placeholder="First Name *"
                                 onChange={(e) => setFirstName(e.target.value)}
                               />
-                              <span>{/* <BsPersonFill /> */}</span>
+                              <span><FaMale /></span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -518,7 +515,7 @@ export default function Navbar() {
                                 placeholder="First Name *"
                                 onChange={(e) => setLastName(e.target.value)}
                               />
-                              <span>{/* <BsPersonFill /> */}</span>
+                              <span><FaMale /></span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -528,7 +525,7 @@ export default function Navbar() {
                                 placeholder="Mail Address *"
                                 onChange={(e) => setEmail(e.target.value)}
                               />
-                              <span>{/* <MdOutlineEmail /> */}</span>
+                              <span><FaEnvelope /></span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -538,7 +535,7 @@ export default function Navbar() {
                                 placeholder="Phone Number "
                                 onChange={(e) => setPhone(e.target.value)}
                               />
-                              <span>{/* <BsFillTelephoneFill /> */}</span>
+                              <span><FaPhoneAlt /></span>
                             </div>
                           </div>
                           <div className="col-lg-12 mb-5">
@@ -579,7 +576,7 @@ export default function Navbar() {
                                 onChange={(e) => setText(e.target.value)}
                               ></textarea>
 
-                              <span>{/* <BiMessageAltDetail /> */}</span>
+                              <span><FaEnvelope /></span>
                             </div>
                           </div>
                         </div>
@@ -594,8 +591,7 @@ export default function Navbar() {
                           className="btn-brand mt-4"
                           onClick={Contacthandler}
                         >
-                          Submit Request
-                          {/* Submit Request <BiRightArrowAlt />{" "} */}
+                          Submit Request <FaAngleRight />{" "}
                         </button>
                       </form>
                     </div>

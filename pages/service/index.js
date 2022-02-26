@@ -11,14 +11,12 @@ import { server } from "../../config/index";
 import { Card } from "react-bootstrap";
 import Link from "next/link";
 
-// import { BiRightArrowAlt } from "react-icons/bi";
-import { FaCloud } from "react-icons/fa";
 
-const AnimatedCursor = dynamic(() => import("react-animated-cursor"), {
-  ssr: false,
-});
+import { FaCloud,FaAngleRight } from "react-icons/fa";
 
-export default function Home({ services }) {
+
+
+export default function Services({ services }) {
   const [allServices, setAllServices] = useState(services);
 
   useEffect(() => {
@@ -27,11 +25,6 @@ export default function Home({ services }) {
     }
 
     new WOW.WOW().init();
-
-    // const marketingData = axios.get(`${server}/api/service`).then((res) => {
-    //   console.log("allData All Services Data:  ", res.data);
-    //   setAllServices(res.data);
-    // });
   }, []);
 
   return (
@@ -79,8 +72,7 @@ export default function Home({ services }) {
                                 <div>
                                   <Link href={`/service/${item.service_slug}`}>
                                     <a>
-                                      Service Details
-                                      {/* Service Details <BiRightArrowAlt /> */}
+                                      Service Details <FaAngleRight />
                                     </a>
                                   </Link>
                                 </div>
@@ -98,14 +90,6 @@ export default function Home({ services }) {
       </div>
       {/* VIEW SERVICE AREA */}
 
-      <AnimatedCursor
-        innerSize={8}
-        outerSize={8}
-        color="251, 129, 0"
-        outerAlpha={0.2}
-        innerScale={0.7}
-        outerScale={5}
-      />
     </>
   );
 }
@@ -122,13 +106,3 @@ export async function getStaticProps() {
   };
 }
 
-// export async function getServerSideProps() {
-//   const res = await fetch("http://admin.opediatech.com/api/service");
-//   const services = await res.json();
-
-//   return {
-//     props: {
-//       services,
-//     },
-//   };
-// }

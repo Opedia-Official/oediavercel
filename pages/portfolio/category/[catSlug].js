@@ -1,10 +1,10 @@
 import { Card } from "react-bootstrap";
-import { BiRightArrowAlt } from "react-icons/bi";
+import { FaAngleRight} from "react-icons/fa";
 import InnerHead from "../../../components/innerHead";
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../../components/whatsappChat";
-// import AnimatedCursor from "react-animated-cursor";
+
 
 import { server } from "../../../config";
 import Meta from '../../../components/Meta'
@@ -49,7 +49,7 @@ export default function PortfolioCategtoryDetails({ cats,params} ) {
                       <div>
                         <Link href={`/portfolio/${cat.portfolio_slug}`}>
                           <a>
-                            View Projects <BiRightArrowAlt />
+                            View Projects <FaAngleRight />
                           </a>
                         </Link>
                       </div>
@@ -65,14 +65,6 @@ export default function PortfolioCategtoryDetails({ cats,params} ) {
       </div>
 
 
-      {/* <AnimatedCursor
-      innerSize={8}
-      outerSize={8}
-      color='251, 129, 0'
-      outerAlpha={0.2}
-      innerScale={0.7}
-      outerScale={5}
-    /> */}
 
     </>
   );
@@ -94,7 +86,7 @@ export async function getStaticPaths() {
   })
   return {
       paths,
-      fallback:false
+      fallback:true
   }
 
 
