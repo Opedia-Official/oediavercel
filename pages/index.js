@@ -39,6 +39,7 @@ export default function Home({portCats}) {
 
   return (
     <>
+
       <HeroSlide />
 
       <ExpTeam />

@@ -307,7 +307,7 @@ export default function Navbar() {
                       {allCategory.map((singleCategory) => (
                         <div
                           key={singleCategory.id}
-                          className="col-md borderLeft col-xl mb-4 mb-xl-0"
+                          className="col-12 col-xl text-center text-xl-start   borderLeft  mb-4 mb-xl-0"
                         >
                           <div className={styles.dropdown__inner}>
                             <Link
@@ -329,6 +329,7 @@ export default function Navbar() {
                           color: "#f49735",
                           fontSize: "28px",
                           fontWeight: "bold",
+                          cursor:'pointer'
                         }}
                         onClick={() => setIsMore(!isMore)}
                       >
@@ -341,24 +342,11 @@ export default function Navbar() {
                       color: "#f49735",
                       fontSize: "18px",
                       fontWeight: "bold",
+                      cursor:'pointer'
                     }}
                     onClick={() => setIsMore(!isMore)}
                   >
-                    {/* {isMore ? (
-                      <AiOutlineArrowUp
-                        style={{
-                          border: "1px solid #f49735",
-                          borderRadius: "50%",
-                        }}
-                      />
-                    ) : (
-                      <AiOutlineArrowDown
-                        style={{
-                          border: "1px solid #f49735",
-                          borderRadius: "50%",
-                        }}
-                      />
-                    )} */}
+                  
                   </p>
                 </div>
               </li>
