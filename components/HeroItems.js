@@ -189,7 +189,7 @@ export default class AsNavFor extends Component {
               <div className="col-md-6">
                 <div className="hero-left">
                   {/* <h4>Optimized It System4</h4> */}
-                  <h2>Ecommerce Solution</h2>
+                  <h2>Ecommerce</h2>
                   <div className="hero-action">
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
