@@ -210,6 +210,34 @@ export default class AsNavFor extends Component {
             </div>
           </div>
           {/* hero top */}
+          {/* hero top */}
+          <div className="hero-wrap ">
+            <div className="row align-items-center ">
+              {/* left part */}
+              <div className="col-md-6">
+                <div className="hero-left">
+                  {/* <h4>Optimized It System4</h4> */}
+                  <h2>Multimedia & Printing</h2>
+                  <div className="hero-action">
+                    <Link href="/contact">
+                      <a className="btn-brand"> Get A Quate</a>
+                    </Link>
+                    <Link href="/service/category/multimedia-printing-service">
+                      <a className="btn-two">Learn More</a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {/* left part */}
+
+              <div className="col-md-6">
+                <div className="hero-right pt-40">
+                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" />
+                </div>
+              </div>
+            </div>
+          </div>
+          {/* hero top */}
         </Slider>
 
         {/* Slider two */}
@@ -270,6 +298,19 @@ export default class AsNavFor extends Component {
                 <div className="hero-bottom-info">
                   <h4>Ecommerce </h4>
                   <p> Improve your ecommerce with us! </p>
+                </div>
+              </div>
+            </div>
+            {/* single item */}
+            {/* single item */}
+            <div className="hero-bottom-section">
+              <div className="hero-bottom-items d-flex align-items-center justify-content-center">
+                <div className="icons">
+                  <FaRegLightbulb />
+                </div>
+                <div className="hero-bottom-info">
+                  <h4>Multimedia </h4>
+                  <p> Improve your Multimedia with us! </p>
                 </div>
               </div>
             </div>
