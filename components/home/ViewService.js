@@ -1,15 +1,30 @@
 import { Card } from "react-bootstrap";
-// import { BiRightArrowAlt } from "react-icons/bi";
+import { FaAngleRight} from "react-icons/fa";
 
 import { FaCloud } from "react-icons/fa";
 
 import HomeStyle from "../../styles/Home.module.css";
 import SectionTitle from "../SectionTitle";
-
+import axios from "axios";
 import Link from "next/link";
 import { Services } from "../../Utils/fakeData";
+import { useEffect } from "react";
+import { useState } from "react";
+import { server } from "../../config";
+
+
+
 export default function ViewService() {
-  // const {Section, Services} = ViewServices
+  const [services, setServices]= useState([]);
+  useEffect(()=>{
+    axios.get(`${server}/api/serviceAllCategory`).then((res) => {
+      setServices(res.data);
+    });
+  },[])
+
+  console.log(services.slice(0,4))
+
+
   return (
     <div className="view-service-section">
       <div className="container">
@@ -46,7 +61,7 @@ export default function ViewService() {
               }
             >
               <div className="row">
-                {Services.map((service, index) => {
+                {services.slice(0,4).map((service, index) => {
                   return (
                     <div
                       className="col-lg-6 col-sm-6 "
@@ -61,14 +76,13 @@ export default function ViewService() {
                       <Card>
                         <Card.Body>
                           <FaCloud />
-                          <Card.Title>{service.title}</Card.Title>
-                          <Card.Text>{service.desc}</Card.Text>
+                          <Card.Title>{service.category_name}</Card.Title>
+                          <Card.Text>{service.category_desc}</Card.Text>
                           <Card.Text>
                             <div>
-                              <Link href={`/service/category/${service.id}`}>
+                              <Link href={`/service/category/${service.category_slug}`}>
                                 <a>
-                                  Service Details
-                                  {/* Service Details <BiRightArrowAlt /> */}
+                                  Service Details <FaAngleRight />
                                 </a>
                               </Link>
                             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card } from "react-bootstrap";
-import { FaRegPaperPlane } from "react-icons/fa";
+import Link from "next/link";
 
 // Import Swiper styles
 import "swiper/css";
@@ -38,9 +38,11 @@ function PricingCard({ item }) {
               ))}
             </ul>
 
-            <a href="#" className="btn-two mt-20">
-              Start Today
-            </a>
+            <Link href="/contact">
+              <a  className="btn-two mt-20">
+                Start Today
+              </a>
+            </Link>
           </Card.Body>
         </Card>
       </div>
