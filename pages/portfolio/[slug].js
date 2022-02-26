@@ -16,7 +16,7 @@ import Meta from "../../components/Meta";
 
 
 export default function PortfolioDetails({ portfolios }) {
-  const portfolio = portfolios[0];
+  const portfolio = portfolios.length &&  portfolios[0];
 
   const [modalShow, setModalShow] = useState(false);
   return (
