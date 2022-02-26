@@ -46,18 +46,14 @@ export default function Home({portCats}) {
       <LogoSlider />
       <ViewService />
 
-      {/* <ShowCase posts={posts} /> */}
       <ShowCase portCats= {portCats} />
 
       <ShowCaseCounter />
 
-      {/*  */}
 
       {/* <ExpTeam expertTeams = {expertTeams}/>
 
-      <ViewService ViewServices={ViewServices}/>
-
-      <ShowCase Gallaries ={Gallaries} />
+  
 
       <ShowCaseCounter projectsAll ={projects} /> */}
 

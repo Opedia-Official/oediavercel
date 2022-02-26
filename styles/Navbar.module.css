@@ -43,7 +43,7 @@
     text-decoration: none;
     transition: 0.3s;
     position: relative;
-    padding: 100% 0 !important;
+    padding: 40% 0 !important;
 }
 
 .navlink:hover,
@@ -55,7 +55,7 @@
     text-decoration: none;
     transition: 0.3s;
     position: relative;
-    padding: 100% 0 !important;
+    padding: 40% 0 !important;
 }
 
 .navlogo {

@@ -7,7 +7,7 @@ import HomeStyle from "../../styles/Home.module.css";
 import SectionTitle from "../SectionTitle";
 import axios from "axios";
 import Link from "next/link";
-import { Services } from "../../Utils/fakeData";
+
 import { useEffect } from "react";
 import { useState } from "react";
 import { server } from "../../config";
@@ -21,9 +21,6 @@ export default function ViewService() {
       setServices(res.data);
     });
   },[])
-
-  console.log(services.slice(0,4))
-
 
   return (
     <div className="view-service-section">
@@ -67,7 +64,7 @@ export default function ViewService() {
                       className="col-lg-6 col-sm-6 "
                       style={{
                         marginTop:
-                          index === 1 ? "4.5%" : index === 2 ? "-4.5%" : "0px",
+                          index === 1 ? "7.5%" : index === 2 ? "-8%" : "0px",
                       }}
                       data-wow-duration="1s"
                       data-wow-delay="1s"
