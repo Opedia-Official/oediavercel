@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaAngleDoubleDown, FaAngleDown, FaAngleUp } from "react-icons/fa";
 
 import styles from "../styles/Navbar.module.css";
 import logo from "../public/logo/logo-blue.png";
@@ -317,11 +318,22 @@ export default function Navbar() {
                               </h2>
                             </Link>
                             <SingleServiceCompo
+                              isMore={isMore}
                               singleCategory={singleCategory}
                             />
                           </div>
                         </div>
                       ))}
+                      <p
+                        style={{
+                          color: "#f49735",
+                          fontSize: "28px",
+                          fontWeight: "bold",
+                        }}
+                        onClick={() => setIsMore(!isMore)}
+                      >
+                        {isMore ? <FaAngleUp /> : <FaAngleDown />}
+                      </p>
                     </div>
                   </div>
                   <p
@@ -520,7 +532,7 @@ export default function Navbar() {
                             <div className="c-input-wrap">
                               <input
                                 type="text"
-                                placeholder="First Name *"
+                                placeholder="Last Name *"
                                 onChange={(e) => setLastName(e.target.value)}
                               />
                               <span>
@@ -649,7 +661,7 @@ export default function Navbar() {
   );
 }
 
-function SingleServiceCompo({ singleCategory }) {
+function SingleServiceCompo({ singleCategory, isMore }) {
   const [marketing, setMarketing] = useState([]);
 
   useEffect(() => {
@@ -662,13 +674,21 @@ function SingleServiceCompo({ singleCategory }) {
 
   return (
     <ul className={styles.dropdown__list}>
-      {marketing.map((item) => (
-        <li key={item.id} className={styles.dropdown__item}>
-          <Link href={`/service/${item.service_slug}`}>
-            <a className={styles.dropdown__link}>{item.service_title}</a>
-          </Link>
-        </li>
-      ))}
+      {isMore
+        ? marketing.map((item) => (
+            <li key={item.id} className={styles.dropdown__item}>
+              <Link href={`/service/${item.service_slug}`}>
+                <a className={styles.dropdown__link}>{item.service_title}</a>
+              </Link>
+            </li>
+          ))
+        : marketing.slice(0, 5).map((item) => (
+            <li key={item.id} className={styles.dropdown__item}>
+              <Link href={`/service/${item.service_slug}`}>
+                <a className={styles.dropdown__link}>{item.service_title}</a>
+              </Link>
+            </li>
+          ))}
     </ul>
   );
 }
