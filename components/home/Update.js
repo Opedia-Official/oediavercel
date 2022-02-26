@@ -5,7 +5,7 @@ import "swiper/css";
 import Progressbar from "../../components/Progressbar";
 
 export default function Update() {
-  const [emailTitle, setEmailTitle] = useState("ok");
+  const [emailTitle, setEmailTitle] = useState("");
 
   // subscription
   const Contacthandler = async (e) => {
