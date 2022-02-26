@@ -5,7 +5,8 @@ import {
   FaFacebookF,
   FaTwitter,
   FaInstagram,
-  FaLinkedinIn,FaPlay
+  FaLinkedinIn,
+  FaPlay,
 } from "react-icons/fa";
 
 import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
@@ -14,15 +15,14 @@ import WhatsappChat from "../../components/whatsappChat";
 import { server } from "../../config/index";
 import Meta from "../../components/Meta";
 
-
 export default function PortfolioDetails({ portfolios }) {
-  const portfolio = portfolios[0];
+  const portfolio = portfolios?.length ? portfolios[0] : [];
 
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
-      <Meta title={portfolio.portfolio_title} />
-      <InnerHead title={portfolio.portfolio_title} />
+      <Meta title={portfolio?.portfolio_title} />
+      <InnerHead title={portfolio?.portfolio_title} />
       <WhatsappChat />
       <div className="portfolio-details mb-100">
         <div className="container">
@@ -35,12 +35,13 @@ export default function PortfolioDetails({ portfolios }) {
                   onHide={() => setModalShow(false)}
                 />
                 <div className="portfolio-details-lft-img">
-                  <img src={`${server}/${portfolio.thambnail_image}`} alt="" />
+                  <img src={`${server}/${portfolio?.thambnail_image}`} alt="" />
                 </div>
 
                 <div className="ptflo-button">
                   <span onClick={() => setModalShow(true)}>
-                                <FaPlay/></span>
+                    <FaPlay />
+                  </span>
                 </div>
               </div>
             </div>
@@ -52,48 +53,48 @@ export default function PortfolioDetails({ portfolios }) {
                 <ul className="portfolio-details-info">
                   <li>
                     <h4>PROJECT NAME :</h4>
-                    <p>{portfolio.project_name}</p>
+                    <p>{portfolio?.project_name}</p>
                   </li>
                   <li>
                     <h4>Client :</h4>
-                    <p>{portfolio.project_client}</p>
+                    <p>{portfolio?.project_client}</p>
                   </li>
                   <li>
                     <h4>Category :</h4>
-                    <p>{portfolio.project_name}</p>
+                    <p>{portfolio?.project_name}</p>
                   </li>
                   <li>
                     <h4>Delivery Mode :</h4>
-                    <p>{portfolio.project_mode}</p>
+                    <p>{portfolio?.project_mode}</p>
                   </li>
 
                   <li>
                     <h4>Location :</h4>
-                    <p>{portfolio.location}</p>
+                    <p>{portfolio?.location}</p>
                   </li>
                   <li>
                     <h4>Share :</h4>
                     <ul className="share text-center text-md-end">
                       <li>
-                        <a className="share-item" href={portfolio.fbLink}>
+                        <a className="share-item" href={portfolio?.fbLink}>
                           {" "}
                           <FaFacebookF />{" "}
                         </a>
                       </li>
                       <li>
-                        <a className="share-item" href={portfolio.twLink}>
+                        <a className="share-item" href={portfolio?.twLink}>
                           {" "}
                           <FaTwitter />{" "}
                         </a>
                       </li>
                       <li>
-                        <a className="share-item" href={portfolio.inLink}>
+                        <a className="share-item" href={portfolio?.inLink}>
                           {" "}
                           <FaLinkedinIn />{" "}
                         </a>
                       </li>
                       <li>
-                        <a className="share-item" href={portfolio.insLink}>
+                        <a className="share-item" href={portfolio?.insLink}>
                           {" "}
                           <FaInstagram />{" "}
                         </a>
@@ -109,7 +110,7 @@ export default function PortfolioDetails({ portfolios }) {
               <div className="portfolio-details-info">
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: `${portfolio.portfolio_desc}`,
+                    __html: `${portfolio?.portfolio_desc}`,
                   }}
                 ></p>
               </div>
@@ -117,8 +118,6 @@ export default function PortfolioDetails({ portfolios }) {
           </div>
         </div>
       </div>
-
-      
     </>
   );
 }
@@ -130,7 +129,7 @@ export async function getStaticPaths() {
   const paths = ports.map((port) => {
     return {
       params: {
-        slug: `${port.portfolio_slug}`,
+        slug: `${port?.portfolio_slug}`,
       },
     };
   });

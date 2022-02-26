@@ -95,6 +95,7 @@ export default function Navbar() {
     //   alert("error");
     //   toast("Wow so easy!");
     // }
+    closeModal();
   };
 
   // api post

@@ -101,13 +101,9 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-
-                    <a
-                      className="btn-two"
-                      href="/service/category/web-software-service"
-                    >
-                      Learn More
-                    </a>
+                    <Link href="/service/category/web-software-service">
+                      <a className="btn-two">Learn More</a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -139,12 +135,9 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a
-                      className="btn-two"
-                      href="/service/category/product-design-service"
-                    >
-                      Learn More
-                    </a>
+                    <Link href="/service/category/product-design-service">
+                      <a className="btn-two">Learn More</a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -173,12 +166,9 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a
-                      className="btn-two"
-                      href="/service/category/digital-marketing-service"
-                    >
-                      Learn More
-                    </a>
+                    <Link href="/service/category/digital-marketing-service">
+                      <a className="btn-two">Learn More</a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -204,12 +194,9 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a
-                      className="btn-two"
-                      href="/service/category/ecommerce-service"
-                    >
-                      Learn More
-                    </a>
+                    <Link href="/service/category/ecommerce-service">
+                      <a className="btn-two">Learn More</a>
+                    </Link>
                   </div>
                 </div>
               </div>

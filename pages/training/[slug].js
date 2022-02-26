@@ -7,16 +7,14 @@ import dynamic from "next/dynamic";
 
 import { server } from "../../config/index";
 
-
-
 import Meta from "../../components/Meta";
 
 export default function TrainingDetails({ training }) {
   const [modalShow, setModalShow] = useState(false);
   return (
     <>
-      <Meta title={training.title} />
-      <InnerHead title={training.title} />
+      <Meta title={training?.title} />
+      <InnerHead title={training?.title} />
       <WhatsappChat />
       <div className="portfolio-details mb-100">
         <div className="container">
@@ -24,18 +22,18 @@ export default function TrainingDetails({ training }) {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="portfolio-details-left">
                 <MyVerticallyCentredModal
-                  url={training.youtube_link}
+                  url={training?.youtube_link}
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                 />
                 <div className="portfolio-details-lft-img">
-                  <img src={`${server}/${training.Featured_img}`} alt="" />
+                  <img src={`${server}/${training?.Featured_img}`} alt="" />
                 </div>
 
                 <div className="ptflo-button">
-                  
                   <span onClick={() => setModalShow(true)}>
-                                <FaPlay/></span>
+                    <FaPlay />
+                  </span>
                 </div>
               </div>
             </div>
@@ -47,31 +45,31 @@ export default function TrainingDetails({ training }) {
                 <ul className="portfolio-details-info">
                   <li>
                     <h4>Course Name :</h4>
-                    <p>{training.course_name}</p>
+                    <p>{training?.course_name}</p>
                   </li>
                   <li>
                     <h4>Duration :</h4>
-                    <p>{training.duration}</p>
+                    <p>{training?.duration}</p>
                   </li>
                   <li>
                     <h4>Classes :</h4>
-                    <p>{training.classes}</p>
+                    <p>{training?.classes}</p>
                   </li>
                   <li>
                     <h4>Pre-Requirement :</h4>
-                    <p>{training.pre_requirement}</p>
+                    <p>{training?.pre_requirement}</p>
                   </li>
                   <li>
                     <h4>System Config :</h4>
-                    <p>{training.system_config}</p>
+                    <p>{training?.system_config}</p>
                   </li>
                   <li>
                     <h4>Course Fee Online :</h4>
-                    <p>{training.course_fee_online}</p>
+                    <p>{training?.course_fee_online}</p>
                   </li>
                   <li>
                     <h4>Course Fee Offline :</h4>
-                    <p>{training.course_fee_offline}</p>
+                    <p>{training?.course_fee_offline}</p>
                   </li>
                 </ul>
               </div>
@@ -82,7 +80,7 @@ export default function TrainingDetails({ training }) {
               <div className="portfolio-details-info mt-5">
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: `${training.description}`,
+                    __html: `${training?.description}`,
                   }}
                 ></p>
               </div>
@@ -90,7 +88,6 @@ export default function TrainingDetails({ training }) {
           </div>
         </div>
       </div>
-
     </>
   );
 }
@@ -102,7 +99,7 @@ export async function getStaticPaths() {
   const paths = trainings.map((training) => {
     return {
       params: {
-        slug: `${training.slug}`,
+        slug: `${training?.slug}`,
       },
     };
   });

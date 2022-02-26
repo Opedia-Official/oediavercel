@@ -256,8 +256,12 @@ export default function Footer() {
                     © Opedia Technologies 2022 All rights reserved.
                   </p>
                   <div className="terms-and-condition">
-                    <a href="/termsCondition"> Terms of Use</a>
-                    <a href="/privacy"> Privacy Policy</a>
+                    <Link href="/termsCondition">
+                      <a> Terms of Use</a>
+                    </Link>
+                    <Link href="/privacy">
+                      <a> Privacy Policy</a>
+                    </Link>
                   </div>
                 </div>
               </div>
