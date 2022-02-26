@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPlus, FaPeopleArrows } from "react-icons/fa";
+import { FaPlus, FaPeopleArrows,FaRegSun,FaLightbulb,FaHandsHelping,FaPaperPlane} from "react-icons/fa";
 // import { FiSettings } from "react-icons/fi";
 // import { BsArrowRight } from "react-icons/Bs";
 // import { BiDonateBlood } from "react-icons/Bi";
@@ -53,10 +53,10 @@ export default function WorkingProcess() {
             >
               <div className={style.workingProgressStepsWrap}>
                 <div className={style.workingProgressItems}>
-                  <span className={style.wpIcon}>{/* <FiSettings /> */}</span>
+                  <span className={style.wpIcon}><FaRegSun /></span>
                   <h3>Choose Service</h3>
                   {/* <span className={style.wpArrow}>
-                                            <BsArrowRight/>
+                                            <FaArrowRight/>
                                             </span> */}
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function WorkingProcess() {
             >
               <div className={style.workingProgressStepsWrap}>
                 <div className={style.workingProgressItems}>
-                  <span className={style.wpIcon}>{/* <GiStairsGoal /> */}</span>
+                  <span className={style.wpIcon}><FaLightbulb /></span>
                   <h3>Custom Plan</h3>
                   {/* <span className={style.wpArrow}>
                                             <BsArrowRight/>
@@ -98,7 +98,7 @@ export default function WorkingProcess() {
               <div className={style.workingProgressStepsWrap}>
                 <div className={style.workingProgressItems}>
                   <span className={style.wpIcon}>
-                    {/* <BiDonateBlood /> */}
+                    <FaHandsHelping />
                   </span>
                   <h3>Make Final Work</h3>
                   {/* <span className={style.wpArrow}>

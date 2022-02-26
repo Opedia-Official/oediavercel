@@ -10,9 +10,8 @@ import { gallaries, sliderData } from "../../Utils/fakeData";
 import Link from "next/link";
 import { server } from "../../config";
 export default function ShowCase({ portCats }) {
-  const [isReact, setIsReact] = useState(false);
-  // const {Section,featured,gallaries}= Gallaries
-  // const {sectionHead,title, description}  = Section;
+  // const [isReact, setIsReact] = useState(false);
+
 
   console.log("portfolios posts: ", portCats);
 
@@ -51,7 +50,7 @@ export default function ShowCase({ portCats }) {
                       </div>
                       <div className="show-case-info">
                         <div className="s-action">
-                          {isReact ? (
+                          {/* {isReact ? (
                             <span onClick={() => setIsReact(!isReact)}>
                               <FaHeart />
                             </span>
@@ -59,7 +58,7 @@ export default function ShowCase({ portCats }) {
                             <span onClick={() => setIsReact(!isReact)}>
                               <FaRegHeart />
                             </span>
-                          )}
+                          )} */}
                           <span>{/* <FiShare2 /> */}</span>
                         </div>
                         <div className="show-case-text">
@@ -99,7 +98,7 @@ export default function ShowCase({ portCats }) {
                           </div>
                           <div className="show-case-info">
                             <div className="s-action">
-                              {isReact ? (
+                              {/* {isReact ? (
                                 <span onClick={() => setIsReact(!isReact)}>
                                   <FaHeart />
                                 </span>
@@ -107,7 +106,7 @@ export default function ShowCase({ portCats }) {
                                 <span onClick={() => setIsReact(!isReact)}>
                                   <FaRegHeart />
                                 </span>
-                              )}
+                              )} */}
                               <span>{/* <FiShare2 /> */}</span>
                             </div>
                             <div className="show-case-text">

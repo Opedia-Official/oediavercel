@@ -1016,6 +1016,8 @@ ul.social {
   margin-top: 10px;
   display: inline-block;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .card-body a > svg {
@@ -1893,14 +1895,15 @@ ul.f-social li a {
   font-size: var(--clr-primary);
   background: #fbfbfd;
   display: inline-block;
-  margin-bottom: 10px;
   border-radius: 50%;
   width: 44px;
   height: 44px;
   text-align: center;
-  padding-top: 12px;
   color: #6a7695;
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul.f-social li a svg {

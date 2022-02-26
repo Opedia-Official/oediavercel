@@ -3,7 +3,7 @@ import { FaRegLightbulb } from "react-icons/fa";
 
 // import { BiRightArrowAlt } from "react-icons/Gi";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { FaCloud, FaDatabase } from "react-icons/fa";
+import { FaCloud, FaDatabase,FaPaperPlane,FaHelicopter,FaPlaneDeparture} from "react-icons/fa";
 import { MdOutlineDesignServices } from "react-icons/md";
 
 export const dataSlider = [
@@ -369,7 +369,7 @@ export const TestimonialSliderData = [
 export const dataPricing = [
   {
     type: "Silver",
-    icons: <BiRightArrowAlt />,
+    icons: <FaPaperPlane />,
     pricing: "49.00",
     duratin: "mon",
     feature: [
@@ -382,7 +382,7 @@ export const dataPricing = [
   },
   {
     type: "Gold",
-    icons: <BiRightArrowAlt />,
+    icons: <FaHelicopter />,
     pricing: "49.00",
     duratin: "mon",
     feature: [
@@ -395,7 +395,7 @@ export const dataPricing = [
   },
   {
     type: "Platinum",
-    icons: <BiRightArrowAlt />,
+    icons: <FaPlaneDeparture />,
     pricing: "49.00",
     duratin: "mon",
     feature: [
