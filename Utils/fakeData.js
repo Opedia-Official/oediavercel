@@ -102,7 +102,7 @@ export const ExpertTeam = {
   },
   section: {
     sectionHead: " About Company",
-    title: "We team of experience It Specialties.",
+    title: "We team of experience IT Specialties.",
     description:
       "25+Contrary to popular belief, Lorem Ipsum is not simply random text roots in a piece of classical Latin literature from 45 BC",
   },

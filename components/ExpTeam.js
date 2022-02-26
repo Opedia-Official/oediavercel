@@ -1,14 +1,12 @@
 import { FaYoutube } from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 import { useState } from "react";
-import Image from 'next/image';
+import Image from "next/image";
 
 import MyVerticallyCentredModal from "../components/MyVerticallyCentredModal";
 
 export default function ExpTeam({ expertTeams }) {
   const [modalShow, setModalShow] = useState(false);
-
-
 
   return (
     <>
@@ -17,12 +15,13 @@ export default function ExpTeam({ expertTeams }) {
           <div className="row align-items-center">
             <div className="col-md-6 wow fadeIn" data-wow-duration="2s">
               <div className="expTeam-left ">
-                
-                <img className="parent-pic" src="/experienceTeam/pic-1.png" alt="" />
-              
-                
+                <img
+                  className="parent-pic"
+                  src="/experienceTeam/pic-1.png"
+                  alt=""
+                />
+
                 <div className="child d-none d-xl-block">
-                    
                   <img src="./experienceTeam/pic-2.png" alt="" />
                 </div>
                 <img
@@ -46,7 +45,7 @@ export default function ExpTeam({ expertTeams }) {
               <div className="expTeam-right">
                 <SectionTitle
                   section=" About Company"
-                  title="We team of experience It Specialties."
+                  title="We team of experience IT Specialties."
                   description="2 years+ serving as a leading software company. A unique workflow and high-quality services are what sets us apart from competitors. 
                   We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate 
                   "

@@ -19,8 +19,6 @@ import { expertWorker } from "../Utils/fakeData";
 import TeamExpert from "../components/TeamExpert";
 import WhatsappChat from "../components/whatsappChat";
 
-
-
 export default function Abouta({ services }) {
   const [modalShow, setModalShow] = useState(false);
 
@@ -82,7 +80,7 @@ export default function Abouta({ services }) {
                   <h5> About Company</h5>
                   <h3>
                     We team of experience <br />
-                    It Specialties.
+                    IT Specialties.
                   </h3>
                   <p>
                     Construction is a general term meaning the art and science
@@ -105,7 +103,6 @@ export default function Abouta({ services }) {
         </div>
       </div>
       {/* Youtube section */}
- 
 
       <div className="about-youtube-section-area about-bg">
         <div className="about-youtube-wrap">
@@ -116,7 +113,6 @@ export default function Abouta({ services }) {
           />
 
           <div className="ptflo-button">
-            
             <span onClick={() => setModalShow(true)}>
               <FaPlay />
             </span>
@@ -290,8 +286,6 @@ export default function Abouta({ services }) {
           </Swiper>
         </div>
       </div> */}
-
-     
 
       <TeamExpert services={services} />
     </>
