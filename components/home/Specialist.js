@@ -51,7 +51,7 @@ export default function Specialist() {
                 </div>
               </li>
               <li className="sp-item">
-                <span>
+                <span style={{ width: "111px" }}>
                   <FaRegLightbulb />
                 </span>
                 <div className="sp-item-info mb-5 mb-md-0">

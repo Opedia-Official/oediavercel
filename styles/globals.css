@@ -438,10 +438,11 @@ html {
 }
 
 .section-title h3 {
-    font-size: 55px;
+    font-size: 48px;
     font-weight: 700;
     color: #000000;
-    line-height: 66px;
+    line-height: 68px;
+    font-weight: bold;
 }
 
 .section-title p {
@@ -921,7 +922,7 @@ ul.social {
     content: "";
     position: absolute;
     left: 5px;
-    top: 9px;
+    top: 12px;
     background: white;
     width: 2px;
     height: 2px;
@@ -963,8 +964,7 @@ ul.social {
 
 .expTeam-youtube-section li label {
     font-size: 17px;
-    color: #000000;
-    font-family: "Rajdhani";
+    color: #363636;
 }
 
 .expTeam-youtube-section li input {
@@ -1332,11 +1332,36 @@ ul.social {
     align-items: center;
 }
 
+.terms h2 {
+    font-size: 25px !important;
+    color: #f8b355 !important;
+    padding: 10px 0px !important;
+}
+
+.div ul {
+    font-size: 17px;
+    padding: 10px;
+}
+
+.div ul li {
+    padding: 10px;
+    list-style: initial;
+    font-size: 16px;
+    line-height: 30px;
+    color: #2f6eb5;
+}
+
+.terms p {
+    line-height: 28px;
+    font-size: 15px;
+    padding: 12px 0px;
+}
+
 .progress-info h4 {
     font-size: 30px;
     color: #000000;
     font-weight: 700;
-    line-height: 26px;
+    line-height: 40px;
     text-transform: uppercase;
 }
 
@@ -2099,10 +2124,10 @@ ul.link-items li svg {
 }
 
 .portfolio-info h2 {
-    font-size: 26px;
+    font-size: 23px;
     font-weight: 700;
     color: #020307;
-    line-height: 30px;
+    line-height: 33px;
     transition: 0.3s ease-in;
 }
 
@@ -2117,7 +2142,7 @@ ul.link-items li svg {
 
 .portfolio-info {
     background: #fff;
-    box-shadow: 0 3px 13px #bbc3d5;
+    box-shadow: 1px 4px 6px -1px #e3e3e3;
     padding: 25px;
     max-width: 337px;
     position: absolute;

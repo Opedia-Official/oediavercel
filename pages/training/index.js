@@ -7,7 +7,7 @@ import WhatsappChat from "../../components/whatsappChat";
 
 import { server } from "../../config";
 import Meta from "../../components/Meta";
-import { FaAngleRight} from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
 
 export default function Training({ courses }) {
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function Training({ courses }) {
     <>
       <Meta title="training" />
       <WhatsappChat />
-      <InnerHead title="Portfolio" />
+      <InnerHead title="Training" />
       <div className="portfolio-area">
         <div className="container">
           <div className="row justify-content-center">
@@ -62,9 +62,6 @@ export default function Training({ courses }) {
           </div>
         </div>
       </div>
-
-      
-    
     </>
   );
 }
