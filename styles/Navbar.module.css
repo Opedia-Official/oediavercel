@@ -223,12 +223,12 @@
     }
     .dropdown {
         background: #2a2c30;
-        /* left: 50%; */
+        left: -20%;
         transform: translate(30%, 10px) !important;
         z-index: 9999;
         padding: 1rem;
         border-radius: 0.5rem;
-        width: 114rem;
+        width: 90rem;
         top: 2rem;
         /* opacity: 0;
     visibility: hidden;
@@ -284,14 +284,22 @@
         left: -42rem;
         width: 83rem;
     }
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
     .dropdown1 {
         background: #ffffff;
-        position: fixed;
+        position: absolute;
         background: #333;
-        left: 59%;
+        left: 0;
+        top: 48px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1023.98px) {
+    .dropdown1 {
+        background: #ffffff;
+        position: absolute;
+        background: #333;
+        left: 100px;
+        top: -160px;
     }
 }
 
@@ -300,30 +308,56 @@
         background: #ffffff;
         position: fixed;
         background: #333;
-        left: 57%;
-        top: 30%;
+        left: 56%;
+        top: 15%;
+    }
+    .dropdown {
+        left: -22%;
+        width: 70rem;
     }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
+    .dropdown {
+        left: -22%;
+        width: 54rem;
+    }
     .dropdown1 {
         background: #ffffff;
-        position: fixed;
+        position: absolute;
         background: #333;
-        left: 57%;
-        top: 38%;
+        left: -56%;
+        top: -160px;
     }
 }
 
 @media (max-width: 575.98px) {
     .dropdown1 {
         background: #ffffff;
-        position: fixed;
+        position: absolute;
         background: #333;
-        left: 18%;
-        top: 41%;
+        left: -92%;
+        top: -160px;
     }
     a.Navbar_navlogo__SW1lT img {
         width: 130px;
+    }
+    .dropdown {
+        left: -22%;
+        width: 50rem;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 575.98px) {
+    .dropdown {
+        left: -27%;
+        width: 47rem;
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 480.98px) {
+    .dropdown {
+        left: -32%;
+        width: 34rem;
     }
 }
