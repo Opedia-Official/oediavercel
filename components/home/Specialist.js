@@ -26,7 +26,7 @@ export default function Specialist() {
           <div className="col-md-6 wow fadeInLeft">
             <div className="section-title">
               <h5>About Company</h5>
-              <h3>
+              <h3 style={{ fontSize: "50px", marginBotton: "20px" }}>
                 Experienced IT professionals are <br />
                 at your service
               </h3>

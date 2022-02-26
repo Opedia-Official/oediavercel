@@ -3,16 +3,19 @@ import axios from "axios";
 
 import { Card } from "react-bootstrap";
 
-
-
-import { FaPhoneAlt,FaEnvelope ,FaMapMarker,FaMale,FaAngleRight} from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarker,
+  FaMale,
+  FaAngleRight,
+} from "react-icons/fa";
 
 import InnerHead from "../components/innerHead";
 import Meta from "../components/Meta";
 import WhatsappChat from "../components/whatsappChat";
 import dynamic from "next/dynamic";
 import { server } from "../config/index";
-
 
 export default function Contact({ posts }) {
   // all states
@@ -32,39 +35,37 @@ export default function Contact({ posts }) {
     service: service,
   };
 
-  const Contacthandler = async () => {
+  const Contacthandler = async (e) => {
     console.log(lastName, "name");
     console.log(email, "email");
     console.log(phone, "phone");
     console.log(text, "text");
     console.log(service, "service");
 
-    const posted = await axios.post(
-      `${server}/api/message`,
-      {
+    e.preventDefault();
+
+    const posted = await fetch("https://admin.opediatech.com/api/message", {
+      method: "post",
+      body: JSON.stringify({
         fname: fistName,
         lname: lastName,
         email: email,
         phone: phone,
         message: text,
         service: service,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    console.log(posted, "posted");
-    if (posted.status === 200) {
-      alert("ok");
-      toast("Wow so easy!");
-      // closeModal();
-    } else {
-      alert("error");
-      toast("Wow so easy!");
-      // closeModal();
-    }
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log("posted", posted);
+    console.log("contactData", contactData);
+    // if (posted.status === 200) {
+    //   alert("ok");
+    //   toast("Wow so easy!");
+    // } else {
+    //   alert("error");
+    //   toast("Wow so easy!");
+    // }
   };
 
   return (
@@ -86,7 +87,9 @@ export default function Contact({ posts }) {
                           <ul className="contact-info-text">
                             <li>
                               <div className="contact-icon">
-                                <span><FaPhoneAlt /></span>
+                                <span>
+                                  <FaPhoneAlt />
+                                </span>
                               </div>
                               <div className="contact-info-text">
                                 <h4>Phone Number:</h4>
@@ -95,7 +98,10 @@ export default function Contact({ posts }) {
                             </li>
                             <li>
                               <div className="contact-icon">
-                                <span> <FaEnvelope /></span>
+                                <span>
+                                  {" "}
+                                  <FaEnvelope />
+                                </span>
                               </div>
                               <div className="contact-info-text">
                                 <h4>Mail Address:</h4>
@@ -104,7 +110,10 @@ export default function Contact({ posts }) {
                             </li>
                             <li>
                               <div className="contact-icon">
-                                <span> <FaMapMarker /></span>
+                                <span>
+                                  {" "}
+                                  <FaMapMarker />
+                                </span>
                               </div>
                               <div className="contact-info-text">
                                 <h4>Office Address:</h4>
@@ -127,7 +136,9 @@ export default function Contact({ posts }) {
                                       setFirstName(e.target.value)
                                     }
                                   />
-                                  <span><FaMale /></span>
+                                  <span>
+                                    <FaMale />
+                                  </span>
                                 </div>
                               </div>
                               <div className="col-lg-6 mb-5">
@@ -139,7 +150,9 @@ export default function Contact({ posts }) {
                                       setLastName(e.target.value)
                                     }
                                   />
-                                  <span><FaMale /></span>
+                                  <span>
+                                    <FaMale />
+                                  </span>
                                 </div>
                               </div>
                               <div className="col-lg-6 mb-5">
@@ -149,7 +162,9 @@ export default function Contact({ posts }) {
                                     placeholder="Mail Address *"
                                     onChange={(e) => setEmail(e.target.value)}
                                   />
-                                  <span><FaEnvelope /></span>
+                                  <span>
+                                    <FaEnvelope />
+                                  </span>
                                 </div>
                               </div>
                               <div className="col-lg-6 mb-5">
@@ -159,7 +174,9 @@ export default function Contact({ posts }) {
                                     placeholder="Phone Number "
                                     onChange={(e) => setPhone(e.target.value)}
                                   />
-                                  <span><FaPhoneAlt /></span>
+                                  <span>
+                                    <FaPhoneAlt />
+                                  </span>
                                 </div>
                               </div>
                               <div className="col-lg-12 mb-5">
@@ -193,7 +210,9 @@ export default function Contact({ posts }) {
                                     onChange={(e) => setText(e.target.value)}
                                   ></textarea>
 
-                                  <span><FaEnvelope /></span>
+                                  <span>
+                                    <FaEnvelope />
+                                  </span>
                                 </div>
                               </div>
                             </div>
@@ -203,7 +222,6 @@ export default function Contact({ posts }) {
                               onClick={Contacthandler}
                             >
                               Submit Request <FaAngleRight />{" "}
-                        
                             </button>
                           </form>
                         </div>
@@ -226,8 +244,6 @@ export default function Contact({ posts }) {
           </div>
         </div>
       </div>
-
     </>
   );
 }
-

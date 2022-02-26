@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
-
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,13 +13,13 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaPhoneAlt,FaEnvelope ,FaMale,FaAngleRight
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMale,
+  FaAngleRight,
 } from "react-icons/fa";
 
-
-
 import { useRouter } from "next/router";
-
 
 import Modal from "react-modal";
 
@@ -70,25 +69,31 @@ export default function Navbar() {
     service: service,
   };
 
-  const Contacthandler = async () => {
-    const posted = await axios.post(
-      "http://admin.opediatech.com/api/message",
-      {
-        body: contactData,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    if (posted.status === 200) {
-      alert("ok");
-      toast("Wow so easy!");
-    } else {
-      alert("error");
-      toast("Wow so easy!");
-    }
+  const Contacthandler = async (e) => {
+    e.preventDefault();
+
+    const posted = await fetch("https://admin.opediatech.com/api/message", {
+      method: "post",
+      body: JSON.stringify({
+        fname: fistName,
+        lname: lastName,
+        email: email,
+        phone: phone,
+        message: text,
+        service: service,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+
+    // console.log("posted", posted);
+    // console.log("contactData", contactData);
+    // if (posted.status === 200) {
+    //   alert("ok");
+    //   toast("Wow so easy!");
+    // } else {
+    //   alert("error");
+    //   toast("Wow so easy!");
+    // }
   };
 
   // api post
@@ -182,7 +187,9 @@ export default function Navbar() {
                     href="tel:+8801978159172"
                     className={styles.socialIconItem}
                   >
-                    <span className="s-icon"><FaPhoneAlt /></span>
+                    <span className="s-icon">
+                      <FaPhoneAlt />
+                    </span>
                     01978159172
                   </a>
                 </li>
@@ -369,7 +376,6 @@ export default function Navbar() {
                       <div className="col-12">
                         <div className={styles.dropdown__inner2}>
                           <ul className={styles.dropdown__list}>
-                          
                             {trainings.map((training) => (
                               <li
                                 key={training.id}
@@ -505,7 +511,9 @@ export default function Navbar() {
                                 placeholder="First Name *"
                                 onChange={(e) => setFirstName(e.target.value)}
                               />
-                              <span><FaMale /></span>
+                              <span>
+                                <FaMale />
+                              </span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -515,7 +523,9 @@ export default function Navbar() {
                                 placeholder="First Name *"
                                 onChange={(e) => setLastName(e.target.value)}
                               />
-                              <span><FaMale /></span>
+                              <span>
+                                <FaMale />
+                              </span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -525,7 +535,9 @@ export default function Navbar() {
                                 placeholder="Mail Address *"
                                 onChange={(e) => setEmail(e.target.value)}
                               />
-                              <span><FaEnvelope /></span>
+                              <span>
+                                <FaEnvelope />
+                              </span>
                             </div>
                           </div>
                           <div className="col-lg-6 mb-5">
@@ -535,7 +547,9 @@ export default function Navbar() {
                                 placeholder="Phone Number "
                                 onChange={(e) => setPhone(e.target.value)}
                               />
-                              <span><FaPhoneAlt /></span>
+                              <span>
+                                <FaPhoneAlt />
+                              </span>
                             </div>
                           </div>
                           <div className="col-lg-12 mb-5">
@@ -576,7 +590,9 @@ export default function Navbar() {
                                 onChange={(e) => setText(e.target.value)}
                               ></textarea>
 
-                              <span><FaEnvelope /></span>
+                              <span>
+                                <FaEnvelope />
+                              </span>
                             </div>
                           </div>
                         </div>
@@ -591,7 +607,7 @@ export default function Navbar() {
                           className="btn-brand mt-4"
                           onClick={Contacthandler}
                         >
-                          Submit Request <FaAngleRight />{" "}
+                          Submit Request <FaAngleRight />
                         </button>
                       </form>
                     </div>

@@ -1,9 +1,28 @@
 // Import Swiper styles
+import { useState } from "react";
 import "swiper/css";
 
 import Progressbar from "../../components/Progressbar";
 
 export default function Update() {
+  const [emailTitle, setEmailTitle] = useState("ok");
+
+  // subscription
+  const Contacthandler = async (e) => {
+    e.preventDefault();
+
+    const posted = await fetch("https://admin.opediatech.com/api/subscribe", {
+      method: "post",
+      body: JSON.stringify({
+        email: emailTitle,
+      }),
+      headers: { "Content-Type": "application/json" },
+    });
+    setEmailTitle("");
+
+    // console.log("posted email", posted);
+  };
+
   return (
     <div className="project-update-section text-center text-md-start bg-brand">
       <div className="container">
@@ -27,8 +46,17 @@ export default function Update() {
 
               <div className="subscribe-section">
                 <form action="#">
-                  <input type="text" placeholder=" Enter email address" />
-                  <button type="submit" className="btn-brand">
+                  <input
+                    type="text"
+                    placeholder=" Enter email address"
+                    value={emailTitle}
+                    onChange={(e) => setEmailTitle(e.target.value)}
+                  />
+                  <button
+                    type="submit"
+                    className="btn-brand"
+                    onClick={Contacthandler}
+                  >
                     Subscribed
                   </button>
                 </form>

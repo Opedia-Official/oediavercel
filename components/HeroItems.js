@@ -1,7 +1,7 @@
 // import Head from "next/head";
 import { FaRegLightbulb } from "react-icons/fa";
 import Head from "next/head";
-import Image from 'next/image';
+import Image from "next/image";
 
 import React, { Component } from "react";
 import Slider from "react-slick";
@@ -102,7 +102,10 @@ export default class AsNavFor extends Component {
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
 
-                    <a className="btn-two" href="/service/category/web-software-service">
+                    <a
+                      className="btn-two"
+                      href="/service/category/web-software-service"
+                    >
                       Learn More
                     </a>
                   </div>
@@ -115,11 +118,7 @@ export default class AsNavFor extends Component {
                 data-wow-duration="3s"
               >
                 <div className="hero-right pt-40 ">
-                <Image
-                    src='/hero/pic-1.png'
-                    alt='opediatech'
-                    layout='fill'
-                />
+                  <Image src="/hero/pic-1.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -140,7 +139,10 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a className="btn-two" href="/service/category/product-design-service">
+                    <a
+                      className="btn-two"
+                      href="/service/category/product-design-service"
+                    >
                       Learn More
                     </a>
                   </div>
@@ -150,12 +152,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40 ">
-                <Image
-                    src='/hero/pic-2.png'
-                    alt='opediatech'
-                    layout='fill'
-                />
-                 
+                  <Image src="/hero/pic-2.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -176,7 +173,10 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a className="btn-two" href="/service/category/digital-marketing-service">
+                    <a
+                      className="btn-two"
+                      href="/service/category/digital-marketing-service"
+                    >
                       Learn More
                     </a>
                   </div>
@@ -186,12 +186,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40 ">
-                <Image
-                    src='/hero/pic-3.png'
-                    alt='opediatech'
-                    layout='fill'
-                />
-             
+                  <Image src="/hero/pic-3.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -209,7 +204,10 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <a className="btn-two" href="/service/category/ecommerce-service">
+                    <a
+                      className="btn-two"
+                      href="/service/category/ecommerce-service"
+                    >
                       Learn More
                     </a>
                   </div>
@@ -219,12 +217,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40">
-                <Image
-                    src='/hero/pic-4.png'
-                    alt='opediatech'
-                    layout='fill'
-                />
-              
+                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -250,9 +243,7 @@ export default class AsNavFor extends Component {
                 </div>
                 <div className="hero-bottom-info">
                   <h4>Web & Software</h4>
-                  <p className="pera">
-                    Static, Dynamic & Responsive solution with recursive UI
-                  </p>
+                  <p className="pera">Static, Dynamic & Responsive solution</p>
                 </div>
               </div>
             </div>
@@ -296,7 +287,6 @@ export default class AsNavFor extends Component {
               </div>
             </div>
             {/* single item */}
-      
           </Slider>
         </div>
       </div>
