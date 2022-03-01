@@ -26,10 +26,10 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
       <Meta title={portsTitle} />
       <WhatsappChat />
       <InnerHead title="Portfolio" />
-      <div className="portfolio-area">
+      <div className="portfolio-area mt-160">
         <div className="container">
           <div
-            className="row   wow fadeIn"
+            className="row wow fadeIn"
             data-wow-duration="1s"
             data-wow-delay="1s"
           >

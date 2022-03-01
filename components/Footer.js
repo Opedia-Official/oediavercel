@@ -1,6 +1,9 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
+
+import { FaPhoneAlt } from "react-icons/fa";
+
 SwiperCore.use([Autoplay]);
 
 import {
@@ -14,8 +17,9 @@ import {
 // Import Swiper styles
 import "swiper/css";
 import { useState } from "react";
-import Link from "next/link";
 
+import Link from "next/link";
+import Image from "next/image";
 export default function Footer() {
   // https://admin.opediatech.com/api/subscribe
 
@@ -69,28 +73,59 @@ export default function Footer() {
                     }}
                   >
                     <SwiperSlide>
-                      {" "}
-                      <img src="./footer/item_01.png" alt="" />{" "}
+                      {/* <img src="./footer/item_01.png" alt="" /> */}
+
+                      <Image
+                        src="/footer/item_01.png"
+                        alt="footer"
+                        width={105}
+                        height={62}
+                      />
                     </SwiperSlide>
                     <SwiperSlide>
-                      {" "}
-                      <img src="./footer/item_02.png" alt="" />
+                      {/* <img src="./footer/item_02.png" alt="" /> */}
+                      <Image
+                        src="/footer/item_02.png"
+                        alt="footer"
+                        width={105}
+                        height={62}
+                      />
                     </SwiperSlide>
                     <SwiperSlide>
-                      {" "}
-                      <img src="./footer/item_03.png" alt="" />
+                      {/* <img src="./footer/item_03.png" alt="" /> */}
+                      <Image
+                        src="/footer/item_03.png"
+                        alt="footer"
+                        width={105}
+                        height={62}
+                      />
                     </SwiperSlide>
                     <SwiperSlide>
-                      {" "}
-                      <img src="./footer/item_01.png" alt="" />
+                      {/* <img src="./footer/item_01.png" alt="" /> */}
+                      <Image
+                        src="/footer/item_01.png"
+                        alt="footer"
+                        width={105}
+                        height={62}
+                      />
                     </SwiperSlide>
                     <SwiperSlide>
-                      {" "}
-                      <img src="./footer/item_01.png" alt="" />
+                      {/* <img src="./footer/item_01.png" alt="" /> */}
+                      <Image
+                        src="/footer/item_01.png"
+                        alt="footer"
+                        width={105}
+                        height={62}
+                      />
                     </SwiperSlide>
                     <SwiperSlide>
-                      {" "}
-                      <img src="./footer/item_01.png" alt="" />
+                      {/* <img src="./footer/item_01.png" alt="" /> */}
+                      <Image
+                        src="/footer/item_01.png"
+                        alt="footer"
+                        width={105}
+                        height={62}
+                      />
                     </SwiperSlide>
                   </Swiper>
                 </div>
@@ -116,12 +151,12 @@ export default function Footer() {
                         <div className="social">
                           <ul className="f-social">
                             <li>
-                              <a href="#">
+                              <a href="https://www.facebook.com/Opediatech/">
                                 <FaFacebookF />
                               </a>
                             </li>
                             <li>
-                              <a href="#">
+                              <a href="https://www.instagram.com/opedia_tech/">
                                 <FaInstagram />
                               </a>
                             </li>
@@ -131,7 +166,7 @@ export default function Footer() {
                               </a>
                             </li>
                             <li>
-                              <a href="#">
+                              <a href="https://www.linkedin.com/company/opedia-technologies-limited">
                                 <FaLinkedin />
                               </a>
                             </li>
@@ -144,10 +179,14 @@ export default function Footer() {
                         <h4 className="footer-title">Useful Links</h4>
                         <ul className="link-items">
                           <li>
-                            <a href="#">About</a>
+                            <Link href="/about">
+                              <a>About</a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">News</a>
+                            <Link href="#">
+                              <a>Blog</a>
+                            </Link>
                           </li>
                           <li>
                             <a href="#">Partners</a>
@@ -159,7 +198,9 @@ export default function Footer() {
                             <a href="#">Gallery</a>
                           </li>
                           <li>
-                            <a href="#">Contacts</a>
+                            <Link href="/contact">
+                              <a>Contact</a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -197,18 +238,35 @@ export default function Footer() {
                       <div className="footer-widget">
                         <div className="footer-logo">
                           <a href="#">
-                            <img
+                            {/* <img
                               width="170px"
                               src="./logo/website-logo-final-white.png"
                               alt=""
+                            /> */}
+                            <Image
+                              src="/logo/website-logo-final-white.png"
+                              alt="opediatech"
+                              width={163}
+                              height={51}
                             />
                           </a>
                           <br />
                           <br />
                           <br />
                           <p className="pera">
-                            We are a team of designers and developers create
-                            high quality Magento, Prestashop,{" "}
+                            <a
+                              // href="tel:+8801978159172"
+                              // className={styles.socialIconItem}
+                              style={{ color: "white" }}
+                            >
+                              <span
+                                style={{ marginRight: "15px" }}
+                                className="s-icon"
+                              >
+                                {/* <FaPhoneAlt /> */}Contact Us:
+                              </span>
+                              +8801978159172
+                            </a>
                           </p>
                           <ul className="link-items">
                             <li>

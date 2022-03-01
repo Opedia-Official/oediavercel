@@ -7,7 +7,6 @@ import "../styles/responsive.css";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import Loader from "../components/home/Loader";
-import Meta from "../components/Meta";
 
 function MyApp({ Component, pageProps }) {
   // const [loading, setLoading] = useState(true);
@@ -18,21 +17,20 @@ function MyApp({ Component, pageProps }) {
   //   });
   // }, []);
 
-  const handleScroll = (e) => {
-    let element = e.target;
-    if (element.scrollHeight - element.scrollTop === element.clientHeight) {
-      // do something at end of scroll
-    }
-    console.log(element);
-  };
+  // const handleScroll = (e) => {
+  //   let element = e.target;
+  //   if (element.scrollHeight - element.scrollTop === element.clientHeight) {
+  //     // do something at end of scroll
+  //   }
+  //   console.log(element);
+  // };
 
   return (
-    <div onScroll={() => handleScroll()}>
-        
-       <Layout>
-          <Component {...pageProps} />
-        </Layout>
-    </div>
+    // <div onScroll={() => handleScroll()}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    // {/* </div> */}
   );
 }
 

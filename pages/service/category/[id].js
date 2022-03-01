@@ -1,7 +1,5 @@
 import { Card } from "react-bootstrap";
 import InnerHead from "../../../components/innerHead";
-import Link from "next/link";
-
 
 import WhatsappChat from "../../../components/whatsappChat";
 import { useEffect } from "react";
@@ -12,8 +10,6 @@ import { useState } from "react";
 import axios from "axios";
 import { server } from "../../../config";
 import Meta from "../../../components/Meta";
-
-
 
 export default function CateWiseServices({ services }) {
   const router = useRouter();
@@ -29,38 +25,51 @@ export default function CateWiseServices({ services }) {
 
   const [service, setService] = useState(null);
   const [descriptionCat, setDescriptionCat] = useState("");
+  const [imageCat, setImageCat] = useState("");
 
   useEffect(() => {
     axios.get(`${server}/api/service-category/${id}`).then((res) => {
       console.log("allData Single compornent single data ", res.data.data);
       setService(res.data.data);
       setDescriptionCat(res.data.desc);
+      setImageCat(res.data.image);
     });
   }, [id]);
 
-  console.log("services id: ", id);
+  console.log("services id3..3: ", id);
 
   const servicesTitle =
     id && id.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, " ");
 
   return (
     <>
-      <InnerHead title={servicesTitle} />
-      <Meta title={id} />
+      <InnerHead title={servicesTitle} img={imageCat} />
+      <Meta title={servicesTitle} />
       <WhatsappChat />
       {/* VIEW SERVICE AREA */}
-      <div className="view-service-page mb-100 mt-50">
+      <div className="view-service-page mb-100 ">
         <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-md-12">
+              <div className="section-titlee text-center mb-50">
+                <p style={{ textAlign: "center" }}>
+                  {descriptionCat.length && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: `${descriptionCat}`,
+                      }}
+                      // className={Style?.pera}
+                    ></div>
+                  )}
+                </p>
+              </div>
+            </div>
+          </div>
           <div className="row justify-content-center">
             <div className="col-md-6">
               <div className="section-title text-center mb-50">
                 <h5>Services</h5>
                 <h3>Our Services</h3>
-                <br />
-                <br />
-                <p style={{ textAlign: "center" }}>
-                  {descriptionCat.length && descriptionCat}
-                </p>
               </div>
             </div>
           </div>
@@ -102,7 +111,6 @@ export default function CateWiseServices({ services }) {
         </div>
       </div>
       {/* VIEW SERVICE AREA */}
-
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import HeroSlide from "../components/HeroSlide";
 import ExpTeam from "../components/ExpTeam";
 
@@ -19,38 +19,29 @@ import Testimonial from "../components/home/Testimonial";
 
 import { server } from "../config/index";
 
-
 import WorkingProcess from "../components/WorkingProcess";
 import WhatsappChat from "../components/whatsappChat";
 import LogoSlider from "../components/LogoSlider";
 
-
-
-export default function Home({portCats}) {
-
-
+export default function Home({ portCats }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, []);
 
   return (
     <>
-
       <HeroSlide />
 
       <ExpTeam />
-
       <LogoSlider />
       <ViewService />
 
-      <ShowCase portCats= {portCats} />
+      <ShowCase portCats={portCats} />
 
       <ShowCaseCounter />
-
 
       {/* <ExpTeam expertTeams = {expertTeams}/>
 
@@ -69,16 +60,10 @@ export default function Home({portCats}) {
 
       <Testimonial />
 
-     
-
-    
       <WhatsappChat />
     </>
   );
 }
-
-
-
 
 export async function getStaticProps() {
   const res = await fetch(`${server}/api/portfolio/category`);

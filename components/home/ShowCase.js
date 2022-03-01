@@ -9,9 +9,9 @@ import "swiper/css";
 import { gallaries, sliderData } from "../../Utils/fakeData";
 import Link from "next/link";
 import { server } from "../../config";
+import Image from "next/image";
 export default function ShowCase({ portCats }) {
   // const [isReact, setIsReact] = useState(false);
-
 
   console.log("portfolios posts: ", portCats);
 
@@ -24,7 +24,7 @@ export default function ShowCase({ portCats }) {
           <div className="row align-items-center">
             <div className="col-md-6">
               <SectionTitle
-                section=" About Company"
+                section="Check Our Portfolio"
                 title="Our Recent Projects Showcase Gallery.  "
               />
             </div>
@@ -33,7 +33,7 @@ export default function ShowCase({ portCats }) {
             </div>
           </div>
           <div
-            className="row mt-50 justify-content-center wow fadeIn"
+            className="row mt-30 justify-content-center wow fadeIn"
             data-wow-duration="1s"
             data-wow-delay="0.5s"
           >
@@ -43,9 +43,17 @@ export default function ShowCase({ portCats }) {
                   <div key={cat.id} className="col-md-5 col-sm-8">
                     <div className="showCase-wrap mb-4 mb-md-0">
                       <div className="show-case-features  s-img-wrap">
-                        <img
+                        {/* <img
                           src={`${server}/${cat.img}`}
                           alt={cat.category_name}
+                        /> */}
+                        <Image
+                          className="parent-pic"
+                          // loader={myLoader}
+                          src={`${server}/${cat.img}`}
+                          alt="category_name"
+                          width={443}
+                          height={635}
                         />
                       </div>
                       <div className="show-case-info">
@@ -91,9 +99,17 @@ export default function ShowCase({ portCats }) {
                       >
                         <div className="showCase-wrap mb-4 ">
                           <div className="show-case-child s-img-wrap">
-                            <img
+                            {/* <img
                               src={`${server}/${port.img}`}
                               alt={port.category_name}
+                            /> */}
+                            <Image
+                              className="parent-pic"
+                              // loader={myLoader}
+                              src={`${server}/${port.img}`}
+                              alt="category_name"
+                              width={338}
+                              height={305}
                             />
                           </div>
                           <div className="show-case-info">

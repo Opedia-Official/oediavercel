@@ -8,7 +8,7 @@ import "swiper/css";
 
 import { useEffect } from "react";
 
-function PricingCard({ item }) {
+function PricingCard({ item, index }) {
   // useEffect(()=>{
   //   document.addEventListener("mousemove",function(e){
   //     this.querySelectorAll('.our-pricing-wrap').forEach(layer=>{
@@ -21,16 +21,31 @@ function PricingCard({ item }) {
   // })
 
   return (
-    <div className="col-md-4 col-sm-6 wow zoomIn">
-      <div className="our-pricing-wrap text-center mb-30">
+    <div className="borderE col-md-4 col-sm-6 wow zoomIn p-3">
+      <div
+        className={`our-pricing-wrap text-center mb-30 , + ${
+          index === 1 && "scalY"
+        } `}
+      >
+        {/* index === 1 && "scalY" */}
+        {/* <p>{index}</p> */}
         <Card>
           <div className="pricing-level">
             <p>{item.type}</p>
           </div>
           <Card.Body>
-            <span>{item.icons}</span>
+            <span style={{ width: index === 1 && "136px" }}>{item.icons}</span>
+
             <Card.Title>
-              <h4>${item.pricing}</h4> <span>/{item.duratin}</span>
+              <h4
+                style={{
+                  marginTop: index === 1 && "27px",
+                  padding: index === 1 && "16px 0px 6px",
+                }}
+              >
+                ${item.pricing}
+              </h4>{" "}
+              <span></span>
             </Card.Title>
             <ul className="pricing-items">
               {item.feature.map((liItem) => (
@@ -39,9 +54,7 @@ function PricingCard({ item }) {
             </ul>
 
             <Link href="/contact">
-              <a  className="btn-two mt-20">
-                Start Today
-              </a>
+              <a className="btn-two mt-20">Start Today</a>
             </Link>
           </Card.Body>
         </Card>

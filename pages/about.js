@@ -18,7 +18,8 @@ import ExpertWorker from "../components/ExpertWorker";
 import { expertWorker } from "../Utils/fakeData";
 import TeamExpert from "../components/TeamExpert";
 import WhatsappChat from "../components/whatsappChat";
-
+import Link from "next/link";
+import Image from "next/image";
 export default function Abouta({ services }) {
   const [modalShow, setModalShow] = useState(false);
 
@@ -37,14 +38,20 @@ export default function Abouta({ services }) {
       {/* Youtube section */}
       <div className="about-us-area">
         <div className="container">
-          <div className="row">
+          <div className="row align-items-center">
             <div className="col-lg-6  wow slideInLeft" data-wow-duration="1s">
               <div className=" about great-experience-left-wrap mb-5 mb-lg-0">
                 <div className="great-experinec-img">
-                  <img src="./aboutUs/pic-1.png" alt="" />
+                  <Image
+                    src="/aboutUs/pic-1.png"
+                    alt="Opediatech"
+                    width={456}
+                    height={565}
+                  />
+                  {/* <img src="./aboutUs/pic-1.png" alt="" /> */}
                 </div>
                 <img
-                  className="ge-dots"
+                  className="ge-dots d-none d-lg-block"
                   src="./aboutUs/dot_shapes.png"
                   alt=""
                 />
@@ -62,7 +69,7 @@ export default function Abouta({ services }) {
 
                 <div className="ge-info">
                   <h2>
-                    26 <span>+ Years</span>
+                    5 <span>+ Years</span>
                   </h2>
                   <h3>Experience</h3>
                 </div>
@@ -93,10 +100,9 @@ export default function Abouta({ services }) {
                   construction and Old French construction. To construct is the
                   verb: the act of building, and the noun
                 </p>
-                <a href="#" className="btn-two mt-5">
-                  {" "}
-                  About Us
-                </a>
+                <Link href="/contact">
+                  <a className="btn-two mt-5"> Contuct Us</a>
+                </Link>
               </div>
             </div>
           </div>
@@ -121,10 +127,7 @@ export default function Abouta({ services }) {
       </div>
 
       {/* CLIENTS FEEDBACK */}
-      {/* <div
- 
-        className="about-client-feedback-area mb-120"
-      >
+      <div className="about-client-feedback-area mb-120">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
@@ -138,6 +141,7 @@ export default function Abouta({ services }) {
           <Swiper
             spaceBetween={20}
             slidesPerView={2}
+            loop="true"
             breakpoints={{
               992: {
                 slidesPerView: 2,
@@ -157,7 +161,13 @@ export default function Abouta({ services }) {
                   <Card.Body>
                     <div className="client-info-wrap">
                       <div className="client-info">
-                        <img src="./blog/pic-3.png" alt="" />
+                        <Image
+                          src="/blog/pic-3.png"
+                          alt="Opediatech"
+                          width={60}
+                          height={60}
+                        />
+                        {/* <img src="./blog/pic-3.png" alt="" /> */}
                         <div className="client-info-text">
                           <h2>Hanson Deck</h2>
                           <p>UI/UX designer</p>
@@ -201,7 +211,13 @@ export default function Abouta({ services }) {
                   <Card.Body>
                     <div className="client-info-wrap">
                       <div className="client-info">
-                        <img src="./blog/pic-3.png" alt="" />
+                        <Image
+                          src="/blog/pic-3.png"
+                          alt="Opediatech"
+                          width={60}
+                          height={60}
+                        />
+                        {/* <img src="./blog/pic-3.png" alt="" /> */}
                         <div className="client-info-text">
                           <h2>Hanson Deck</h2>
                           <p>UI/UX designer</p>
@@ -245,7 +261,14 @@ export default function Abouta({ services }) {
                   <Card.Body>
                     <div className="client-info-wrap">
                       <div className="client-info">
-                        <img src="./blog/pic-3.png" alt="" />
+                        {/* <img src="./blog/pic-3.png" alt="" /> */}
+                        <Image
+                          src="/blog/pic-3.png"
+                          alt="Opediatech"
+                          className="client-fdback-img"
+                          width={60}
+                          height={60}
+                        />
                         <div className="client-info-text">
                           <h2>Hanson Deck</h2>
                           <p>UI/UX designer</p>
@@ -285,7 +308,7 @@ export default function Abouta({ services }) {
             </SwiperSlide>
           </Swiper>
         </div>
-      </div> */}
+      </div>
 
       <TeamExpert services={services} />
     </>

@@ -1,42 +1,64 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { FaCloud} from "react-icons/fa";
+import {
+  FaChalkboard,
+  FaSearchLocation,
+  FaVideo,
+  FaBandcamp,
+} from "react-icons/fa";
 
-import CountUp from 'react-countup';
+import CountUp from "react-countup";
 
-
-export default function Home({projectsAll}) {
+export default function Home({ projectsAll }) {
   // const {projects} = projectsAll;
 
   return (
-     <>
-
-      <div  className="project-counter-area">
+    <>
+      <div className="project-counter-area">
         <div className="container">
           <div className="row justify-content-center">
-
-              <div className="pCounterWrap">
-                  <div className="counter-up-wrap mb-5 mb-md-0">
-                      <span><FaCloud/></span>
-                      <h3> <CountUp end={100}/> </h3>
-                      <p>100 project done </p>
-                </div>
+            <div className="pCounterWrap">
               <div className="counter-up-wrap mb-5 mb-md-0">
-                      <span><FaCloud/></span>
-                      <h3> <CountUp end={100}/> </h3>
-                      <p>100 project done </p>
-                </div>
-              <div className="counter-up-wrap mb-5 mb-md-0">
-                      <span><FaCloud/></span>
-                      <h3> <CountUp end={100}/> </h3>
-                      <p>100 project done </p>
-                </div>
-              <div className="counter-up-wrap">
-                      <span><FaCloud/></span>
-                      <h3> <CountUp end={100}/> </h3>
-                      <p>100 project done </p>
-                </div>
+                <span>
+                  <FaChalkboard />
+                </span>
+                <h3>
+                  {" "}
+                  <CountUp end={133} />{" "}
+                </h3>
+                <p> Web & Soft </p>
               </div>
+              <div className="counter-up-wrap mb-5 mb-md-0">
+                <span>
+                  <FaSearchLocation />
+                </span>
+                <h3>
+                  {" "}
+                  <CountUp end={118} />{" "}
+                </h3>
+                <p>SEO </p>
+              </div>
+              <div className="counter-up-wrap mb-5 mb-md-0">
+                <span>
+                  <FaVideo />
+                </span>
+                <h3>
+                  {" "}
+                  <CountUp end={221} />{" "}
+                </h3>
+                <p>Motion Graphics </p>
+              </div>
+              <div className="counter-up-wrap">
+                <span>
+                  <FaBandcamp />
+                </span>
+                <h3>
+                  {" "}
+                  <CountUp end={53} />{" "}
+                </h3>
+                <p>Brand Design </p>
+              </div>
+            </div>
             {/* {
               projects.map(project=>{
                 return (
@@ -50,15 +72,9 @@ export default function Home({projectsAll}) {
                 )
               })
             } */}
-
           </div>
         </div>
       </div>
-
-
-
-     </>
-
-    
-  )
+    </>
+  );
 }

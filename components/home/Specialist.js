@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   FaCloud,
   FaDatabase,
@@ -25,12 +26,9 @@ export default function Specialist() {
         <div className="row align-items-center">
           <div className="col-md-6 wow fadeInLeft">
             <div className="section-title">
-              <h5>About Company</h5>
-              <h3 style={{ fontSize: "50px", marginBotton: "20px" }}>
-                Experienced IT professionals are <br />
-                at your service
-              </h3>
-              <p className="pera">
+              <h5>Our Support</h5>
+              <h3>IT professionals are at your service</h3>
+              <p className="pera pr-45">
                 Every project is handled by a team of industry experts. The
                 proper knowledge, research, analysis, and implementation help us
                 develop your business.
@@ -44,7 +42,7 @@ export default function Specialist() {
                 </span>
                 <div className="sp-item-info">
                   <h4>Robust Support</h4>
-                  <p className="pera">
+                  <p className="pera  ">
                     Professional support within global horizon regardless time
                     zone and regional borders.
                   </p>
@@ -67,19 +65,44 @@ export default function Specialist() {
           <div className="col-md-6">
             <div className="sp-r-section-wrap">
               <div className="sp-feature-img">
-                <img
+                {/* <img
                   className="sp-feature  wow pulse"
-                  src="./specialist/pic-1.png"
+                  src="./specialist/pic-1.jpg"
                   alt=""
+                /> */}
+
+                <Image
+                  className="sp-feature  wow pulse"
+                  // loader={myLoader}
+                  src="/specialist/pic-1.jpg"
+                  alt="category_name"
+                  width={380}
+                  height={518}
                 />
+
                 <img
-                  src="./specialist/pic-3.png"
+                  src="./specialist/pic-3.jpg"
                   alt=""
-                  className="sp-child wow bounceInRight"
+                  className="sp-child  d-none d-md-block"
                 />
+                {/* <Image
+                  className="sp-child "
+                  // loader={myLoader}
+                  src="/specialist/pic-3.png"
+                  alt="Support"
+                  width={234}
+                  height={210}
+                /> */}
               </div>
               <div className="sp-img-r-child wow bounceIn">
-                <img src="./specialist/pic-2.png" alt="" />
+                {/* <img src="./specialist/pic-2.jpg" alt="" /> */}
+
+                <Image
+                  src="/specialist/pic-2.jpg"
+                  alt=""
+                  width={194}
+                  height={205}
+                />
               </div>
             </div>
           </div>

@@ -11,10 +11,7 @@ import { server } from "../../config/index";
 import { Card } from "react-bootstrap";
 import Link from "next/link";
 
-
-import { FaCloud,FaAngleRight } from "react-icons/fa";
-
-
+import { FaCloud, FaAngleRight } from "react-icons/fa";
 
 export default function Services({ services }) {
   const [allServices, setAllServices] = useState(services);
@@ -39,10 +36,11 @@ export default function Services({ services }) {
             <div className="col-md-6">
               <div className="section-title text-center mb-50">
                 <h5>Services</h5>
-                <h3>Our Services.</h3>
+                <h3>Our Services</h3>
               </div>
             </div>
           </div>
+          {/* <p>{allServices.length}</p> */}
           <div className="row">
             <div
               className="col-md-12  wow fadeIn"
@@ -63,11 +61,11 @@ export default function Services({ services }) {
                               <FaCloud />
                               <Card.Title>{item.service_title}</Card.Title>
                               <Card.Text>
-                                <p
+                                <div
                                   dangerouslySetInnerHTML={{
                                     __html: `${item.service_desc}`,
                                   }}
-                                ></p>
+                                ></div>
 
                                 <div>
                                   <Link href={`/service/${item.service_slug}`}>
@@ -89,7 +87,6 @@ export default function Services({ services }) {
         </div>
       </div>
       {/* VIEW SERVICE AREA */}
-
     </>
   );
 }
@@ -105,4 +102,3 @@ export async function getStaticProps() {
     revalidate: 10,
   };
 }
-

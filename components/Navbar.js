@@ -5,7 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaAngleDoubleDown, FaAngleDown, FaAngleUp } from "react-icons/fa";
-
+import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 import logo from "../public/logo/logo-blue.png";
 import {
@@ -25,6 +25,7 @@ import { useRouter } from "next/router";
 import Modal from "react-modal";
 
 import { server } from "../config/index";
+import { Alert } from "react-bootstrap";
 
 const customStyles = {
   content: {
@@ -50,6 +51,10 @@ export default function Navbar() {
   const [navChange, setNavChange] = useState(true);
   const textInput = useRef(null);
 
+  // validation
+  const [alerts, setAlert] = useState(false);
+  const [msg, setMsg] = useState("");
+
   // all states
   const [fistName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -69,9 +74,49 @@ export default function Navbar() {
     message: text,
     service: service,
   };
-
+  alerts
+    ? setInterval(() => {
+        setAlert(false);
+      }, 5000)
+    : "";
   const Contacthandler = async (e) => {
     e.preventDefault();
+    // validation
+    let regex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (fistName == "") {
+      setAlert(true);
+      setMsg("Put the first Name");
+      return false;
+    } else if (lastName == "") {
+      setAlert(true);
+      setMsg("Put the Last Name");
+      return false;
+    } else if (email == "") {
+      setAlert(true);
+      setMsg("Put the email");
+      return false;
+    } else if (regex.test(String(email).toLowerCase()) == false) {
+      setAlert(true);
+      setMsg("Email is not valid");
+      return false;
+    } else if (phone == "") {
+      setAlert(true);
+      setMsg("Put the Phone Number");
+      return false;
+    } else if (text == "") {
+      setAlert(true);
+      setMsg("Put the Text");
+      return false;
+    } else if (service == "") {
+      setAlert(true);
+      setMsg("Put the service name");
+      return false;
+    } else {
+      setAlert(true);
+      setMsg("Thanks for your Message");
+    }
 
     const posted = await fetch("https://admin.opediatech.com/api/message", {
       method: "post",
@@ -85,16 +130,16 @@ export default function Navbar() {
       }),
       headers: { "Content-Type": "application/json" },
     });
-
-    // console.log("posted", posted);
-    // console.log("contactData", contactData);
-    // if (posted.status === 200) {
-    //   alert("ok");
-    //   toast("Wow so easy!");
-    // } else {
-    //   alert("error");
-    //   toast("Wow so easy!");
-    // }
+    if (posted.status === 200) {
+      alert("Message Sent");
+    } else {
+      alert("Message Not Sent");
+    }
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setText("");
     closeModal();
   };
 
@@ -126,6 +171,7 @@ export default function Navbar() {
     router.pathname == "/" ? setLink(true) : setLink(false);
 
     // training
+    navChageRef.current.className = "header";
 
     const allData = axios
       .get(`${server}/api/course`)
@@ -141,7 +187,7 @@ export default function Navbar() {
       // Scroll top navbar hide open
       let currentPosition = e.target.documentElement.scrollTop;
 
-      if (scrolTop > 160) {
+      if (scrolTop > 156) {
         if (previousPosition > currentPosition) {
           navChageRef.current.className = "header activeNav";
           setNavChange(true);
@@ -184,7 +230,7 @@ export default function Navbar() {
                     opedia.technologies@gmail.com
                   </a>
                 </li>
-                <li>
+                <li style={{ marginLeft: "15px" }}>
                   <a
                     href="tel:+8801978159172"
                     className={styles.socialIconItem}
@@ -192,7 +238,7 @@ export default function Navbar() {
                     <span className="s-icon">
                       <FaPhoneAlt />
                     </span>
-                    01978159172
+                    +8801978159172
                   </a>
                 </li>
               </ul>
@@ -230,7 +276,13 @@ export default function Navbar() {
           <nav className={styles.navbar}>
             <Link href="/">
               <a className={styles.navlogo}>
-                <img src={logo.src} alt="" />
+                <Image
+                  src={logo.src}
+                  alt="Opediatech"
+                  width={163}
+                  height={51}
+                />
+                {/* <img src={logo.src} alt="" /> */}
               </a>
             </Link>
             <ul
@@ -330,7 +382,7 @@ export default function Navbar() {
                           color: "#f49735",
                           fontSize: "28px",
                           fontWeight: "bold",
-                          cursor:'pointer'
+                          cursor: "pointer",
                         }}
                         onClick={() => setIsMore(!isMore)}
                       >
@@ -343,12 +395,10 @@ export default function Navbar() {
                       color: "#f49735",
                       fontSize: "18px",
                       fontWeight: "bold",
-                      cursor:'pointer'
+                      cursor: "pointer",
                     }}
                     onClick={() => setIsMore(!isMore)}
-                  >
-                  
-                  </p>
+                  ></p>
                 </div>
               </li>
               <li className={styles.navitem}>
@@ -389,39 +439,6 @@ export default function Navbar() {
                                 </Link>
                               </li>
                             ))}
-
-                            {/* {isMore && (
-                              <ul>
-                                <li className={styles.dropdown__item}>
-                                  <a className={styles.dropdown__link}>
-                                    Digital Marketing
-                                  </a>
-                                </li>
-                                <li className={styles.dropdown__item}>
-                                  <a className={styles.dropdown__link}>
-                                    Affiliate Marketing
-                                  </a>
-                                </li>
-                                <li className={styles.dropdown__item}>
-                                  <a className={styles.dropdown__link}>
-                                    Graphic Design
-                                  </a>
-                                </li>
-                                <li className={styles.dropdown__item}>
-                                  <a className={styles.dropdown__link}>
-                                    Logo Design
-                                  </a>
-                                </li>
-                                <li className={styles.dropdown__item}>
-                                  <a className={styles.dropdown__link}>
-                                    Web Development
-                                  </a>
-                                </li>
-                              </ul>
-                            )}
-                          </ul>
-                        </div>
-                        {/* <p style={{color: "#f49735", fontSize:'18px', fontWeight:'bold'}} onClick={() =>setIsMore(!isMore)}>{isMore ?  "Less" :  'More'}</p> */}
                           </ul>
                         </div>
                       </div>
@@ -503,6 +520,10 @@ export default function Navbar() {
                   <div className=" offset-2 col-8">
                     <div className="contact-right-form mt-5 mt-lg-0 ">
                       <h3 className="contact-modal">Get A free Quote</h3>
+                      {alerts ? <Alert variant="danger">{msg}</Alert> : ""}
+                      {/* This is a alert—check it out! */}
+                      {/* <Alert variant="danger">A free Q</Alert> */}
+
                       <form action="#">
                         <div className="row">
                           <div className="col-lg-6 mb-5">
@@ -511,6 +532,7 @@ export default function Navbar() {
                                 type="text"
                                 placeholder="First Name *"
                                 onChange={(e) => setFirstName(e.target.value)}
+                                value={fistName}
                               />
                               <span>
                                 <FaMale />
@@ -523,6 +545,7 @@ export default function Navbar() {
                                 type="text"
                                 placeholder="Last Name *"
                                 onChange={(e) => setLastName(e.target.value)}
+                                value={lastName}
                               />
                               <span>
                                 <FaMale />
@@ -535,6 +558,7 @@ export default function Navbar() {
                                 type="email"
                                 placeholder="Mail Address *"
                                 onChange={(e) => setEmail(e.target.value)}
+                                value={email}
                               />
                               <span>
                                 <FaEnvelope />
@@ -547,6 +571,7 @@ export default function Navbar() {
                                 type="tell"
                                 placeholder="Phone Number "
                                 onChange={(e) => setPhone(e.target.value)}
+                                value={phone}
                               />
                               <span>
                                 <FaPhoneAlt />
@@ -563,17 +588,19 @@ export default function Navbar() {
                                 <option value="" disabled selected hidden>
                                   Select Your Services
                                 </option>
-                                <option value="Web Development">
-                                  Web Development
+                                <option value="Web and Software">
+                                  Web & Software
                                 </option>
-                                <option value="Web Design">Web Design</option>
-                                <option value="Web Graphics Design">
-                                  E-Commerce Solution
+                                <option value="Product Design">
+                                  Product Design
                                 </option>
-                                <option value="Web Graphics Design">
-                                  Product Desiginig
+                                <option value="Ecommerce Solution">
+                                  Ecommerce Solution
                                 </option>
-                                <option value="Web Graphics Design">
+                                <option value="Digital marketing">
+                                  Digital marketing
+                                </option>
+                                <option value="Multimedia and Printing">
                                   Multimedia & printing
                                 </option>
                               </select>
@@ -589,6 +616,7 @@ export default function Navbar() {
                                 rows="10"
                                 placeholder="Message "
                                 onChange={(e) => setText(e.target.value)}
+                                value={text}
                               ></textarea>
 
                               <span>

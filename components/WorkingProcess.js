@@ -1,5 +1,12 @@
 import React from "react";
-import { FaPlus, FaPeopleArrows,FaRegSun,FaLightbulb,FaHandsHelping,FaPaperPlane} from "react-icons/fa";
+import {
+  FaPlus,
+  FaPeopleArrows,
+  FaRegSun,
+  FaLightbulb,
+  FaHandsHelping,
+  FaPaperPlane,
+} from "react-icons/fa";
 // import { FiSettings } from "react-icons/fi";
 // import { BsArrowRight } from "react-icons/Bs";
 // import { BiDonateBlood } from "react-icons/Bi";
@@ -13,13 +20,15 @@ export default function WorkingProcess() {
       <div className="workingProcessArea text-center text-lg-start mb-100">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-7">
-              <div className="section-title">
+            <div className="col-lg-8 offset-lg-2">
+              <div className="section-title text-center">
                 <h5> Working Process</h5>
-                <h3>Our Working Process For Client Work It Specialties.</h3>
+                <h3>
+                  Our Working Process For <br /> Clients Work
+                </h3>
               </div>
             </div>
-            <div className="col-lg-5  wow fadeIn" data-wow-duration="2s">
+            {/* <div className="col-lg-5  wow fadeIn" data-wow-duration="2s">
               <div className={`${style.workingProcessWrap} mt-4 mt-lg-0`}>
                 <div className={style.wpItem}>
                   <div className={style.wpCountWrap}>
@@ -44,7 +53,7 @@ export default function WorkingProcess() {
                   <p>Succed Project</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="row justify-content-center align-items-center mt-50">
             <div
@@ -53,7 +62,9 @@ export default function WorkingProcess() {
             >
               <div className={style.workingProgressStepsWrap}>
                 <div className={style.workingProgressItems}>
-                  <span className={style.wpIcon}><FaRegSun /></span>
+                  <span className={style.wpIcon}>
+                    <FaRegSun />
+                  </span>
                   <h3>Choose Service</h3>
                   {/* <span className={style.wpArrow}>
                                             <FaArrowRight/>
@@ -83,7 +94,9 @@ export default function WorkingProcess() {
             >
               <div className={style.workingProgressStepsWrap}>
                 <div className={style.workingProgressItems}>
-                  <span className={style.wpIcon}><FaLightbulb /></span>
+                  <span className={style.wpIcon}>
+                    <FaLightbulb />
+                  </span>
                   <h3>Custom Plan</h3>
                   {/* <span className={style.wpArrow}>
                                             <BsArrowRight/>

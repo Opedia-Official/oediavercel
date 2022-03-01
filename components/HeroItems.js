@@ -129,7 +129,9 @@ export default class AsNavFor extends Component {
               <div className="col-md-6">
                 <div className="hero-left">
                   {/* <h4>Optimized It System2</h4> */}
-                  <h2>Product Design </h2>
+                  <h2>
+                    Product <br /> Design{" "}
+                  </h2>
 
                   <div className="hero-action">
                     <Link href="/contact">
@@ -145,7 +147,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40 ">
-                  <Image src="/hero/pic-2.png" alt="opediatech" layout="fill" />
+                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -189,7 +191,7 @@ export default class AsNavFor extends Component {
               <div className="col-md-6">
                 <div className="hero-left">
                   {/* <h4>Optimized It System4</h4> */}
-                  <h2>Ecommerce</h2>
+                  <h2>Ecommerce Solution</h2>
                   <div className="hero-action">
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
@@ -204,7 +206,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40">
-                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" />
+                  <Image src="/hero/pic-5.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -232,7 +234,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40">
-                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" />
+                  <Image src="/hero/pic-2.png" alt="opediatech" layout="fill" />
                 </div>
               </div>
             </div>
@@ -271,6 +273,7 @@ export default class AsNavFor extends Component {
                 </div>
                 <div className="hero-bottom-info">
                   <h4>Product Design</h4>
+
                   <p>We provide attractive product design </p>
                 </div>
               </div>

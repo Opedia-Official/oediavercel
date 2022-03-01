@@ -27,6 +27,7 @@ export default function Update() {
     <div className="project-update-section text-center text-md-start bg-brand">
       <div className="container">
         <div className="row align-items-center">
+          <h5 className="newslatter">Get Newsletter</h5>
           <div
             className="col-md-6 wow fadeIn"
             data-wow-duration="1s"
@@ -34,7 +35,7 @@ export default function Update() {
           >
             <div className="project-update-section-wrap">
               <div className="section-title">
-                <h5> About Company</h5>
+                {/* <h5>Get Newsletter</h5> */}
                 <h3>Don,t miss our update</h3>
               </div>
               <p className="pr-140p pera">

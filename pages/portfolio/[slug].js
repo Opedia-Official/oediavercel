@@ -108,11 +108,11 @@ export default function PortfolioDetails({ portfolios }) {
           <div className="row">
             <div className="col-md-12">
               <div className="portfolio-details-info">
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: `${portfolio?.portfolio_desc}`,
                   }}
-                ></p>
+                ></div>
               </div>
             </div>
           </div>

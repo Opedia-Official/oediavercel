@@ -1,9 +1,9 @@
 // import React from "react";
 import Style from "../../styles/singleService.module.css";
 
-
 import dynamic from "next/dynamic";
 import WhatsappChat from "../../components/whatsappChat";
+import Image from "next/image";
 
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -12,8 +12,7 @@ import axios from "axios";
 import { useState } from "react";
 import Meta from "../../components/Meta";
 import Link from "next/link";
-
-
+import { Spinner } from "react-bootstrap";
 
 // export const getStaticPaths = async() => {
 //   const { id } = router.query;
@@ -50,7 +49,7 @@ import Link from "next/link";
 //   };
 // }
 
-function SinglePage({ singleService }) {
+function SinglePage({ singleService, training }) {
   const router = useRouter();
   const { id } = router.query;
 
@@ -75,21 +74,26 @@ function SinglePage({ singleService }) {
   return (
     <div className="container my-5 py-5">
       <WhatsappChat />
-    
+
       <Meta title={id} />
-      {/* <p>Service sategory: {id} </p> */}
+
       <div className={"row"}>
         <div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">
           <div className="">
             {featureImage && (
-              <img
-                className={Style.img}
+              <Image
                 src={`${server}/${featureImage}`}
-                alt=""
+                alt="footer"
+                width={750}
+                height={450}
               />
             )}
 
-            <ServiceDetails setFeatureImage={setFeatureImage} slug={id} />
+            <ServiceDetails
+              setFeatureImage={setFeatureImage}
+              training={training}
+              slug={id}
+            />
           </div>
         </div>
         <div className={"col-lg-4 col-md-6 col-sm-12 col-xs-12 px-5"}>
@@ -106,23 +110,6 @@ function SinglePage({ singleService }) {
                       </Link>
                     </li>
                   ))}
-                {/* <li>
-                  <Link href={`${ClientURL}/service/category/web-software`}>
-                    <a className="Link"> Web Desiginig & Development </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`${ClientURL}/service/category/product-design`}>
-                    <a className="Link"> Product Desiginig </a>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href={`${ClientURL}/service/category/digital-marketing`}
-                  >
-                    <a className="Link"> Digital Marketing </a>
-                  </Link>
-                </li> */}
               </ul>
             </div>
           </div>
@@ -165,38 +152,82 @@ function SinglePage({ singleService }) {
           </div> */}
         </div>
       </div>
-
-
     </div>
   );
 }
 
 export default SinglePage;
 
-function ServiceDetails({ slug, setFeatureImage }) {
-  const [content, setContent] = useState(null);
+function ServiceDetails({ slug, setFeatureImage, training }) {
+  const [content, setContent] = useState(training);
+  console.log(training);
+
+  // useEffect(() => {
+  //   const marketingData = axios
+  //     .get(`${server}/api/service/${slug}`)
+  //     .then((res) => {
+  //       console.log("allData setContent ", res.data.featured_img);
+
+  //       setContent(res.data);
+  //       setFeatureImage(res.data.featured_img);
+  //     });
+  // }, [slug]);
 
   useEffect(() => {
-    const marketingData = axios
-      .get(`${server}/api/service/${slug}`)
-      .then((res) => {
-        console.log("allData setContent ", res.data.featured_img);
-
-        setFeatureImage(res.data.featured_img);
-        setContent(res.data);
-      });
+    setFeatureImage(content.featured_img);
   }, [slug]);
   return (
     <>
       <Meta title={content?.service_title} />
+      {content ? <h2 className={Style.title}>{content?.service_title}</h2> : ""}
+      {content ? (
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${content?.service_desc}`,
+          }}
+          className={Style?.pera}
+        ></div>
+      ) : (
+        // <Spinner animation="border" />
+        ""
+      )}
       <h2 className={Style.title}>{content?.service_title}</h2>
 
-      <p
+      <div
         dangerouslySetInnerHTML={{
           __html: `${content?.service_desc}`,
         }}
         className={Style?.pera}
-      ></p>
+      ></div>
     </>
   );
+}
+
+export async function getStaticPaths() {
+  const resp = await fetch(`${server}/api/service`);
+  const trainings = await resp.json();
+
+  const paths = trainings.map((training) => {
+    return {
+      params: {
+        id: `${training?.service_slug}`,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps(context) {
+  const { params } = context;
+  const res = await fetch(`${server}/api/service/${params.id}`);
+  const training = await res.json();
+  return {
+    props: {
+      training,
+    },
+    revalidate: 10,
+  };
 }

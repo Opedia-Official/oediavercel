@@ -8,7 +8,7 @@ import WhatsappChat from "../../components/whatsappChat";
 import { server } from "../../config";
 import Meta from "../../components/Meta";
 import { FaAngleRight } from "react-icons/fa";
-
+import Image from "next/image";
 export default function Training({ courses }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -26,9 +26,9 @@ export default function Training({ courses }) {
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
-              <div className="section-title text-center mb-50">
+              <div className="section-title text-center mt-100 mb-50">
                 <h5>Courses</h5>
-                <h3>Our Best Courses.</h3>
+                <h3>Our Best Courses</h3>
               </div>
             </div>
           </div>
@@ -42,7 +42,13 @@ export default function Training({ courses }) {
                 <div key={course.id} className="col-lg-4 col-sm-6">
                   <div className="portfolio-items mb-100">
                     <Card>
-                      <Card.Img src={`${server}/${course.Featured_img}`} />
+                      <Image
+                        src={`${server}/${course.Featured_img}`}
+                        alt="footer"
+                        width={370}
+                        height={367}
+                      />
+                      {/* <Card.Img src={`${server}/${course.Featured_img}`} /> */}
                     </Card>
                     <div className="portfolio-info">
                       <span>{course.title}</span>

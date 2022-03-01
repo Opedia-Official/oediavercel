@@ -3,7 +3,13 @@ import { FaRegLightbulb } from "react-icons/fa";
 
 // import { BiRightArrowAlt } from "react-icons/Gi";
 import { BiRightArrowAlt } from "react-icons/bi";
-import { FaCloud, FaDatabase,FaPaperPlane,FaHelicopter,FaPlaneDeparture} from "react-icons/fa";
+import {
+  FaCloud,
+  FaDatabase,
+  FaPaperPlane,
+  FaHelicopter,
+  FaPlaneDeparture,
+} from "react-icons/fa";
 import { MdOutlineDesignServices } from "react-icons/md";
 
 export const dataSlider = [
@@ -368,42 +374,42 @@ export const TestimonialSliderData = [
 
 export const dataPricing = [
   {
-    type: "Silver",
+    type: "Basic",
     icons: <FaPaperPlane />,
-    pricing: "49.00",
-    duratin: "mon",
+    pricing: "300",
+    duratin: "",
     feature: [
-      "Only 2 Operators",
-      "Abandoned Cart",
-      "Facebook & Instagram Ads",
-      "Order Notifications",
-      "Landing Pages",
+      "Landing Page Design",
+      "API Integration",
+      "SEO or SMM Service",
+      "Corporate Brand Guideline",
+      "Video Editing Service",
     ],
   },
   {
-    type: "Gold",
-    icons: <FaHelicopter />,
-    pricing: "49.00",
-    duratin: "mon",
-    feature: [
-      "Only 2 Operators",
-      "Abandoned Cart",
-      "Facebook & Instagram Ads",
-      "Order Notifications",
-      "Landing Pages",
-    ],
-  },
-  {
-    type: "Platinum",
+    type: "Premium",
     icons: <FaPlaneDeparture />,
-    pricing: "49.00",
-    duratin: "mon",
+    pricing: "1000",
+    duratin: "",
     feature: [
-      "Only 2 Operators",
-      "Abandoned Cart",
-      "Facebook & Instagram Ads",
-      "Order Notifications",
-      "Landing Pages",
+      "MERN Service",
+      "Apps Development",
+      "E-commerce Design & Dev",
+      "Wordpress Theme Development",
+      "Software as a Service (SAAS)",
+    ],
+  },
+  {
+    type: "Standard",
+    icons: <FaHelicopter />,
+    pricing: "500",
+    duratin: "",
+    feature: [
+      "Web Design",
+      "Wordpress Design",
+      "UI, UX Design",
+      "Technical SEO",
+      "Web Development",
     ],
   },
 ];

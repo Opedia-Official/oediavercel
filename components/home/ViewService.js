@@ -1,5 +1,5 @@
-import { Card } from "react-bootstrap";
-import { FaAngleRight} from "react-icons/fa";
+import { Badge, Card } from "react-bootstrap";
+import { FaAngleRight } from "react-icons/fa";
 
 import { FaCloud } from "react-icons/fa";
 
@@ -12,15 +12,13 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { server } from "../../config";
 
-
-
 export default function ViewService() {
-  const [services, setServices]= useState([]);
-  useEffect(()=>{
-    axios.get(`${server}/api/serviceAllCategory`).then((res) => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    axios.get(`${server}/api/featured-service`).then((res) => {
       setServices(res.data);
     });
-  },[])
+  }, []);
 
   return (
     <div className="view-service-section">
@@ -32,7 +30,7 @@ export default function ViewService() {
           >
             <div className="view-service-section-wrapper">
               <SectionTitle
-                section="About Company"
+                section="Services at a glance"
                 title="Software & IT services for you"
               />
               <p className="pera">
@@ -48,7 +46,7 @@ export default function ViewService() {
             </div>
           </div>
           <div
-            className="col-lg-6 mt-5 mt-lg-0  wow fadeIn"
+            className="featureservices col-lg-6 mt-5 mt-lg-0  wow fadeIn"
             data-wow-duration="2s"
             data-wow-delay="0.3s"
           >
@@ -58,26 +56,36 @@ export default function ViewService() {
               }
             >
               <div className="row">
-                {services.slice(0,4).map((service, index) => {
+                {services.map((service, index) => {
                   return (
                     <div
                       className="col-lg-6 col-sm-6 "
                       style={{
                         marginTop:
                           index === 1 ? "7.5%" : index === 2 ? "-8%" : "0px",
+                        position: "relative",
                       }}
                       data-wow-duration="1s"
                       data-wow-delay="1s"
                       key={service.id}
                     >
+                      {/* <p>{}</p> */}
                       <Card>
                         <Card.Body>
+                          {index === 0 && <Badge bg="danger">Hot</Badge>}
                           <FaCloud />
-                          <Card.Title>{service.category_name}</Card.Title>
-                          <Card.Text>{service.category_desc}</Card.Text>
+
+                          <Card.Title>{service.service_title}</Card.Title>
+                          <Card.Text
+                            dangerouslySetInnerHTML={{
+                              __html: `${service.service_desc}`,
+                            }}
+                          ></Card.Text>
                           <Card.Text>
                             <div>
-                              <Link href={`/service/category/${service.category_slug}`}>
+                              <Link
+                                href={`/service/category/${service.service_slug}`}
+                              >
                                 <a>
                                   Service Details <FaAngleRight />
                                 </a>

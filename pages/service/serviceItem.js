@@ -13,16 +13,15 @@ function ServiceItem({ item }) {
   //   const slug = "item";
   return (
     <Card>
-      <Meta title={slug} />
       <Card.Body>
         <FaCloud />
         <Card.Title>{item?.service_title}</Card.Title>
         <Card.Text>
-          <p
+          <div
             dangerouslySetInnerHTML={{
               __html: `${item?.service_desc}`,
             }}
-          ></p>
+          ></div>
 
           <div>
             <Link href={`/service/${item?.service_slug}`}>

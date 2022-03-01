@@ -1,10 +1,13 @@
-import { FaYoutube } from "react-icons/fa";
+import { FaPlay, FaYoutube } from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 import { useState } from "react";
 import Image from "next/image";
 
 import MyVerticallyCentredModal from "../components/MyVerticallyCentredModal";
 
+const myLoader = ({ src, width, quality }) => {
+  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
+};
 export default function ExpTeam({ expertTeams }) {
   const [modalShow, setModalShow] = useState(false);
 
@@ -13,19 +16,37 @@ export default function ExpTeam({ expertTeams }) {
       <div className="expTeam-section ">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-md-6 wow fadeIn" data-wow-duration="2s">
+            <div
+              className="col-lg-5 col-xl-6 wow fadeIn"
+              data-wow-duration="2s"
+            >
               <div className="expTeam-left ">
-                <img
+                {/* <img
                   className="parent-pic"
                   src="/experienceTeam/pic-1.png"
                   alt=""
+                /> */}
+                <Image
+                  className="parent-pic"
+                  // loader={myLoader}
+                  src="/experienceTeam/pic-1.jpg"
+                  alt="experienceTeam"
+                  width={442}
+                  height={506}
                 />
 
                 <div className="child d-none d-xl-block">
-                  <img src="./experienceTeam/pic-2.png" alt="" />
+                  {/* <img src="./experienceTeam/pic-2.png" alt="" /> */}
+                  <Image
+                    // loader={myLoader}
+                    src="/experienceTeam/pic-2.jpg"
+                    alt="experienceTeam"
+                    width={228}
+                    height={194}
+                  />
                 </div>
                 <img
-                  className="exp-dots"
+                  className="exp-dots d-none d-lg-block"
                   src="./experienceTeam/dot_shapes.png"
                   alt=""
                 />
@@ -34,25 +55,28 @@ export default function ExpTeam({ expertTeams }) {
                   <div className="exp-left-wrap d-flex align-items-center">
                     <h3>
                       {" "}
-                      25 <span>+</span>
+                      03 <span>+</span>
                     </h3>
                     <h4>Years of experience we just achived </h4>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="col-md-6  wow fadeIn" data-wow-duration="2s">
+            <div
+              className="col-lg-7 col-xl-6  wow fadeIn"
+              data-wow-duration="2s"
+            >
               <div className="expTeam-right">
                 <SectionTitle
-                  section=" About Company"
-                  title="We team of experience IT Specialties."
-                  description="2 years+ serving as a leading software company. A unique workflow and high-quality services are what sets us apart from competitors. 
+                  section="Our Professionalism"
+                  title="We team of experience IT Specialties"
+                  description="3 years+ serving as a leading software company. A unique workflow and high-quality services are what sets us apart from competitors. 
                   We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate 
                   "
                 />
                 <div className="expTeam-youtube-section">
                   <div className="row justify-content-center">
-                    <div className="col-6">
+                    <div className="col-12">
                       <ul>
                         <li>
                           <div>
@@ -65,18 +89,9 @@ export default function ExpTeam({ expertTeams }) {
                             />
                             <label htmlFor="styled-checkbox-1">Identify</label>
                           </div>
-
-                          {/* <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                    
-                                    <MyVerticallyCentredModal
-                                            url= "https://youtu.be/iO40U7nP6mY"
-                                            show={modalShow}
-                                            onHide={() => setModalShow(false)}
-                                        /> */}
                         </li>
                         <li>
                           <div>
-                            {" "}
                             <input
                               className="styled-checkbox"
                               id="styled-checkbox-2"
@@ -87,17 +102,18 @@ export default function ExpTeam({ expertTeams }) {
                             <label htmlFor="styled-checkbox-2">Analyze</label>
                           </div>
 
-                          {/* <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                        
-                                        <MyVerticallyCentredModal
-                                            url= "https://youtu.be/iO40U7nP6mY"
-                                            show={modalShow}
-                                            onHide={() => setModalShow(false)}
-                                        /> */}
+                          <a onClick={() => setModalShow(true)}>
+                            <FaPlay />
+                          </a>
+
+                          <MyVerticallyCentredModal
+                            url="https://youtu.be/iO40U7nP6mY"
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                          />
                         </li>
                         <li>
                           <div>
-                            {" "}
                             <input
                               className="styled-checkbox"
                               id="styled-checkbox-3"
@@ -107,107 +123,7 @@ export default function ExpTeam({ expertTeams }) {
                             />
                             <label htmlFor="styled-checkbox-3">Design </label>
                           </div>
-
-                          {/* <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                            
-                                            <MyVerticallyCentredModal
-                                                url= "https://youtu.be/iO40U7nP6mY"
-                                                show={modalShow}
-                                                onHide={() => setModalShow(false)}
-                                            /> */}
                         </li>
-                        {/* <li> 
-                                        <div> <input onChange={isChecked} className="styled-checkbox" id="styled-checkbox-3"  type="checkbox" value="value2"  />
-                                    <label htmlFor="styled-checkbox-3">Monitor progress </label></div>
-                                                                        
-                                        
-                                            <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                            
-                                            <MyVerticallyCentredModal
-                                                url= "https://youtu.be/iO40U7nP6mY"
-                                                show={modalShow}
-                                                onHide={() => setModalShow(false)}
-                                            />
-                                    </li> */}
-                      </ul>
-                    </div>
-                    <div className="col-6">
-                      <ul>
-                        <li>
-                          <div>
-                            <input
-                              className="styled-checkbox"
-                              id="styled-checkbox-1"
-                              checked
-                              type="checkbox"
-                              value="value2"
-                            />
-                            <label htmlFor="styled-checkbox-1">Develop</label>
-                          </div>
-
-                          {/* <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                    
-                                    <MyVerticallyCentredModal
-                                            url= "https://youtu.be/iO40U7nP6mY"
-                                            show={modalShow}
-                                            onHide={() => setModalShow(false)}
-                                        /> */}
-                        </li>
-                        <li>
-                          <div>
-                            {" "}
-                            <input
-                              className="styled-checkbox"
-                              id="styled-checkbox-2"
-                              checked
-                              type="checkbox"
-                              value="value2"
-                            />
-                            <label htmlFor="styled-checkbox-2">Implement</label>
-                          </div>
-
-                          {/* <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                        
-                                        <MyVerticallyCentredModal
-                                            url= "https://youtu.be/iO40U7nP6mY"
-                                            show={modalShow}
-                                            onHide={() => setModalShow(false)}
-                                        /> */}
-                        </li>
-                        <li>
-                          <div>
-                            {" "}
-                            <input
-                              className="styled-checkbox"
-                              id="styled-checkbox-3"
-                              checked
-                              type="checkbox"
-                              value="value2"
-                            />
-                            <label htmlFor="styled-checkbox-3">Measure</label>
-                          </div>
-
-                          {/* <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                            
-                                            <MyVerticallyCentredModal
-                                                url= "https://youtu.be/iO40U7nP6mY"
-                                                show={modalShow}
-                                                onHide={() => setModalShow(false)}
-                                            /> */}
-                        </li>
-                        {/* <li> 
-                                        <div> <input onChange={isChecked} className="styled-checkbox" id="styled-checkbox-3"  type="checkbox" value="value2"  />
-                                    <label htmlFor="styled-checkbox-3">Monitor progress </label></div>
-                                                                        
-                                        
-                                            <a onClick={() => setModalShow(true)}  > <FaYoutube/></a>
-                                            
-                                            <MyVerticallyCentredModal
-                                                url= "https://youtu.be/iO40U7nP6mY"
-                                                show={modalShow}
-                                                onHide={() => setModalShow(false)}
-                                            />
-                                    </li> */}
                       </ul>
                     </div>
                   </div>

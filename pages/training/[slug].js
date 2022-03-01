@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 import { server } from "../../config/index";
 
 import Meta from "../../components/Meta";
-
+import Image from "next/image";
 export default function TrainingDetails({ training }) {
   const [modalShow, setModalShow] = useState(false);
   return (
@@ -27,7 +27,13 @@ export default function TrainingDetails({ training }) {
                   onHide={() => setModalShow(false)}
                 />
                 <div className="portfolio-details-lft-img">
-                  <img src={`${server}/${training?.Featured_img}`} alt="" />
+                  <Image
+                    src={`${server}/${training?.Featured_img}`}
+                    alt="footer"
+                    width={570}
+                    height={495}
+                  />
+                  {/* <img src={`${server}/${training?.Featured_img}`} alt="" /> */}
                 </div>
 
                 <div className="ptflo-button">
@@ -78,11 +84,11 @@ export default function TrainingDetails({ training }) {
           <div className="row">
             <div className="col-md-12">
               <div className="portfolio-details-info mt-5">
-                <p
+                <div
                   dangerouslySetInnerHTML={{
                     __html: `${training?.description}`,
                   }}
-                ></p>
+                ></div>
               </div>
             </div>
           </div>

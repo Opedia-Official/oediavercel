@@ -2,20 +2,19 @@ import HomeStyle from "../styles/Home.module.css";
 import { Breadcrumb } from "react-bootstrap";
 import { FaHome } from "react-icons/fa";
 import Link from "next/link";
-
-export default function InnerHead({ title }) {
+import Image from "next/image";
+import { server } from "../config/index";
+export default function InnerHead({ title, img }) {
   return (
     <>
-      <div className="hero-section-area">
-        <div
-          className={
-            " Hero-top-section" +
-            " " +
-            HomeStyle.heroBackground +
-            " " +
-            "InnerHead"
-          }
-        >
+      <div className="hero-section-area innerHeadArea">
+        <div className={" Hero-top-section" + " " + " " + "InnerHead"}>
+          <Image
+            src={img ? server + "/" + img : "/hero/banner.png"}
+            alt="Picture of the author"
+            layout="fill"
+            className="inner-img"
+          />
           <div className="container">
             <div className="row">
               <div className="col-md-12">

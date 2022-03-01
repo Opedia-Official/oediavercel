@@ -1,6 +1,11 @@
 import React from "react";
-import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
-import {server} from '../config/index'
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
+import { server } from "../config/index";
 function TeamExpert({ services }) {
   console.log("services getStaticProps now: ", services);
   return (
@@ -9,12 +14,12 @@ function TeamExpert({ services }) {
         <div className="row justify-content-center">
           <div className="col-md-6">
             <div className="section-title text-center mb-50">
-              <h5> Expert Worker</h5>
-              <h3>Our Expert Worker.</h3>
+              <h5> Our Team</h5>
+              <h3>Meet our Teams</h3>
             </div>
           </div>
         </div>
-        <div className="row ">
+        <div className="row justify-content-center">
           {/* single-items */}
           {services.map((item, index) => (
             <div
@@ -34,7 +39,7 @@ function TeamExpert({ services }) {
                     </a>
                   </li>
                   <li>
-                    <a href={item.instagram} >
+                    <a href={item.instagram}>
                       <FaInstagram />
                     </a>
                   </li>
@@ -48,7 +53,6 @@ function TeamExpert({ services }) {
                       <FaLinkedinIn />
                     </a>
                   </li>
-                 
                 </ul>
 
                 <div className="worker-info">

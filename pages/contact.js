@@ -1,8 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
-import { Card } from "react-bootstrap";
-
+import { Alert, Card } from "react-bootstrap";
+import { toast } from "react-toastify";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -25,6 +25,8 @@ export default function Contact({ posts }) {
   const [phone, setPhone] = useState("");
   const [text, setText] = useState("");
   const [service, setService] = useState("");
+  const [alerts, setAlert] = useState(false);
+  const [msg, setMsg] = useState("");
 
   const contactData = {
     fname: fistName,
@@ -34,6 +36,11 @@ export default function Contact({ posts }) {
     message: text,
     service: service,
   };
+  alerts
+    ? setInterval(() => {
+        setAlert(false);
+      }, 5000)
+    : "";
 
   const Contacthandler = async (e) => {
     console.log(lastName, "name");
@@ -43,6 +50,41 @@ export default function Contact({ posts }) {
     console.log(service, "service");
 
     e.preventDefault();
+    let regex =
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if (fistName == "") {
+      setAlert(true);
+      setMsg("Put the first Name");
+      return false;
+    } else if (lastName == "") {
+      setAlert(true);
+      setMsg("Put the Last Name");
+      return false;
+    } else if (email == "") {
+      setAlert(true);
+      setMsg("Put the email");
+      return false;
+    } else if (regex.test(String(email).toLowerCase()) == false) {
+      setAlert(true);
+      setMsg("Email is not valid");
+      return false;
+    } else if (phone == "") {
+      setAlert(true);
+      setMsg("Put the Phone Number");
+      return false;
+    } else if (text == "") {
+      setAlert(true);
+      setMsg("Put the Text");
+      return false;
+    } else if (service == "") {
+      setAlert(true);
+      setMsg("Put the service name");
+      return false;
+    } else {
+      setAlert(true);
+      setMsg("Thanks for your Message");
+    }
 
     const posted = await fetch("https://admin.opediatech.com/api/message", {
       method: "post",
@@ -59,13 +101,16 @@ export default function Contact({ posts }) {
 
     console.log("posted", posted);
     console.log("contactData", contactData);
-    // if (posted.status === 200) {
-    //   alert("ok");
-    //   toast("Wow so easy!");
-    // } else {
-    //   alert("error");
-    //   toast("Wow so easy!");
-    // }
+    if (posted.status === 200) {
+      alert("Message Sent");
+    } else {
+      alert("Message Not Sent");
+    }
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPhone("");
+    setText("");
   };
 
   return (
@@ -73,7 +118,7 @@ export default function Contact({ posts }) {
       <Meta title="Contact" />
       <WhatsappChat />
       <InnerHead title="Contact Us" />
-      <div className="contact-us-area pt-80 pb-120">
+      <div className="contact-us-area pt-80 pb-90">
         <div className="container">
           <div className="row ">
             <div className="col-lg-12">
@@ -83,7 +128,7 @@ export default function Contact({ posts }) {
                     <div className="row ">
                       <div className="col-lg-6">
                         <div className="contact-left-info mb-5 mb-lg-0">
-                          <h2>Feel free to contact us for any query.</h2>
+                          <h2>Feel free to contact us for any query</h2>
                           <ul className="contact-info-text">
                             <li>
                               <div className="contact-icon">
@@ -125,6 +170,8 @@ export default function Contact({ posts }) {
                       </div>
                       <div className="col-lg-6">
                         <div className="contact-right-form mt-5 mt-lg-0 ">
+                          {alerts ? <Alert variant="danger">{msg}</Alert> : ""}
+
                           <form action="#">
                             <div className="row">
                               <div className="col-lg-6 mb-5">
@@ -135,7 +182,9 @@ export default function Contact({ posts }) {
                                     onChange={(e) =>
                                       setFirstName(e.target.value)
                                     }
+                                    value={fistName}
                                   />
+
                                   <span>
                                     <FaMale />
                                   </span>
@@ -149,6 +198,7 @@ export default function Contact({ posts }) {
                                     onChange={(e) =>
                                       setLastName(e.target.value)
                                     }
+                                    value={lastName}
                                   />
                                   <span>
                                     <FaMale />
@@ -161,6 +211,7 @@ export default function Contact({ posts }) {
                                     type="email"
                                     placeholder="Mail Address *"
                                     onChange={(e) => setEmail(e.target.value)}
+                                    value={email}
                                   />
                                   <span>
                                     <FaEnvelope />
@@ -173,6 +224,7 @@ export default function Contact({ posts }) {
                                     type="tell"
                                     placeholder="Phone Number "
                                     onChange={(e) => setPhone(e.target.value)}
+                                    value={phone}
                                   />
                                   <span>
                                     <FaPhoneAlt />
@@ -186,14 +238,23 @@ export default function Contact({ posts }) {
                                     id=""
                                     onChange={(e) => setService(e.target.value)}
                                   >
-                                    <option value="Web Development">
-                                      Web Development
+                                    <option value="" disabled selected hidden>
+                                      Select Service
                                     </option>
-                                    <option value="Web Design">
-                                      Web Design
+                                    <option value="Web and Software">
+                                      Web & Software
                                     </option>
-                                    <option value="Web Graphics Design">
-                                      Web Graphics Design
+                                    <option value="Product Design">
+                                      Product Design
+                                    </option>
+                                    <option value="Ecommerce Solution">
+                                      Ecommerce Solution
+                                    </option>
+                                    <option value="Digital marketing">
+                                      Digital marketing
+                                    </option>
+                                    <option value="Multimedia and Printing">
+                                      Multimedia & printing
                                     </option>
                                   </select>
                                   <span></span>
@@ -208,6 +269,7 @@ export default function Contact({ posts }) {
                                     rows="10"
                                     placeholder="Message "
                                     onChange={(e) => setText(e.target.value)}
+                                    value={text}
                                   ></textarea>
 
                                   <span>
