@@ -2,6 +2,18 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 
+import client1 from "../public/footer/client- (1).png";
+import client2 from "../public/footer/client- (2).png";
+import client3 from "../public/footer/client- (3).png";
+import client4 from "../public/footer/client- (4).png";
+import client5 from "../public/footer/client- (6).png";
+import client6 from "../public/footer/client- (5).png";
+import client7 from "../public/footer/client- (7).png";
+import client8 from "../public/footer/client- (8).png";
+import client9 from "../public/footer/client- (9).png";
+import client10 from "../public/footer/client- (10).png";
+import client11 from "../public/footer/client- (11).png";
+
 import { FaPhoneAlt } from "react-icons/fa";
 
 SwiperCore.use([Autoplay]);
@@ -41,6 +53,20 @@ export default function Footer() {
     // console.log("posted email", posted);
   };
 
+  const logos = [
+    client1,
+    client2,
+    client3,
+    client4,
+    client5,
+    client6,
+    client7,
+    client8,
+    client9,
+    client10,
+    client11,
+  ];
+
   return (
     <>
       <footer>
@@ -72,61 +98,18 @@ export default function Footer() {
                       disableOnInteraction: false,
                     }}
                   >
-                    <SwiperSlide>
-                      {/* <img src="./footer/item_01.png" alt="" /> */}
+                    {logos.map((item, index) => (
+                      <SwiperSlide>
+                        {/* <img src="./footer/item_01.png" alt="" /> */}
 
-                      <Image
-                        src="/footer/item_01.png"
-                        alt="footer"
-                        width={105}
-                        height={62}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      {/* <img src="./footer/item_02.png" alt="" /> */}
-                      <Image
-                        src="/footer/item_02.png"
-                        alt="footer"
-                        width={105}
-                        height={62}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      {/* <img src="./footer/item_03.png" alt="" /> */}
-                      <Image
-                        src="/footer/item_03.png"
-                        alt="footer"
-                        width={105}
-                        height={62}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      {/* <img src="./footer/item_01.png" alt="" /> */}
-                      <Image
-                        src="/footer/item_01.png"
-                        alt="footer"
-                        width={105}
-                        height={62}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      {/* <img src="./footer/item_01.png" alt="" /> */}
-                      <Image
-                        src="/footer/item_01.png"
-                        alt="footer"
-                        width={105}
-                        height={62}
-                      />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      {/* <img src="./footer/item_01.png" alt="" /> */}
-                      <Image
-                        src="/footer/item_01.png"
-                        alt="footer"
-                        width={105}
-                        height={62}
-                      />
-                    </SwiperSlide>
+                        <Image
+                          src={item}
+                          alt="sfsdfsd"
+                          width={105}
+                          height={62}
+                        />
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
                 </div>
               </div>

@@ -669,7 +669,7 @@ ul.social {
   position: fixed;
   z-index: 323232323;
   top: 0;
-  /* transition: .4s; */
+  transition: 0.3s;
   box-shadow: 0 -13px 36px #000;
 }
 
