@@ -10,8 +10,10 @@ import { server } from "../../config/index";
 
 import { Card } from "react-bootstrap";
 import Link from "next/link";
+import serviceImage from "/public/page-image/service.jpg";
 
 import { FaCloud, FaAngleRight } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Services({ services }) {
   const [allServices, setAllServices] = useState(services);
@@ -26,9 +28,15 @@ export default function Services({ services }) {
 
   return (
     <>
-      <InnerHead title="Service" />
+      <InnerHead title="Service" img={serviceImage} isDynamic={false} />
       <Meta title="Service" />
       <WhatsappChat />
+      {/* <Image
+        src={serviceImage}
+        alt="Picture of the author"
+        layout="fill"
+        className="inner-img"
+      /> */}
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 mt-50">
         <div className="container">

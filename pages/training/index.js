@@ -9,6 +9,8 @@ import { server } from "../../config";
 import Meta from "../../components/Meta";
 import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
+
+import trainingImage from "/public/page-image/training.png";
 export default function Training({ courses }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -21,7 +23,7 @@ export default function Training({ courses }) {
     <>
       <Meta title="training" />
       <WhatsappChat />
-      <InnerHead title="Training" />
+      <InnerHead title="Training" img={trainingImage} isDynamic={false} />
       <div className="portfolio-area">
         <div className="container">
           <div className="row justify-content-center">

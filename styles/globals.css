@@ -134,6 +134,9 @@ h6 {
   font-style: normal;
   text-transform: normal;
 }
+.agailimage {
+  width: 114px !important;
+}
 
 h1 a,
 h2 a,
@@ -2354,11 +2357,25 @@ ul.portfolio-details-info li p {
   color: #133344;
   line-height: 30px;
   text-align: right;
+  width: 63%;
+}
+
+li .spanTitle {
+  font-weight: 800;
+  font-size: 17px;
+}
+
+li .spanPera {
+  font-weight: 300;
+  font-size: 17px;
+  width: 60%;
+  text-align: -webkit-right;
 }
 
 ul.portfolio-details-info li {
   border-bottom: 1px solid #ced6e6;
-  margin-top: 10px;
+  margin-top: 20px;
+  align-items: flex-start;
 }
 
 ul.share {

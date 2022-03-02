@@ -4,7 +4,7 @@ import InnerHead from "../components/innerHead";
 import Meta from "../components/Meta";
 import { useState, useEffect } from "react";
 import MyVerticallyCentredModal from "../components/MyVerticallyCentredModal";
-
+import aboutImage from "/public/page-image/about.jpg";
 import { FaStar } from "react-icons/fa";
 // import { BsPlayFill } from "react-icons/Bs";
 import dynamic from "next/dynamic";
@@ -34,8 +34,26 @@ export default function Abouta({ services }) {
     <>
       <Meta title="About" />
       <WhatsappChat />
-      <InnerHead title="About Us" />
+      {/* <InnerHead title="About Us" img={aboutImage} isDynamic={false} /> */}
       {/* Youtube section */}
+
+      {/* Youtube section */}
+
+      <div className="about-youtube-section-area about-bg">
+        <div className="about-youtube-wrap">
+          <MyVerticallyCentredModal
+            url="https://youtu.be/iO40U7nP6mY"
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
+
+          <div className="ptflo-button">
+            <span onClick={() => setModalShow(true)}>
+              <FaPlay />
+            </span>
+          </div>
+        </div>
+      </div>
       <div className="about-us-area">
         <div className="container">
           <div className="row align-items-center">
@@ -43,7 +61,7 @@ export default function Abouta({ services }) {
               <div className=" about great-experience-left-wrap mb-5 mb-lg-0">
                 <div className="great-experinec-img">
                   <Image
-                    src="/aboutUs/pic-1.png"
+                    src="/aboutUs/about.png"
                     alt="Opediatech"
                     width={456}
                     height={565}
@@ -69,7 +87,7 @@ export default function Abouta({ services }) {
 
                 <div className="ge-info">
                   <h2>
-                    5 <span>+ Years</span>
+                    3 <span>+ Years</span>
                   </h2>
                   <h3>Experience</h3>
                 </div>
@@ -105,23 +123,6 @@ export default function Abouta({ services }) {
                 </Link>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-      {/* Youtube section */}
-
-      <div className="about-youtube-section-area about-bg">
-        <div className="about-youtube-wrap">
-          <MyVerticallyCentredModal
-            url="https://youtu.be/iO40U7nP6mY"
-            show={modalShow}
-            onHide={() => setModalShow(false)}
-          />
-
-          <div className="ptflo-button">
-            <span onClick={() => setModalShow(true)}>
-              <FaPlay />
-            </span>
           </div>
         </div>
       </div>

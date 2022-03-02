@@ -529,6 +529,7 @@
     width: 63px;
     display: inline-block;
     margin-bottom: 13px;
+    display: flex;
   }
   .section-title p {
     font-size: 15px;
@@ -704,6 +705,16 @@
   .view-service-right-wrapper.service .card-text {
     font-size: 13px;
     line-height: 25px;
+  }
+  .specialist-team-area {
+    padding: 50px 0 !important;
+  }
+  .sp-r-section-wrap {
+    justify-content: center !important;
+  }
+  .agailimage {
+    width: 69px !important;
+    display: flex;
   }
 }
 
@@ -1050,6 +1061,16 @@
   }
   .pt-80 {
     padding-top: 0;
+  }
+  .specialist-team-area {
+    padding: 50px 0 !important;
+  }
+  .sp-r-section-wrap {
+    justify-content: center !important;
+  }
+  .agailimage {
+    width: 65px !important;
+    display: flex;
   }
 }
 

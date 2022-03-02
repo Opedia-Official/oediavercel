@@ -3,15 +3,17 @@ import InnerHead from "../components/innerHead";
 import Meta from "../components/Meta";
 import WhatsappChat from "../components/whatsappChat";
 
+import trainingImage from "/public/page-image/privacy.jpg";
+
 function Privacy() {
   return (
     <>
       <Meta title="Privacy" />
       <WhatsappChat />
-      <InnerHead title="Privacy" />
+      <InnerHead title="Privacy" img={trainingImage} isDynamic={false} />
 
       <div
-        style={{ marginTop: "-170px", marginBottom: "20px" }}
+        style={{ marginTop: "0px", marginBottom: "20px" }}
         className="container terms mb-5"
       >
         <div className="div ">

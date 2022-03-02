@@ -16,7 +16,7 @@ import Meta from "../components/Meta";
 import WhatsappChat from "../components/whatsappChat";
 import dynamic from "next/dynamic";
 import { server } from "../config/index";
-
+import contactImage from "/public/page-image/contact.png";
 export default function Contact({ posts }) {
   // all states
   const [fistName, setFirstName] = useState("");
@@ -117,7 +117,7 @@ export default function Contact({ posts }) {
     <>
       <Meta title="Contact" />
       <WhatsappChat />
-      <InnerHead title="Contact Us" />
+      <InnerHead title="Contact Us" img={contactImage} isDynamic={false} />
       <div className="contact-us-area pt-80 pb-90">
         <div className="container">
           <div className="row ">

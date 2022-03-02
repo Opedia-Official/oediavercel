@@ -39,7 +39,7 @@ function PricingCard({ item, index }) {
             <Card.Title>
               <h4
                 style={{
-                  marginTop: index === 1 && "27px",
+                  marginTop: index === 1 && "32px",
                   padding: index === 1 && "16px 0px 6px",
                 }}
               >

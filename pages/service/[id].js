@@ -4,7 +4,7 @@ import Style from "../../styles/singleService.module.css";
 import dynamic from "next/dynamic";
 import WhatsappChat from "../../components/whatsappChat";
 import Image from "next/image";
-
+import InnerHead from "../../components/innerHead";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { server } from "../../config";
@@ -55,6 +55,7 @@ function SinglePage({ singleService, training }) {
 
   const [leftCategory, setLeftCategory] = useState([]);
   const [featureImage, setFeatureImage] = useState(null);
+  const [servicesSingle, setServicesSingle] = useState(training);
 
   useEffect(() => {
     axios.get(`${server}/api/service-category/${id}`).then((res) => {
@@ -67,16 +68,15 @@ function SinglePage({ singleService, training }) {
       console.log("all left categories: ", res.data);
       setLeftCategory(res.data);
     });
+    setServicesSingle(training);
   }, [id]);
 
-  console.log("leftCategory: singleService", singleService);
+  console.log("Params ID", id);
 
   return (
     <div className="container my-5 py-5">
       <WhatsappChat />
-
       <Meta title={id} />
-
       <div className={"row"}>
         <div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">
           <div className="">
@@ -91,7 +91,7 @@ function SinglePage({ singleService, training }) {
 
             <ServiceDetails
               setFeatureImage={setFeatureImage}
-              training={training}
+              training={servicesSingle}
               slug={id}
             />
           </div>
@@ -114,42 +114,42 @@ function SinglePage({ singleService, training }) {
             </div>
           </div>
           {/* <div className={Style.opningHour}>
-            <h2 className={Style.title}>Opening Hours</h2>
+        <h2 className={Style.title}>Opening Hours</h2>
 
-            <div className={Style.option}>
-              <p>Monday - Friday</p>
-              <p>9.00 - 20.00</p>
-            </div>
-            <div className={Style.option}>
-              <p>Monday - Friday</p>
-              <p>9.00 - 20.00</p>
-            </div>
-            <div className={Style.option}>
-              <p>Monday - Friday</p>
-              <p>9.00 - 20.00</p>
-            </div>
-            <div className={Style.serviceBtn}>
-              <Link href="/service">
-                <a>Service Details </a>
-                <a >Service Details <BsArrowRightCircleFill />{" "}</a>
-              </Link>
-            </div>
-          </div> */}
+        <div className={Style.option}>
+          <p>Monday - Friday</p>
+          <p>9.00 - 20.00</p>
+        </div>
+        <div className={Style.option}>
+          <p>Monday - Friday</p>
+          <p>9.00 - 20.00</p>
+        </div>
+        <div className={Style.option}>
+          <p>Monday - Friday</p>
+          <p>9.00 - 20.00</p>
+        </div>
+        <div className={Style.serviceBtn}>
+          <Link href="/service">
+            <a>Service Details </a>
+            <a >Service Details <BsArrowRightCircleFill />{" "}</a>
+          </Link>
+        </div>
+      </div> */}
           {/* <div className="mt-5">
-            <h2 className={Style.title}>Image Gallery</h2>
-            <img
-              className={Style.imgGalery}
-              src="https://images.unsplash.com/photo-1640622661329-67f406a77d53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-              alt=""
-            />
-          </div>
-          <div>
-            <h2 className={Style.title}>Services</h2>
-            <p className={Style.pera}>
-              Lorem ipsum dolor sit amet consect sit amet consect sit amet
-              consect
-            </p>
-          </div> */}
+        <h2 className={Style.title}>Image Gallery</h2>
+        <img
+          className={Style.imgGalery}
+          src="https://images.unsplash.com/photo-1640622661329-67f406a77d53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+          alt=""
+        />
+      </div>
+      <div>
+        <h2 className={Style.title}>Services</h2>
+        <p className={Style.pera}>
+          Lorem ipsum dolor sit amet consect sit amet consect sit amet
+          consect
+        </p>
+      </div> */}
         </div>
       </div>
     </div>
@@ -159,8 +159,8 @@ function SinglePage({ singleService, training }) {
 export default SinglePage;
 
 function ServiceDetails({ slug, setFeatureImage, training }) {
+  // const [content, setContent] = useState("");
   const [content, setContent] = useState(training);
-  console.log(training);
 
   // useEffect(() => {
   //   const marketingData = axios
@@ -175,10 +175,12 @@ function ServiceDetails({ slug, setFeatureImage, training }) {
 
   useEffect(() => {
     setFeatureImage(content.featured_img);
-  }, [slug]);
+    setContent(training);
+  }, [slug, training]);
+
   return (
     <>
-      <Meta title={content?.service_title} />
+      {/* <Meta title={content?.service_title} /> */}
       {content ? <h2 className={Style.title}>{content?.service_title}</h2> : ""}
       {content ? (
         <div

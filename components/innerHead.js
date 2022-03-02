@@ -4,14 +4,17 @@ import { FaHome } from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import { server } from "../config/index";
-export default function InnerHead({ title, img }) {
+
+export default function InnerHead({ title, img, isDynamic }) {
+  // const imageValue = isDynamic ? `${server}/${img}` : `${img}`;
+  console.log(typeof isDynamic);
   return (
     <>
       <div className="hero-section-area innerHeadArea">
         <div className={" Hero-top-section" + " " + " " + "InnerHead"}>
           <Image
-            src={img ? server + "/" + img : "/hero/banner.png"}
-            alt="Picture of the author"
+            src={isDynamic == false ? img : `${server}/${img}`}
+            alt="Picture of the blah"
             layout="fill"
             className="inner-img"
           />

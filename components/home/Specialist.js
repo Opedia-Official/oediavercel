@@ -49,7 +49,7 @@ export default function Specialist() {
                 </div>
               </li>
               <li className="sp-item">
-                <span style={{ width: "111px" }}>
+                <span className="agailimage">
                   <FaRegLightbulb />
                 </span>
                 <div className="sp-item-info mb-5 mb-md-0">
@@ -94,7 +94,7 @@ export default function Specialist() {
                   height={210}
                 /> */}
               </div>
-              <div className="sp-img-r-child wow bounceIn">
+              <div className="sp-img-r-child d-none d-md-block wow bounceIn">
                 {/* <img src="./specialist/pic-2.jpg" alt="" /> */}
 
                 <Image

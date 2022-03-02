@@ -14,9 +14,9 @@ export default function TrainingDetails({ training }) {
   return (
     <>
       <Meta title={training?.title} />
-      <InnerHead title={training?.title} />
+      {/* <InnerHead title={training?.title} img={training?.Featured_img} /> */}
       <WhatsappChat />
-      <div className="portfolio-details mb-100">
+      <div className="portfolio-details mt-50 mb-100">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 mb-5 mb-lg-0">
@@ -50,32 +50,38 @@ export default function TrainingDetails({ training }) {
 
                 <ul className="portfolio-details-info">
                   <li>
-                    <h4>Course Name :</h4>
-                    <p>{training?.course_name}</p>
+                    <span className="spanTitle">Course Name :</span>
+                    <span className="spanPera">{training?.course_name}</span>
                   </li>
                   <li>
-                    <h4>Duration :</h4>
-                    <p>{training?.duration}</p>
+                    <span className="spanTitle">Duration :</span>
+                    <span className="spanPera">{training?.duration}</span>
                   </li>
                   <li>
-                    <h4>Classes :</h4>
-                    <p>{training?.classes}</p>
+                    <span className="spanTitle">Classes :</span>
+                    <span className="spanPera">{training?.classes}</span>
                   </li>
                   <li>
-                    <h4>Pre-Requirement :</h4>
-                    <p>{training?.pre_requirement}</p>
+                    <span className="spanTitle">Pre-Requirement :</span>
+                    <span className="spanPera">
+                      {training?.pre_requirement}
+                    </span>
                   </li>
                   <li>
-                    <h4>System Config :</h4>
-                    <p>{training?.system_config}</p>
+                    <span className="spanTitle">System Config :</span>
+                    <span className="spanPera">{training?.system_config}</span>
                   </li>
                   <li>
-                    <h4>Course Fee Online :</h4>
-                    <p>{training?.course_fee_online}</p>
+                    <span className="spanTitle">Course Fee Online :</span>
+                    <span className="spanPera">
+                      {training?.course_fee_online}
+                    </span>
                   </li>
                   <li>
-                    <h4>Course Fee Offline :</h4>
-                    <p>{training?.course_fee_offline}</p>
+                    <span className="spanTitle">Course Fee Offline :</span>
+                    <span className="spanPera">
+                      {training?.course_fee_offline}
+                    </span>
                   </li>
                 </ul>
               </div>

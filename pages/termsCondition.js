@@ -3,14 +3,20 @@ import InnerHead from "../components/innerHead";
 import Meta from "../components/Meta";
 import WhatsappChat from "../components/whatsappChat";
 
+import trainingImage from "/public/page-image/types.jpg";
+
 function termsCondition() {
   return (
     <>
       <Meta title="Terms & condition" />
       <WhatsappChat />
-      <InnerHead title="Terms & condition" />
+      <InnerHead
+        title="Terms & condition"
+        img={trainingImage}
+        isDynamic={false}
+      />
       <div
-        style={{ marginTop: "-170px", marginBottom: "20px" }}
+        style={{ marginTop: "0px", marginBottom: "20px" }}
         className="container terms mb-5"
       >
         <div className="div ">
