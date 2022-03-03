@@ -1416,7 +1416,7 @@ ul.social {
 }
 
 .progress-info {
-  margin-top: 55px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -1428,6 +1428,7 @@ ul.social {
 
 .progressbar-wrap > svg {
   width: 150px;
+  margin-top: 20px;
 }
 
 .CircularProgressbar .CircularProgressbar-path {
