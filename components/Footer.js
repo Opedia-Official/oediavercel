@@ -93,19 +93,24 @@ export default function Footer() {
                       },
                     }}
                     loop={true}
-                    autoplay={{
-                      delay: 2500,
-                      disableOnInteraction: false,
-                    }}
+                    // autoplay={{
+                    //   delay: 2500,
+                    //   disableOnInteraction: false,
+                    // }}
                   >
                     {logos.map((item, index) => (
                       <SwiperSlide key={index}>
                         <Image
                           src={item}
                           alt="sfsdfsd"
+<<<<<<< HEAD
                           width={105}
                           height={62}
                           
+=======
+                          width={118}
+                          height={75}
+>>>>>>> a0f6ccc6e6f6da31da499fcb03d4ab6e1044a977
                         />
                       </SwiperSlide>
                     ))}
