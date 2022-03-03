@@ -14,40 +14,6 @@ import Meta from "../../components/Meta";
 import Link from "next/link";
 import { Spinner } from "react-bootstrap";
 
-// export const getStaticPaths = async() => {
-//   const { id } = router.query;
-
-//   const res = await fetch(`${server}/api/service`);
-//   const services = await res.json();
-
-//   const paths = services.map(item => {
-//     console.log("logged item", item)
-//     return {
-//       params: {id: item.id}
-//     }
-//   })
-
-//   return {
-//     paths,
-//     fallback: false
-
-// }
-// }
-
-// export async function getStaticProps(context) {
-
-//   const id = context.params.id
-
-//   const res = await fetch(`${server}/api/service-category/${id}`);
-//   const singleService = await res.json();
-
-//   return {
-//     props: {
-//       singleService,
-//     },
-//     revalidate: 10,
-//   };
-// }
 
 function SinglePage({ singleService, training }) {
   const router = useRouter();
@@ -86,6 +52,7 @@ function SinglePage({ singleService, training }) {
                 alt="footer"
                 width={750}
                 height={450}
+                priority
               />
             )}
 

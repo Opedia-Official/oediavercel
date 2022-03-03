@@ -14,9 +14,11 @@ import serviceImage from "/public/page-image/service.jpg";
 
 import { FaCloud, FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
+import SectionTitle from '../../components/SectionTitle'
+import ThreeDCard from 'react-animated-3d-card'
 
-export default function Services({ services }) {
-  const [allServices, setAllServices] = useState(services);
+export default function Services({ categories }) {
+  // const [allServices, setAllServices] = useState(services);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -25,87 +27,123 @@ export default function Services({ services }) {
 
     new WOW.WOW().init();
   }, []);
+  console.log(categories)
 
   return (
     <>
       <InnerHead title="Service" img={serviceImage} isDynamic={false} />
       <Meta title="Service" />
       <WhatsappChat />
-      {/* <Image
-        src={serviceImage}
-        alt="Picture of the author"
-        layout="fill"
-        className="inner-img"
-      /> */}
-      {/* VIEW SERVICE AREA */}
-      <div className="view-service-page mb-100 mt-50">
+     
+      <div className="service-all-area">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="section-title text-center mb-50">
-                <h5>Services</h5>
-                <h3>Our Services</h3>
-              </div>
-            </div>
-          </div>
-          {/* <p>{allServices.length}</p> */}
           <div className="row">
-            <div
-              className="col-md-12  wow fadeIn"
-              data-wow-duration="1s"
-              data-wow-delay="0.8s"
-            >
-              <div className={"view-service-right-wrapper service"}>
-                <div className="row">
-                  {allServices.length > 0
-                    ? allServices.map((item) => (
-                        <div
-                          key={item.id}
-                          className="col-lg-4 col-sm-6 mb-5 wow fadeIn wow fadeIn"
-                        >
-                          {/* <ServiceItem item={item} /> */}
-                          <Card>
-                            <Card.Body>
-                              <FaCloud />
-                              <Card.Title>{item.service_title}</Card.Title>
-                              <Card.Text>
-                                <div
-                                  dangerouslySetInnerHTML={{
-                                    __html: `${item.service_desc}`,
-                                  }}
-                                ></div>
-
-                                <div>
-                                  <Link href={`/service/${item.service_slug}`}>
-                                    <a>
-                                      Service Details <FaAngleRight />
-                                    </a>
-                                  </Link>
-                                </div>
-                              </Card.Text>
-                            </Card.Body>
-                          </Card>
+            <div className="col-md-12">
+              {
+                 categories?.map(category=>(
+                  <div className="service-all-wrap mb-40">
+                  <div className="row align-items-center">
+                    <div className="col-md-5">
+                        <div className="service-all-left">
+                        <ThreeDCard  style={{
+                          width: '450px',
+                          height: '500px',
+                          cursor: 'pointer',
+                          backgroundImage:`url(${server}/${category.image})`,
+                          
+                        }}/>
                         </div>
-                      ))
-                    : "Loading..."}
-                </div>
+                    </div>
+                    <div className="col-md-7">
+                        <div className="service-all-right">
+                              <div className="section-title">
+                                  <h3 style={{color:'#Fff'}}>{category.category_name}</h3>
+                              </div>
+                              <SingleService singleCategory = {category} />
+                        </div>
+                    </div>
+                  </div>
               </div>
+                 ))
+              }
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+      
       {/* VIEW SERVICE AREA */}
     </>
   );
 }
 
+
+
+function SingleService({ singleCategory }) {
+  const [serviceItems, setServiceItems] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(`${server}/api/service-category/${singleCategory.category_slug}`)
+      .then((res) => {
+        setServiceItems(res.data.data);
+      });
+  }, []);
+
+
+  return (
+    <>
+    <div className="serviceItems-featured">
+    <ul>
+      <div className="row">
+        {
+        serviceItems?.map((item,index)=>(
+          item.isFeatured ==1 && (
+                index%2 == 0 ? <div className="col-md-6">
+                <li><a href="#">{item.service_title}</a></li>
+              </div> : <div className="col-md-6">
+                <li><a href="#">{item.service_title}</a></li>
+              </div>
+              
+            
+            )
+            ))
+          }
+          </div>
+        </ul>
+      </div>
+
+          {/* Non featured */}
+          <div className="serviceItems-nonfeatured">
+          <div className="row">
+            <div className="col-md-12">
+                <ul>
+                  {
+                  serviceItems?.map(item=>(
+                    item.isFeatured ==0 && (<li><a href="#">{item.service_title}</a></li>
+                    )
+                  ))
+                  }
+              </ul>
+            </div>
+          </div>
+        </div>    
+    </>
+  );
+}
+
+
+
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/service`);
-  const services = await res.json();
+  const res = await fetch(`${server}/api/serviceAllCategory`);
+  const categories = await res.json();
 
   return {
     props: {
-      services,
+      categories,
     },
     revalidate: 10,
   };

@@ -55,15 +55,15 @@ export default function Contact({ posts }) {
 
     if (fistName == "") {
       setAlert(true);
-      setMsg("Put the first Name");
+      setMsg("Put your first Name");
       return false;
     } else if (lastName == "") {
       setAlert(true);
-      setMsg("Put the Last Name");
+      setMsg("Put your Last Name");
       return false;
     } else if (email == "") {
       setAlert(true);
-      setMsg("Put the email");
+      setMsg("Put your email");
       return false;
     } else if (regex.test(String(email).toLowerCase()) == false) {
       setAlert(true);
@@ -71,15 +71,15 @@ export default function Contact({ posts }) {
       return false;
     } else if (phone == "") {
       setAlert(true);
-      setMsg("Put the Phone Number");
+      setMsg("Put your Phone Number");
       return false;
     } else if (text == "") {
       setAlert(true);
-      setMsg("Put the Text");
+      setMsg("Put your Text");
       return false;
     } else if (service == "") {
       setAlert(true);
-      setMsg("Put the service name");
+      setMsg("Put your service name");
       return false;
     } else {
       setAlert(true);

@@ -128,7 +128,7 @@ export default function Abouta({ services }) {
       </div>
 
       {/* CLIENTS FEEDBACK */}
-      <div className="about-client-feedback-area mb-120">
+      <div className="about-client-feedback-area mt-140 mb-120">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">

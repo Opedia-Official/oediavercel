@@ -32,6 +32,7 @@ export default function TrainingDetails({ training }) {
                     alt="footer"
                     width={570}
                     height={495}
+                    priority
                   />
                   {/* <img src={`${server}/${training?.Featured_img}`} alt="" /> */}
                 </div>

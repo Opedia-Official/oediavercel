@@ -5,6 +5,7 @@ import {
   FaSearchLocation,
   FaVideo,
   FaBandcamp,
+  FaJsfiddle
 } from "react-icons/fa";
 
 import CountUp from "react-countup";
@@ -20,7 +21,7 @@ export default function Home({ projectsAll }) {
             <div className="pCounterWrap">
               <div className="counter-up-wrap mb-5 mb-md-0">
                 <span>
-                  <FaChalkboard />
+                  <FaJsfiddle />
                 </span>
                 <h3>
                   {" "}
