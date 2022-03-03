@@ -99,14 +99,13 @@ export default function Footer() {
                     }}
                   >
                     {logos.map((item, index) => (
-                      <SwiperSlide>
-                        {/* <img src="./footer/item_01.png" alt="" /> */}
-
+                      <SwiperSlide key={index}>
                         <Image
                           src={item}
                           alt="sfsdfsd"
                           width={105}
                           height={62}
+                          
                         />
                       </SwiperSlide>
                     ))}

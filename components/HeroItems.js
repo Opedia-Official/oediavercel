@@ -114,7 +114,7 @@ export default class AsNavFor extends Component {
                 data-wow-duration="3s"
               >
                 <div className="hero-right pt-40 ">
-                  <Image src="/hero/pic-1.png" alt="opediatech" layout="fill" />
+                  <Image src="/hero/pic-1.png" alt="opediatech" layout="fill" priority />
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ export default class AsNavFor extends Component {
 
               <div className="col-md-6">
                 <div className="hero-right pt-40 ">
-                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" />
+                  <Image src="/hero/pic-4.png" alt="opediatech" layout="fill" priority />
                 </div>
               </div>
             </div>
