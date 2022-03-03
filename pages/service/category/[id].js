@@ -3,6 +3,7 @@ import InnerHead from "../../../components/innerHead";
 
 import WhatsappChat from "../../../components/whatsappChat";
 import { useEffect } from "react";
+import { FaAngleRight } from "react-icons/fa";
 
 import ServiceItem from "../serviceItem";
 import { useRouter } from "next/router";
@@ -10,6 +11,8 @@ import { useState } from "react";
 import axios from "axios";
 import { server } from "../../../config";
 import Meta from "../../../components/Meta";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function CateWiseServices({ services }) {
   const router = useRouter();
@@ -26,6 +29,8 @@ export default function CateWiseServices({ services }) {
   const [service, setService] = useState(null);
   const [descriptionCat, setDescriptionCat] = useState("");
   const [imageCat, setImageCat] = useState("");
+
+  console.log("service", service);
 
   useEffect(() => {
     axios.get(`${server}/api/service-category/${id}`).then((res) => {
@@ -46,6 +51,25 @@ export default function CateWiseServices({ services }) {
       <InnerHead title={servicesTitle} img={imageCat} />
       <Meta title={servicesTitle} />
       <WhatsappChat />
+
+      {/* <div key={10} className="col-lg-4 col-sm-6">
+        <div className="portfolio-items mb-100">
+          <Card>
+            <Card.Img src={`${server}/${course.Featured_img}`} />
+          </Card>
+          <div className="portfolio-info">
+            <span>course.title</span>
+            <h2>course.course_name</h2>
+            <div>
+              <Link href={`/training/`}>
+                <a>
+                  View details <FaAngleRight />
+                </a>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div> */}
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 ">
         <div className="container">
@@ -84,11 +108,38 @@ export default function CateWiseServices({ services }) {
                   {service?.length > 0 ? (
                     service ? (
                       service?.map((item) => (
-                        <div
-                          key={item.id}
-                          className="col-lg-4 col-sm-6 mb-5 wow fadeIn wow fadeIn"
-                        >
-                          <ServiceItem item={item} />
+                        <div key={item.id} className="col-lg-4 col-sm-6">
+                          {/* <ServiceItem item={item} /> */}
+                          <div key={10}>
+                            <div className="portfolio-items mb-100">
+                              <Card>
+                                <Image
+                                  // src="/blog/pic-1.png"
+                                  src={`${server}/${item.featured_img}`}
+                                  alt="footer"
+                                  width={370}
+                                  height={367}
+                                />
+                                {/* <Card.Img src={`${server}/${course.Featured_img}`} /> */}
+                              </Card>
+                              <div className="portfolio-info">
+                                <span>{servicesTitle}</span>
+                                <h2>{item?.service_title}</h2>
+                                <div>
+                                  {/* <Link href={`/training/`}>
+                                    <a>
+                                      View details <FaAngleRight />
+                                    </a>
+                                  </Link> */}
+                                  <Link href={`/service/${item?.service_slug}`}>
+                                    <a>
+                                      Service Details <FaAngleRight />
+                                    </a>
+                                  </Link>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       ))
                     ) : (
