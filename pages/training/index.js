@@ -23,15 +23,15 @@ export default function Training({ courses }) {
     <>
       <Meta title="training" />
       <WhatsappChat />
-      <InnerHead title="Training" img={trainingImage} isDynamic={false} />
-      <div className="portfolio-area">
-        <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-6">
-              <div className="section-title text-center mt-100 mb-50">
-                <h5>Courses</h5>
-                <h3>Our Best Courses</h3>
-              </div>
+  
+      <div className="portfolio-area ">
+        <div className="container mt-50">
+          <div className="row ">
+          <div className="col-md-8 offset-md-2">
+                <div className="section-title text-center mb-40">
+                      <h3>Courses We Provide</h3>
+                      <p style={{textAlign:'center'}} >Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae non commodi magnam aliquam nisi fugiat quasi eveniet quas rem neque soluta minima delectus dignissimos illo, qui, eius velit. Temporibus, cupiditate?</p>
+                </div>
             </div>
           </div>
           <div

@@ -16,6 +16,7 @@ import { FaCloud, FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
 import SectionTitle from '../../components/SectionTitle'
 import ThreeDCard from 'react-animated-3d-card'
+import { Spinner } from "react-bootstrap";
 
 export default function Services({ categories }) {
   // const [allServices, setAllServices] = useState(services);
@@ -31,40 +32,49 @@ export default function Services({ categories }) {
 
   return (
     <>
-      <InnerHead title="Service" img={serviceImage} isDynamic={false} />
+      {/* <InnerHead title="Service" img={serviceImage} isDynamic={false} /> */}
       <Meta title="Service" />
       <WhatsappChat />
-     
-      <div className="service-all-area">
+
+      <div className="service-all-area mt-50">
         <div className="container">
           <div className="row">
+            <div className="col-md-8 offset-md-2">
+              <div className="section-title text-center mb-40">
+                <h3>Services We Provide</h3>
+                <p style={{ textAlign: 'center' }} >Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae non commodi magnam aliquam nisi fugiat quasi eveniet quas rem neque soluta minima delectus dignissimos illo, qui, eius velit. Temporibus, cupiditate?</p>
+              </div>
+            </div>
+
             <div className="col-md-12">
               {
-                 categories?.map(category=>(
-                  <div className="service-all-wrap mb-40">
-                  <div className="row align-items-center">
-                    <div className="col-md-5">
+                categories?.map(category => (
+                  <div key={category.id} className="service-all-wrap mb-40">
+                    <div className="row align-items-center">
+                      <div className="col-md-5">
                         <div className="service-all-left">
-                        <ThreeDCard  style={{
-                          width: '450px',
-                          height: '500px',
-                          cursor: 'pointer',
-                          backgroundImage:`url(${server}/${category.image})`,
-                          
-                        }}/>
+                          <ThreeDCard style={{
+                            width: '400px',
+                            height: '435px',
+                            cursor: 'pointer',
+                            backgroundImage: `url(${server}/${category.image})`,
+
+                          }} />
                         </div>
-                    </div>
-                    <div className="col-md-7">
+                      </div>
+                      <div className="col-md-7">
                         <div className="service-all-right">
-                              <div className="section-title">
-                                  <h3 style={{color:'#Fff'}}>{category.category_name}</h3>
-                              </div>
-                              <SingleService singleCategory = {category} />
+                          <div className="section-title">
+                            <h3 style={{ color: '#Fff' }}>{category.category_name}</h3>
+                          </div>
+                          <SingleService singleCategory={category} />
+
+
                         </div>
+                      </div>
                     </div>
                   </div>
-              </div>
-                 ))
+                ))
               }
             </div>
           </div>
@@ -74,12 +84,11 @@ export default function Services({ categories }) {
 
 
 
-      
+
       {/* VIEW SERVICE AREA */}
     </>
   );
 }
-
 
 
 function SingleService({ singleCategory }) {
@@ -96,41 +105,77 @@ function SingleService({ singleCategory }) {
 
   return (
     <>
-    <div className="serviceItems-featured">
-    <ul>
-      <div className="row">
-        {
-        serviceItems?.map((item,index)=>(
-          item.isFeatured ==1 && (
-                index%2 == 0 ? <div className="col-md-6">
-                <li><a href="#">{item.service_title}</a></li>
-              </div> : <div className="col-md-6">
-                <li><a href="#">{item.service_title}</a></li>
-              </div>
-              
-            
-            )
-            ))
-          }
-          </div>
-        </ul>
-      </div>
-
-          {/* Non featured */}
-          <div className="serviceItems-nonfeatured">
-          <div className="row">
-            <div className="col-md-12">
-                <ul>
+      {
+        serviceItems.length > 0 ?
+          <div>
+            <div className="serviceItems-featured">
+              <ul>
+                <div className="row">
                   {
-                  serviceItems?.map(item=>(
-                    item.isFeatured ==0 && (<li><a href="#">{item.service_title}</a></li>
-                    )
-                  ))
+                    serviceItems?.map((item, index) => (
+                      item.isFeatured == 1 && (
+                        index % 2 == 0 ? <div key={item.id} className="col-md-6">
+                          <li>
+                            <Link href={`service/${item.service_slug}`}>
+                              <a >{item.service_title}</a>
+                            </Link>
+
+                          </li>
+                        </div> : <div key={item.id} className="col-md-6">
+                          <li >
+                            <Link href={`service/${item.service_slug}`}>
+                              <a >{item.service_title}</a>
+                            </Link>
+                          </li>
+                        </div>
+
+
+                      )
+                    ))
                   }
+                </div>
               </ul>
             </div>
+
+
+            <div className="serviceItems-nonfeatured">
+              <div className="row">
+                <div className="col-md-12">
+                  <ul>
+                    <div className="row">
+                      {
+                        serviceItems?.map((item, index) => (
+                          item.isFeatured == 0 && (
+                            index % 2 == 0 ? <div key={item.id} className="col-md-6">
+                              <li>
+                                <Link href={`service/${item.service_slug}`}>
+                                  <a >{item.service_title}</a>
+                                </Link>
+
+                              </li>
+                            </div> : <div key={item.id} className="col-md-6">
+                              <li >
+                                <Link href={`service/${item.service_slug}`}>
+                                  <a >{item.service_title}</a>
+                                </Link>
+                              </li>
+                            </div>
+
+
+                          )
+                        ))
+                      }
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div> : <div className="  d-flex justify-content-center align-items-center pt-50">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden text-center">Loading...</span>
+            </Spinner>
           </div>
-        </div>    
+      }
     </>
   );
 }

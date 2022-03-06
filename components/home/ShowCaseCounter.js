@@ -20,9 +20,9 @@ export default function Home({ projectsAll }) {
           <div className="row justify-content-center">
             <div className="pCounterWrap">
               <div className="counter-up-wrap mb-5 mb-md-0">
-                <span>
+                {/* <span>
                   <FaJsfiddle />
-                </span>
+                </span> */}
                 <h3>
                   {" "}
                   <CountUp end={133} />{" "}
@@ -30,19 +30,19 @@ export default function Home({ projectsAll }) {
                 <p> Web & Soft </p>
               </div>
               <div className="counter-up-wrap mb-5 mb-md-0">
-                <span>
+                {/* <span>
                   <FaSearchLocation />
-                </span>
+                </span> */}
                 <h3>
                   {" "}
                   <CountUp end={118} />{" "}
                 </h3>
-                <p>SEO </p>
+                <p>Digital Marketing </p>
               </div>
               <div className="counter-up-wrap mb-5 mb-md-0">
-                <span>
+                {/* <span>
                   <FaVideo />
-                </span>
+                </span> */}
                 <h3>
                   {" "}
                   <CountUp end={221} />{" "}
@@ -50,9 +50,9 @@ export default function Home({ projectsAll }) {
                 <p>Motion Graphics </p>
               </div>
               <div className="counter-up-wrap">
-                <span>
+                {/* <span>
                   <FaBandcamp />
-                </span>
+                </span> */}
                 <h3>
                   {" "}
                   <CountUp end={53} />{" "}

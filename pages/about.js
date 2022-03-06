@@ -78,12 +78,12 @@ export default function Abouta({ services }) {
                   src="./aboutUs/reactangle.png"
                   alt=""
                 />
-                <span
+                {/* <span
                   onClick={() => setModalShow(true)}
                   className="youtube-play "
                 >
                   <FaPlay />
-                </span>
+                </span> */}
 
                 <div className="ge-info">
                   <h2>
@@ -93,18 +93,18 @@ export default function Abouta({ services }) {
                 </div>
               </div>
             </div>
-            <MyVerticallyCentredModal
+            {/* <MyVerticallyCentredModal
               url="https://youtu.be/iO40U7nP6mY"
               show={modalShow}
               onHide={() => setModalShow(false)}
-            />
+            /> */}
             <div className="col-lg-6 wow slideInRight" data-wow-duration="1s">
               <div className="about great-exp-right ">
                 <p className="a-title-top">Great Experience In Building</p>
                 <div className="section-title">
                   <h5> About Company</h5>
-                  <h3>
-                    We team of experience <br />
+                  <h3 >
+                    We team of experience
                     IT Specialties.
                   </h3>
                   <p>

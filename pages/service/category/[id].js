@@ -28,28 +28,30 @@ export default function CateWiseServices({ services }) {
 
   const [service, setService] = useState(null);
   const [descriptionCat, setDescriptionCat] = useState("");
-  const [imageCat, setImageCat] = useState("");
+  const [seo, setSeo] = useState("");
 
-  console.log("service", service);
+  // console.log("service", service);
 
   useEffect(() => {
     axios.get(`${server}/api/service-category/${id}`).then((res) => {
-      console.log("allData Single compornent single data ", res.data.data);
+      // console.log("allData Single compornent single data ", res.data.data);
       setService(res.data.data);
       setDescriptionCat(res.data.desc);
-      setImageCat(res.data.image);
+      setSeo(res.data.seo_desc);
     });
   }, [id]);
 
-  console.log("services id3..3: ", id);
+  // console.log("services id3..3: ", id);
+
 
   const servicesTitle =
     id && id.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, " ");
 
+
   return (
     <>
-      <InnerHead title={servicesTitle} img={imageCat} />
-      <Meta title={servicesTitle} />
+      {/* <InnerHead title={servicesTitle} img={imageCat} /> */}
+      <Meta title={servicesTitle} description={seo} />
       <WhatsappChat />
 
       {/* <div key={10} className="col-lg-4 col-sm-6">
@@ -73,27 +75,12 @@ export default function CateWiseServices({ services }) {
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 ">
         <div className="container">
-          <div className="row justify-content-center">
-            <div className="col-md-12">
-              <div className="section-titlee text-center mb-50">
-                <p style={{ textAlign: "center" }}>
-                  {descriptionCat.length && (
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: `${descriptionCat}`,
-                      }}
-                      // className={Style?.pera}
-                    ></div>
-                  )}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="row justify-content-center">
+
+          <div className="row justify-content-center mt-50">
             <div className="col-md-6">
               <div className="section-title text-center mb-50">
-                <h5>Services</h5>
-                <h3>Our Services</h3>
+                {/* <h5>Services</h5> */}
+                <h3>{servicesTitle}</h3>
               </div>
             </div>
           </div>
@@ -156,6 +143,24 @@ export default function CateWiseServices({ services }) {
                     </div>
                   )}
                 </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row justify-content-center mt-50">
+            <div className="col-md-12">
+              <div className="section-titlee text-center mb-50">
+                <p style={{ textAlign: "center" }}>
+                  {descriptionCat.length && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: `${descriptionCat}`,
+                      }}
+                    // className={Style?.pera}
+                    ></div>
+                  )}
+                </p>
               </div>
             </div>
           </div>

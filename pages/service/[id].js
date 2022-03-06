@@ -23,26 +23,27 @@ function SinglePage({ singleService, training }) {
   const [featureImage, setFeatureImage] = useState(null);
   const [servicesSingle, setServicesSingle] = useState(training);
 
+
   useEffect(() => {
     axios.get(`${server}/api/service-category/${id}`).then((res) => {
-      console.log("allData Single compornent single data ", res.data.data);
+      // console.log("allData Single compornent single data ", res.data.data);
       setService(res.data.data);
+
       setDescriptionCat(res.data.desc);
     });
 
     axios.get(`${server}/api/releted-service/${id}`).then((res) => {
-      console.log("all left categories: ", res.data);
+      // console.log("all left categories: ", res.data);
       setLeftCategory(res.data);
     });
     setServicesSingle(training);
   }, [id]);
-
-  console.log("Params ID", id);
+  // console.log(servicesSingle.seo_description);
 
   return (
     <div className="container my-5 py-5">
       <WhatsappChat />
-      <Meta title={id} />
+      <Meta title={id} description={servicesSingle?.seo_description} />
       <div className={"row"}>
         <div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">
           <div className="">
@@ -65,7 +66,7 @@ function SinglePage({ singleService, training }) {
         </div>
         <div className={"col-lg-4 col-md-6 col-sm-12 col-xs-12 px-5"}>
           <div className="sidebarSingle">
-            <h2 className={Style.title}>All Sections </h2>
+            <h2 className={Style.title}>Related Service </h2>
 
             <div className={Style.service}>
               <ul>
@@ -80,43 +81,7 @@ function SinglePage({ singleService, training }) {
               </ul>
             </div>
           </div>
-          {/* <div className={Style.opningHour}>
-        <h2 className={Style.title}>Opening Hours</h2>
 
-        <div className={Style.option}>
-          <p>Monday - Friday</p>
-          <p>9.00 - 20.00</p>
-        </div>
-        <div className={Style.option}>
-          <p>Monday - Friday</p>
-          <p>9.00 - 20.00</p>
-        </div>
-        <div className={Style.option}>
-          <p>Monday - Friday</p>
-          <p>9.00 - 20.00</p>
-        </div>
-        <div className={Style.serviceBtn}>
-          <Link href="/service">
-            <a>Service Details </a>
-            <a >Service Details <BsArrowRightCircleFill />{" "}</a>
-          </Link>
-        </div>
-      </div> */}
-          {/* <div className="mt-5">
-        <h2 className={Style.title}>Image Gallery</h2>
-        <img
-          className={Style.imgGalery}
-          src="https://images.unsplash.com/photo-1640622661329-67f406a77d53?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-          alt=""
-        />
-      </div>
-      <div>
-        <h2 className={Style.title}>Services</h2>
-        <p className={Style.pera}>
-          Lorem ipsum dolor sit amet consect sit amet consect sit amet
-          consect
-        </p>
-      </div> */}
         </div>
       </div>
     </div>
@@ -126,19 +91,7 @@ function SinglePage({ singleService, training }) {
 export default SinglePage;
 
 function ServiceDetails({ slug, setFeatureImage, training }) {
-  // const [content, setContent] = useState("");
   const [content, setContent] = useState(training);
-
-  // useEffect(() => {
-  //   const marketingData = axios
-  //     .get(`${server}/api/service/${slug}`)
-  //     .then((res) => {
-  //       console.log("allData setContent ", res.data.featured_img);
-
-  //       setContent(res.data);
-  //       setFeatureImage(res.data.featured_img);
-  //     });
-  // }, [slug]);
 
   useEffect(() => {
     setFeatureImage(content.featured_img);
@@ -147,7 +100,7 @@ function ServiceDetails({ slug, setFeatureImage, training }) {
 
   return (
     <>
-      {/* <Meta title={content?.service_title} /> */}
+
       {content ? <h2 className={Style.title}>{content?.service_title}</h2> : ""}
       {content ? (
         <div

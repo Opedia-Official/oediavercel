@@ -51,6 +51,7 @@ export default function Navbar() {
   const [navChange, setNavChange] = useState(true);
   const textInput = useRef(null);
 
+
   // validation
   const [alerts, setAlert] = useState(false);
   const [msg, setMsg] = useState("");
@@ -76,8 +77,8 @@ export default function Navbar() {
   };
   alerts
     ? setInterval(() => {
-        setAlert(false);
-      }, 5000)
+      setAlert(false);
+    }, 5000)
     : "";
   const Contacthandler = async (e) => {
     e.preventDefault();
@@ -146,6 +147,8 @@ export default function Navbar() {
   // api post
 
   const openMenu = (e) => {
+    setIsService(false);
+    SetToggleTraining(false);
     setIsOpen(!isOpen);
   };
 
@@ -153,6 +156,8 @@ export default function Navbar() {
 
   const [modalIsOpen, setIsOpenModal] = useState(false);
   const [trainings, setTrainings] = useState([]);
+
+
 
   function openModal() {
     setIsOpenModal(true);
@@ -210,6 +215,21 @@ export default function Navbar() {
       });
   }, [router.pathname]);
 
+  // Service Toggle
+  const [isService, setIsService] = useState(false);
+
+
+  const serviceToggleHandler = (e) => {
+    setIsService(!isService);
+
+  }
+  // Training Toggle
+
+  const [isToggleTraining, SetToggleTraining] = useState(false);
+  const TrainingToggleHandler = (e) => {
+    SetToggleTraining(!isToggleTraining);
+
+  }
   // console.log(allCategory, "allCategory");
 
   return (
@@ -246,22 +266,18 @@ export default function Navbar() {
             <div className="col-md-4">
               <ul className="social text-center text-md-end">
                 <li>
-                  <a className="social-item" href="#">
+                  <a href="https://www.facebook.com/Opediatech/">
                     <FaFacebookF />
                   </a>
                 </li>
+
                 <li>
-                  <a className="social-item" href="#">
-                    <FaTwitter />
-                  </a>
-                </li>
-                <li>
-                  <a className="social-item" href="#">
+                  <a href="https://www.linkedin.com/company/opedia-technologies-limited">
                     <FaLinkedinIn />
                   </a>
                 </li>
                 <li>
-                  <a className="social-item" href="#">
+                  <a href="https://www.instagram.com/opedia_tech/">
                     <FaInstagram />
                   </a>
                 </li>
@@ -282,7 +298,7 @@ export default function Navbar() {
                   width={163}
                   height={51}
                 />
-                {/* <img src={logo.src} alt="" /> */}
+
               </a>
             </Link>
             <ul
@@ -299,9 +315,9 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                      isActiveNav === "Home"
-                        ? styles.activenav
-                        : styles.navlink)
+                        isActiveNav === "Home"
+                          ? styles.activenav
+                          : styles.navlink)
                     }
                     onClick={() => {
                       openMenu();
@@ -320,9 +336,9 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                      isActiveNav === "About"
-                        ? styles.activenav
-                        : styles.navlink)
+                        isActiveNav === "About"
+                          ? styles.activenav
+                          : styles.navlink)
                     }
                     onClick={() => {
                       openMenu();
@@ -341,9 +357,9 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                      isActiveNav === "Service"
-                        ? styles.activenav
-                        : styles.navlink)
+                        isActiveNav === "Service"
+                          ? styles.activenav
+                          : styles.navlink)
                     }
                     onClick={() => {
                       openMenu();
@@ -354,8 +370,9 @@ export default function Navbar() {
                   </a>
                 </Link>
 
-                <div className={styles.dropdown}>
-                  <div className="containerr">
+
+                <div className={isService == false ? styles.dropdown : " "}>
+                  <div className={styles.containerr}>
                     <div className="row justify-content-center">
                       {allCategory.map((singleCategory) => (
                         <div
@@ -366,13 +383,14 @@ export default function Navbar() {
                             <Link
                               href={`/service/category/${singleCategory.category_slug}`}
                             >
-                              <h2 className={styles.dropdown__title}>
+                              <h2 className={styles.dropdown__title} onClick={openMenu}    >
                                 {singleCategory.category_name}
                               </h2>
                             </Link>
                             <SingleServiceCompo
                               isMore={isMore}
                               singleCategory={singleCategory}
+                              openHandlebar={openMenu}
                             />
                           </div>
                         </div>
@@ -383,6 +401,8 @@ export default function Navbar() {
                           fontSize: "28px",
                           fontWeight: "bold",
                           cursor: "pointer",
+                          width: "100%",
+                          marginTop: "10px"
                         }}
                         onClick={() => setIsMore(!isMore)}
                       >
@@ -396,10 +416,14 @@ export default function Navbar() {
                       fontSize: "18px",
                       fontWeight: "bold",
                       cursor: "pointer",
+                      width: "100%",
+                      marginTop: "10px"
                     }}
                     onClick={() => setIsMore(!isMore)}
                   ></p>
                 </div>
+
+                <span onClick={serviceToggleHandler} className={isService ? styles.fdwonUp : styles.fdwon}><FaAngleDown /></span>
               </li>
               <li className={styles.navitem}>
                 <Link href="/training">
@@ -409,19 +433,19 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                      isActiveNav === "Team"
-                        ? styles.activenav
-                        : styles.navlink)
+                        isActiveNav === "Team"
+                          ? styles.activenav
+                          : styles.navlink)
                     }
                     onClick={() => {
-                      openMenu;
+                      openMenu();
                       setActiveNav("Team");
                     }}
                   >
                     Training
                   </a>
                 </Link>
-                <div className={styles.dropdown1}>
+                <div className={isToggleTraining == false && styles.dropdown1}>
                   <div className="containerr trainingNav">
                     <div className="row justify-content-center">
                       <div className="col-12">
@@ -433,7 +457,7 @@ export default function Navbar() {
                                 className={styles.dropdown__item}
                               >
                                 <Link href={`/training/${training.slug}`}>
-                                  <a className={styles.dropdown__link}>
+                                  <a className={styles.dropdown__link} onClick={openMenu}>
                                     {training.title}
                                   </a>
                                 </Link>
@@ -445,6 +469,7 @@ export default function Navbar() {
                     </div>
                   </div>
                 </div>
+                <span onClick={TrainingToggleHandler} className={isToggleTraining ? styles.fdwonUp : styles.fdwon}><FaAngleDown /></span>
               </li>
               <li className={styles.navitem}>
                 <Link href="/contact">
@@ -454,9 +479,9 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                      isActiveNav === "Blog"
-                        ? styles.activenav
-                        : styles.navlink)
+                        isActiveNav === "Blog"
+                          ? styles.activenav
+                          : styles.navlink)
                     }
                     onClick={() => {
                       openMenu();
@@ -477,9 +502,9 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                      isActiveNav === "Portfolio"
-                        ? styles.activenav
-                        : styles.navlink)
+                        isActiveNav === "Portfolio"
+                          ? styles.activenav
+                          : styles.navlink)
                     }
                     onClick={() => {
                       openMenu();
@@ -678,9 +703,8 @@ export default function Navbar() {
   );
 }
 
-function SingleServiceCompo({ singleCategory, isMore }) {
+function SingleServiceCompo({ singleCategory, isMore, openHandlebar }) {
   const [marketing, setMarketing] = useState([]);
-
   useEffect(() => {
     axios
       .get(`${server}/api/service-category/${singleCategory.category_slug}`)
@@ -693,19 +717,19 @@ function SingleServiceCompo({ singleCategory, isMore }) {
     <ul className={styles.dropdown__list}>
       {isMore
         ? marketing.map((item) => (
-            <li key={item.id} className={styles.dropdown__item}>
-              <Link href={`/service/${item.service_slug}`}>
-                <a className={styles.dropdown__link}>{item.service_title}</a>
-              </Link>
-            </li>
-          ))
+          <li key={item.id} className={styles.dropdown__item}>
+            <Link href={`/service/${item.service_slug}`}>
+              <a className={styles.dropdown__link} onClick={openHandlebar}  >{item.service_title}</a>
+            </Link>
+          </li>
+        ))
         : marketing.slice(0, 5).map((item) => (
-            <li key={item.id} className={styles.dropdown__item}>
-              <Link href={`/service/${item.service_slug}`}>
-                <a className={styles.dropdown__link}>{item.service_title}</a>
-              </Link>
-            </li>
-          ))}
+          <li key={item.id} className={styles.dropdown__item}>
+            <Link href={`/service/${item.service_slug}`}>
+              <a className={styles.dropdown__link} onClick={openHandlebar} >{item.service_title}</a>
+            </Link>
+          </li>
+        ))}
     </ul>
   );
 }

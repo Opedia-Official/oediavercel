@@ -485,12 +485,13 @@ html {
 }
 
 .section-title h3 {
-    font-size: 46px;
+    font-size: 45px;
     font-weight: 700;
     color: #000000;
     line-height: 60px;
     font-weight: bold;
     letter-spacing: 1px;
+    text-transform: capitalize;
 }
 
 .section-title p {
@@ -1096,6 +1097,7 @@ ul.social {
     line-height: 30px;
     margin-top: 20px;
     transition: 0.3s;
+    height: 45px;
 }
 
 .view-service-right-wrapper .card-body>svg {
@@ -1180,13 +1182,13 @@ ul.social {
 
 .serviceItems-featured a {
     background-color: rgb(255 255 255 / 3%);
-    padding: 12px 30px;
+    padding: 12px 22px;
     border-radius: 50px;
     display: inline-block;
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 700;
     color: #fff;
-    height: 47px;
+    height: 44px;
     overflow-y: hidden;
 }
 
@@ -1215,7 +1217,8 @@ ul.social {
     position: relative;
     margin-right: 20px;
     margin-bottom: 15px;
-    width: 42%;
+    height: 25px;
+    overflow-y: clip;
 }
 
 .serviceItems-nonfeatured li:before {
@@ -1232,13 +1235,13 @@ ul.social {
 
 .service-all-wrap {
     background: linear-gradient(248.36deg, #3EA3DC 2.78%, #27348B 137.39%);
-    padding: 120px 50px;
+    padding: 50px;
     border-radius: 55px;
 }
 
 .serviceItems-featured {
     margin-top: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .service-all-area {
@@ -1266,6 +1269,7 @@ ul.social {
 
 .showCase-wrap {
     position: relative;
+    margin-right: 1px;
 }
 
 .s-action {
@@ -1414,7 +1418,11 @@ ul.social {
 
 .counter-up-wrap {
     position: relative;
-    width: 230px;
+    width: 276px;
+    background: #dcdcdc33;
+    padding: 24px 0;
+    border-radius: 10px;
+    height: 143px;
 }
 
 .counter-up-wrap:after {
@@ -1426,6 +1434,7 @@ ul.social {
     right: 0;
     top: 50%;
     transform: translateY(-50%);
+    display: none;
 }
 
 .counter-up-wrap.c-last-child:after {
@@ -2565,6 +2574,11 @@ ul.portfolio-details-info li:last-child {
     border-bottom: none;
 }
 
+.portfolio-details-right-wrap.training {
+    padding: 0;
+    padding-right: 50px;
+}
+
 
 /* *******************************PORTFOLIO DETAILS PAGE AREA********************************** */
 
@@ -2654,7 +2668,7 @@ ul.contact-info-text .contact-icon {
 ul.contact-info-text li:after {
     position: absolute;
     content: "";
-    background: #fcebee;
+    background: var(--clr-secondary);
     height: 100%;
     width: 0;
     z-index: -1;
@@ -2662,6 +2676,7 @@ ul.contact-info-text li:after {
     left: 10px;
     top: 0;
     transition: 0.5s ease-in-out;
+    opacity: 0.3;
 }
 
 ul.contact-info-text li:hover:after {

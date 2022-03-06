@@ -11,43 +11,19 @@ import Meta from "../../components/Meta";
 import Image from "next/image";
 export default function TrainingDetails({ training }) {
   const [modalShow, setModalShow] = useState(false);
+
   return (
     <>
-      <Meta title={training?.title} />
+      <Meta title={training?.title} description={training?.seo_description} />
       {/* <InnerHead title={training?.title} img={training?.Featured_img} /> */}
       <WhatsappChat />
-      <div className="portfolio-details mt-50 mb-100">
+      <div className="portfolio-details mt-70 mb-100">
         <div className="container">
           <div className="row">
-            <div className="col-lg-6 mb-5 mb-lg-0">
-              <div className="portfolio-details-left">
-                <MyVerticallyCentredModal
-                  url={training?.youtube_link}
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                />
-                <div className="portfolio-details-lft-img">
-                  <Image
-                    src={`${server}/${training?.Featured_img}`}
-                    alt="footer"
-                    width={570}
-                    height={495}
-                    priority
-                  />
-                  {/* <img src={`${server}/${training?.Featured_img}`} alt="" /> */}
-                </div>
-
-                <div className="ptflo-button">
-                  <span onClick={() => setModalShow(true)}>
-                    <FaPlay />
-                  </span>
-                </div>
-              </div>
-            </div>
 
             <div className="col-lg-6">
-              <div className="portfolio-details-right-wrap">
-                <h3 className="ptf-details-title">Information</h3>
+              <div className="portfolio-details-right-wrap training">
+                <h3 className="ptf-details-title">{training?.title}</h3>
 
                 <ul className="portfolio-details-info">
                   <li>
@@ -85,6 +61,31 @@ export default function TrainingDetails({ training }) {
                     </span>
                   </li>
                 </ul>
+              </div>
+            </div>
+            <div className="col-lg-6 mb-5 mb-lg-0">
+              <div className="portfolio-details-left">
+                <MyVerticallyCentredModal
+                  url={training?.youtube_link}
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
+                <div className="portfolio-details-lft-img">
+                  <Image
+                    src={`${server}/${training?.Featured_img}`}
+                    alt="footer"
+                    width={570}
+                    height={495}
+                    priority
+                  />
+                  {/* <img src={`${server}/${training?.Featured_img}`} alt="" /> */}
+                </div>
+
+                <div className="ptflo-button">
+                  <span onClick={() => setModalShow(true)}>
+                    <FaPlay />
+                  </span>
+                </div>
               </div>
             </div>
           </div>

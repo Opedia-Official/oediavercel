@@ -8,7 +8,7 @@ import {
   FaLinkedinIn,
   FaPlay,
 } from "react-icons/fa";
-
+import Image from "next/image";
 import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
 import { useState } from "react";
 import WhatsappChat from "../../components/whatsappChat";
@@ -22,20 +22,27 @@ export default function PortfolioDetails({ portfolios }) {
   return (
     <>
       <Meta title={portfolio?.portfolio_title} />
-      <InnerHead title={portfolio?.portfolio_title} />
+      {/* <InnerHead title={portfolio?.portfolio_title} /> */}
       <WhatsappChat />
-      <div className="portfolio-details mb-100">
+      <div className="portfolio-details mt-50 mb-100">
         <div className="container">
           <div className="row">
             <div className="col-lg-6 mb-5 mb-lg-0">
-              <div className="portfolio-details-left">
+              <div className="portfolio-details-left ">
                 <MyVerticallyCentredModal
                   url="https://youtu.be/iO40U7nP6mY"
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                 />
                 <div className="portfolio-details-lft-img">
-                  <img src={`${server}/${portfolio?.thambnail_image}`} alt="" />
+                  <Image
+                    src={`${server}/${portfolio?.thambnail_image}`}
+                    alt="portfolio"
+                    width={570}
+                    height={495}
+                    priority
+                  />
+                  {/* <img src={`${server}/${portfolio?.thambnail_image}`} alt="" /> */}
                 </div>
 
                 <div className="ptflo-button">
@@ -48,7 +55,7 @@ export default function PortfolioDetails({ portfolios }) {
 
             <div className="col-lg-6">
               <div className="portfolio-details-right-wrap">
-                <h3 className="ptf-details-title">Information</h3>
+                <h3 className="ptf-details-title">{portfolio?.portfolio_title}</h3>
 
                 <ul className="portfolio-details-info">
                   <li>

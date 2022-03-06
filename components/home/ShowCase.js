@@ -92,12 +92,12 @@ export default function ShowCase({ portCats }) {
                   return (
                     port.isFeatured == null && (
                       <div
-                        className="col-md-6 col-sm-6  wow fadeIn"
+                        className="col-md-6 col-sm-6 wow fadeIn"
                         data-wow-duration="1s"
                         data-wow-delay="0.5s"
                         key={port.id}
                       >
-                        <div className="showCase-wrap mb-4 ">
+                        <div className="showCase-wrap mb-3 ">
                           <div className="show-case-child s-img-wrap">
                             {/* <img
                               src={`${server}/${port.img}`}

@@ -8,6 +8,7 @@ import WhatsappChat from "../../components/whatsappChat";
 import { server } from "../../config";
 import Meta from "../../components/Meta";
 import { FaAngleRight } from "react-icons/fa";
+import Image from "next/image";
 export default function Portfolio({ categories }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -20,12 +21,12 @@ export default function Portfolio({ categories }) {
     <>
       <Meta title="Our Portfolio" />
       <WhatsappChat />
-      <InnerHead title="Portfolio" />
-      <div className="portfolio-area">
+      {/* <InnerHead title="Portfolio" /> */}
+      <div className="portfolio-area ">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-6">
-              <div className="section-title text-center mb-50">
+              <div className="section-title text-center mt-50 mb-50">
                 <h5>Best Efforts from us </h5>
                 <h3>Our Portfolios</h3>
               </div>
@@ -41,7 +42,13 @@ export default function Portfolio({ categories }) {
                 <div key={category.id} className="col-lg-4 col-sm-6">
                   <div className="portfolio-items mb-100">
                     <Card>
-                      <Card.Img src={`${server}/${category.img}`} />
+                      {/* <Card.Img src={`${server}/${category.img}`} /> */}
+                      <Image
+                        src={`${server}/${category.img}`}
+                        alt="portfolio"
+                        width={370}
+                        height={367}
+                      />
                     </Card>
                     <div className="portfolio-info">
                       <span>{category.title}</span>
@@ -64,14 +71,7 @@ export default function Portfolio({ categories }) {
         </div>
       </div>
 
-      {/* <AnimatedCursor
-      innerSize={8}
-      outerSize={8}
-      color='251, 129, 0'
-      outerAlpha={0.2}
-      innerScale={0.7}
-      outerScale={5}
-    /> */}
+
     </>
   );
 }

@@ -67,11 +67,14 @@ export default function ExpTeam({ expertTeams }) {
               data-wow-duration="2s"
             >
               <div className="expTeam-right">
+                <div className="section-title">
+                  <h5> Our Professionalism</h5>
+                  <h3> <span className="s-t">Your Digital Assets,</span> <br /> Our Responsibility</h3>
+                </div>
                 <SectionTitle
-                  section="Our Professionalism"
-                  title="We team of experience IT Specialties"
+
                   description="3 years+ serving as a leading software company. A unique workflow and high-quality services are what sets us apart from competitors. 
-                  We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate 
+                  We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate are:
                   "
                 />
                 <div className="expTeam-youtube-section">
@@ -87,7 +90,7 @@ export default function ExpTeam({ expertTeams }) {
                               type="checkbox"
                               value="value2"
                             />
-                            <label htmlFor="styled-checkbox-1">Identify</label>
+                            <label htmlFor="styled-checkbox-1">First, We Identify Your Problem</label>
                           </div>
                         </li>
                         <li>
@@ -99,7 +102,7 @@ export default function ExpTeam({ expertTeams }) {
                               type="checkbox"
                               value="value2"
                             />
-                            <label htmlFor="styled-checkbox-2">Analyze</label>
+                            <label htmlFor="styled-checkbox-2">Second, We Analyze & Build a Strategy</label>
                           </div>
 
                           <a onClick={() => setModalShow(true)}>
@@ -121,7 +124,7 @@ export default function ExpTeam({ expertTeams }) {
                               type="checkbox"
                               value="value2"
                             />
-                            <label htmlFor="styled-checkbox-3">Design </label>
+                            <label htmlFor="styled-checkbox-3">Third, We Design & Develop The Strategy</label>
                           </div>
                         </li>
                       </ul>

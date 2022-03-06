@@ -12,7 +12,7 @@ const Meta = ({ title, description }) => {
         <meta
           name="description"
           content={
-            description
+            description || description === null
               ? description
               : "We Are One of the best It solution company in Dhaka, Bangladesh"
           }

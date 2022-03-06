@@ -4,7 +4,7 @@ import InnerHead from "../../../components/innerHead";
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../../components/whatsappChat";
-
+import Image from "next/image";
 import { server } from "../../../config";
 import Meta from "../../../components/Meta";
 
@@ -25,9 +25,16 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
     <>
       <Meta title={portsTitle} />
       <WhatsappChat />
-      <InnerHead title="Portfolio" />
-      <div className="portfolio-area mt-160">
+      {/* <InnerHead title="Portfolio" /> */}
+      <div className="portfolio-area ">
         <div className="container">
+          <div className="row">
+            <div className="col-md-8 offset-md-2">
+              <div className="section-title text-center mt-30">
+                <h3>{portsTitle}</h3>
+              </div>
+            </div>
+          </div>
           <div
             className="row wow fadeIn"
             data-wow-duration="1s"
@@ -36,9 +43,15 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
             {cats?.map((cat) => {
               return (
                 <div key={cat?.id} className="col-lg-4 col-sm-6">
-                  <div className="portfolio-items mb-100">
+                  <div className="portfolio-items mb-100 mt-50">
                     <Card>
-                      <Card.Img src={`${server}/${cat?.thambnail_image}`} />
+                      {/* <Card.Img src={`${server}/${cat?.thambnail_image}`} /> */}
+                      <Image
+                        src={`${server}/${cat?.thambnail_image}`}
+                        alt="portfolio"
+                        width={370}
+                        height={367}
+                      />
                     </Card>
                     <div className="portfolio-info">
                       <span>{cat?.portfolio_title}</span>

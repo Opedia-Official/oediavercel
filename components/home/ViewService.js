@@ -25,7 +25,7 @@ export default function ViewService() {
       <div className="container">
         <div className="row align-items-center">
           <div
-            className="col-lg-6 col-md-12  wow fadeIn"
+            className="col-lg-6 col-md-12 wow fadeIn"
             data-wow-duration="2s"
           >
             <div className="view-service-section-wrapper">
@@ -62,7 +62,7 @@ export default function ViewService() {
                       className="col-lg-6 col-sm-6 "
                       style={{
                         marginTop:
-                          index === 1 ? "7.5%" : index === 2 ? "-8%" : "0px",
+                          index === 1 ? "7.5%" : index === 2 ? "-7.5%" : "0px",
                         position: "relative",
                       }}
                       data-wow-duration="1s"

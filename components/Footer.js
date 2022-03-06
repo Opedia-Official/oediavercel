@@ -14,7 +14,7 @@ import client9 from "../public/footer/client- (9).png";
 import client10 from "../public/footer/client- (10).png";
 import client11 from "../public/footer/client- (11).png";
 
-import { FaPhoneAlt,FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 
 SwiperCore.use([Autoplay]);
 
@@ -70,7 +70,7 @@ export default function Footer() {
   return (
     <>
       <footer>
-        <div className="footer-top">
+        {/* <div className="footer-top">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -105,8 +105,8 @@ export default function Footer() {
                           alt="Client"
                           width={105}
                           height={62}
-                          objectFit="contain"
-                          
+                          objectFit="cover"
+
                         />
                       </SwiperSlide>
                     ))}
@@ -115,7 +115,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="footer-middle black-bg ">
           <div className="container">
             <div className="row justify-content-center">
@@ -167,9 +167,9 @@ export default function Footer() {
                             </Link>
                           </li>
                           <li>
-                           
-                              <a href="https://blog.opediatech.com">Blog</a>
-                     
+
+                            <a href="https://blog.opediatech.com">Blog</a>
+
                           </li>
                           <li>
                             <a href="#">Partners</a>
@@ -221,7 +221,7 @@ export default function Footer() {
                       <div className="footer-widget">
                         <div className="footer-logo">
                           <a href="#">
-                         
+
                             <Image
                               src="/logo/website-logo-final-white.png"
                               alt="opediatech"
@@ -234,7 +234,7 @@ export default function Footer() {
                           <br />
                           <p className="pera">
                             <a
-                              
+
                               style={{ color: "white" }}
                             >
                               <span
@@ -249,7 +249,7 @@ export default function Footer() {
                           <ul className="link-items">
                             <li>
                               {" "}
-                              
+
                               <span> <FaMapMarkerAlt />
                                 Shyamoli Square Complex Southern-Building,
                                 Level-4, Dhaka 1207
