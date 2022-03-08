@@ -22,7 +22,6 @@ export default function PortfolioDetails({ portfolios }) {
   return (
     <>
       <Meta title={portfolio?.portfolio_title} />
-      {/* <InnerHead title={portfolio?.portfolio_title} /> */}
       <WhatsappChat />
       <div className="portfolio-details mt-50 mb-100">
         <div className="container">
@@ -42,7 +41,6 @@ export default function PortfolioDetails({ portfolios }) {
                     height={495}
                     priority
                   />
-                  {/* <img src={`${server}/${portfolio?.thambnail_image}`} alt="" /> */}
                 </div>
 
                 <div className="ptflo-button">

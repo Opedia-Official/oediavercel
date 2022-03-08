@@ -110,7 +110,6 @@ function ServiceDetails({ slug, setFeatureImage, training }) {
           className={Style?.pera}
         ></div>
       ) : (
-        // <Spinner animation="border" />
         ""
       )}
       <h2 className={Style.title}>{content?.service_title}</h2>

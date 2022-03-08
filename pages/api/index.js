@@ -8,11 +8,3 @@ export default function handler(req, res) {
 
     res.status(200).json({ ExpertTeam, ViewService, Gallary, ProjectCount });
 }
-
-// static api creation using revalidate data 
-// usually those files are statics 
-
-// staticSideGeneration 
-// serverSideGeneration
-
-// 1. 

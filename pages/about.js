@@ -66,7 +66,6 @@ export default function Abouta({ services }) {
                     width={456}
                     height={565}
                   />
-                  {/* <img src="./aboutUs/pic-1.png" alt="" /> */}
                 </div>
                 <img
                   className="ge-dots d-none d-lg-block"
@@ -78,12 +77,7 @@ export default function Abouta({ services }) {
                   src="./aboutUs/reactangle.png"
                   alt=""
                 />
-                {/* <span
-                  onClick={() => setModalShow(true)}
-                  className="youtube-play "
-                >
-                  <FaPlay />
-                </span> */}
+
 
                 <div className="ge-info">
                   <h2>
@@ -93,11 +87,7 @@ export default function Abouta({ services }) {
                 </div>
               </div>
             </div>
-            {/* <MyVerticallyCentredModal
-              url="https://youtu.be/iO40U7nP6mY"
-              show={modalShow}
-              onHide={() => setModalShow(false)}
-            /> */}
+
             <div className="col-lg-6 wow slideInRight" data-wow-duration="1s">
               <div className="about great-exp-right ">
                 <p className="a-title-top">Great Experience In Building</p>
@@ -168,7 +158,6 @@ export default function Abouta({ services }) {
                           width={60}
                           height={60}
                         />
-                        {/* <img src="./blog/pic-3.png" alt="" /> */}
                         <div className="client-info-text">
                           <h2>Hanson Deck</h2>
                           <p>UI/UX designer</p>
@@ -218,7 +207,6 @@ export default function Abouta({ services }) {
                           width={60}
                           height={60}
                         />
-                        {/* <img src="./blog/pic-3.png" alt="" /> */}
                         <div className="client-info-text">
                           <h2>Hanson Deck</h2>
                           <p>UI/UX designer</p>
@@ -262,7 +250,6 @@ export default function Abouta({ services }) {
                   <Card.Body>
                     <div className="client-info-wrap">
                       <div className="client-info">
-                        {/* <img src="./blog/pic-3.png" alt="" /> */}
                         <Image
                           src="/blog/pic-3.png"
                           alt="Opediatech"

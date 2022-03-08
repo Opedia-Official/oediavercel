@@ -25,7 +25,6 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
     <>
       <Meta title={portsTitle} />
       <WhatsappChat />
-      {/* <InnerHead title="Portfolio" /> */}
       <div className="portfolio-area ">
         <div className="container">
           <div className="row">
@@ -45,7 +44,6 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
                 <div key={cat?.id} className="col-lg-4 col-sm-6">
                   <div className="portfolio-items mb-100 mt-50">
                     <Card>
-                      {/* <Card.Img src={`${server}/${cat?.thambnail_image}`} /> */}
                       <Image
                         src={`${server}/${cat?.thambnail_image}`}
                         alt="portfolio"

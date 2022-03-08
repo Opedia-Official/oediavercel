@@ -65,19 +65,14 @@ export default function Specialist() {
           <div className="col-md-6">
             <div className="sp-r-section-wrap">
               <div className="sp-feature-img">
-                {/* <img
-                  className="sp-feature  wow pulse"
-                  src="./specialist/pic-1.jpg"
-                  alt=""
-                /> */}
+
 
                 <Image
                   className="sp-feature  wow pulse"
-                  // loader={myLoader}
                   src="/specialist/pic-1.jpg"
                   alt="category_name"
                   width={380}
-                  height={518}
+                  height={550}
                 />
 
                 <img

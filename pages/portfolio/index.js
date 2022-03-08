@@ -21,7 +21,6 @@ export default function Portfolio({ categories }) {
     <>
       <Meta title="Our Portfolio" />
       <WhatsappChat />
-      {/* <InnerHead title="Portfolio" /> */}
       <div className="portfolio-area ">
         <div className="container">
           <div className="row justify-content-center">
@@ -42,7 +41,6 @@ export default function Portfolio({ categories }) {
                 <div key={category.id} className="col-lg-4 col-sm-6">
                   <div className="portfolio-items mb-100">
                     <Card>
-                      {/* <Card.Img src={`${server}/${category.img}`} /> */}
                       <Image
                         src={`${server}/${category.img}`}
                         alt="portfolio"

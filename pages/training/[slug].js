@@ -15,7 +15,6 @@ export default function TrainingDetails({ training }) {
   return (
     <>
       <Meta title={training?.title} description={training?.seo_description} />
-      {/* <InnerHead title={training?.title} img={training?.Featured_img} /> */}
       <WhatsappChat />
       <div className="portfolio-details mt-70 mb-100">
         <div className="container">
@@ -78,7 +77,6 @@ export default function TrainingDetails({ training }) {
                     height={495}
                     priority
                   />
-                  {/* <img src={`${server}/${training?.Featured_img}`} alt="" /> */}
                 </div>
 
                 <div className="ptflo-button">

@@ -50,28 +50,9 @@ export default function CateWiseServices({ services }) {
 
   return (
     <>
-      {/* <InnerHead title={servicesTitle} img={imageCat} /> */}
       <Meta title={servicesTitle} description={seo} />
       <WhatsappChat />
 
-      {/* <div key={10} className="col-lg-4 col-sm-6">
-        <div className="portfolio-items mb-100">
-          <Card>
-            <Card.Img src={`${server}/${course.Featured_img}`} />
-          </Card>
-          <div className="portfolio-info">
-            <span>course.title</span>
-            <h2>course.course_name</h2>
-            <div>
-              <Link href={`/training/`}>
-                <a>
-                  View details <FaAngleRight />
-                </a>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div> */}
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 ">
         <div className="container">

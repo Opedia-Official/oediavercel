@@ -10,7 +10,7 @@ function ServiceItem({ item }) {
     .split(" ")
     .join("")
     .replace(/\s/g, "-");
-  //   const slug = "item";
+
   return (
     <Card>
       <Card.Body>

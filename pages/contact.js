@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 
 import { Alert, Card } from "react-bootstrap";
-import { toast } from "react-toastify";
+
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -38,8 +38,8 @@ export default function Contact({ posts }) {
   };
   alerts
     ? setInterval(() => {
-        setAlert(false);
-      }, 5000)
+      setAlert(false);
+    }, 5000)
     : "";
 
   const Contacthandler = async (e) => {
@@ -291,7 +291,6 @@ export default function Contact({ posts }) {
                     </div>
                   </Card.Body>
                 </Card>
-                {/* <div style={{textAlign: 'center'}}> */}
 
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.234956940982!2d90.3633023149818!3d23.774646184577378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c152946ccfad%3A0xc8edb7d360ab91fe!2sOpedia%20Technologies%20Limited!5e0!3m2!1sen!2sbd!4v1644670675499!5m2!1sen!2sbd"
