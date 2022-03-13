@@ -101,7 +101,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <Link href="/service/category/web-software-service">
+                    <Link href="/service/category/web-software">
                       <a className="btn-two">Learn More</a>
                     </Link>
                   </div>
@@ -137,7 +137,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <Link href="/service/category/product-design-service">
+                    <Link href="/service/category/product-design">
                       <a className="btn-two">Learn More</a>
                     </Link>
                   </div>
@@ -168,7 +168,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <Link href="/service/category/digital-marketing-service">
+                    <Link href="/service/category/digital-marketing">
                       <a className="btn-two">Learn More</a>
                     </Link>
                   </div>
@@ -196,7 +196,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <Link href="/service/category/ecommerce-service">
+                    <Link href="/service/category/ecommerce-solution">
                       <a className="btn-two">Learn More</a>
                     </Link>
                   </div>
@@ -224,7 +224,7 @@ export default class AsNavFor extends Component {
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quate</a>
                     </Link>
-                    <Link href="/service/category/multimedia-printing-service">
+                    <Link href="/service/category/multimedia-printing">
                       <a className="btn-two">Learn More</a>
                     </Link>
                   </div>
