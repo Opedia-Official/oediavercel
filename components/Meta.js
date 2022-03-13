@@ -7,7 +7,7 @@ const Meta = ({ title, description }) => {
         <title>
           {title
             ? title
-            : "Opedia Technologies - Softwer & IT solution Company"}
+            : "Opedia Technologies - Software & IT solution Company"}
         </title>
         <meta
           name="description"

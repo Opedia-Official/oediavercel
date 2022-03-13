@@ -52,15 +52,28 @@ export default function Services({ categories }) {
                     <div className="row align-items-center">
                       <div className="col-md-5">
                         <div className="service-all-left">
-                          <ThreeDCard style={{
-                            width: '400px',
-                            height: '435px',
-                            cursor: 'pointer',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundImage: `url(${server}/${category.image})`,
-                          }} />
+                          <div className="d-none d-lg-block">
+                            <ThreeDCard style={{
+                              width: '400px',
+                              height: '435px',
+                              cursor: 'pointer',
+                              backgroundSize: 'cover',
+                              backgroundPosition: 'center',
+                              backgroundRepeat: 'no-repeat',
+                              backgroundImage: `url(${server}/${category.image})`,
+                            }} />
+                          </div>
+
+                          <div className="d-lg-none">
+                            <Image
+                              src={`${server}/${category.image}`}
+                              alt="Service"
+                              width={400}
+                              height={435}
+                              objectFit="cover"
+                              className="service-f-mobile"
+                            />
+                          </div>
                         </div>
                       </div>
                       <div className="col-md-7">

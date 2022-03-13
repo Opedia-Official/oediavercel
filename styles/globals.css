@@ -1193,6 +1193,11 @@ ul.social {
     padding: 0 10px;
 }
 
+img.service-f-mobile {
+    background: #fff;
+    border-radius: 30px;
+}
+
 
 /* Index service */
 
@@ -2549,7 +2554,7 @@ ul.portfolio-details-info li {
 
 ul.share {
     display: flex;
-    margin: 10px 0;
+    margin: 0;
     width: 161px;
     justify-content: space-around;
 }
@@ -2563,6 +2568,7 @@ ul.share li a.share-item {
 
 ul.share li {
     border-bottom: 0;
+    margin: 0;
 }
 
 ul.share li a.share-item:hover {

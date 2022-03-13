@@ -167,13 +167,13 @@ export default function Navbar() {
     setIsOpenModal(false);
   }
 
-  const [isLink, setLink] = useState(false);
+  // const [isLink, setLink] = useState(false);
 
   const navChageRef = useRef();
   const router = useRouter();
 
   useEffect(() => {
-    router.pathname == "/" ? setLink(true) : setLink(false);
+    // router.pathname == "/" ? setLink(true) : setLink(false);
 
     // training
     navChageRef.current.className = "header";
@@ -192,7 +192,7 @@ export default function Navbar() {
       // Scroll top navbar hide open
       let currentPosition = e.target.documentElement.scrollTop;
 
-      if (scrolTop > 156) {
+      if (scrolTop > 50) {
         if (previousPosition > currentPosition) {
           navChageRef.current.className = "header activeNav";
           setNavChange(true);
@@ -492,11 +492,11 @@ export default function Navbar() {
                   </a>
                 </Link>
               </li>
-              {isLink && (
+              {/* {isLink && (
                 <li className={styles.navitem}>
-                  {/* <Link href="/portfolio"> */}
+                  <Link href="/portfolio">
                   <a
-                    // id="#portfolio"
+                    id="#portfolio"
                     href="#portfolio"
                     className={
                       (isOpen === false
@@ -513,9 +513,9 @@ export default function Navbar() {
                   >
                     Portfolio
                   </a>
-                  {/* </Link> */}
+                  </Link>
                 </li>
-              )}
+              )} */}
 
               <li className={styles.navitem}>
                 <Link href="#">

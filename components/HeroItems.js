@@ -231,7 +231,6 @@ export default class AsNavFor extends Component {
                 </div>
               </div>
               {/* left part */}
-
               <div className="col-md-6">
                 <div className="hero-right pt-40">
                   <Image src="/hero/pic-2.png" alt="opediatech" layout="fill" />
@@ -273,7 +272,6 @@ export default class AsNavFor extends Component {
                 </div>
                 <div className="hero-bottom-info">
                   <h4>Product Design</h4>
-
                   <p>We provide attractive product design </p>
                 </div>
               </div>
