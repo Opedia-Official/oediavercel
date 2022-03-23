@@ -1,118 +1,125 @@
 /* progress area */
 
 .wpItem h2 {
-  font-size: 45px;
-  color: #000000;
-  font-weight: 700;
-  width: 85px;
+    font-size: 45px;
+    color: #000000;
+    font-weight: 700;
+    width: 85px;
 }
 
 .wpItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .workingProcessWrap {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
 }
 
 .wpItem p {
-  color: #949494;
+    color: #949494;
 }
 
 .wpCountWrap {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 span.wpPlus {
-  font-size: 18px;
-  display: inline-block;
-  margin-left: 4px;
+    font-size: 18px;
+    display: inline-block;
+    margin-left: 4px;
 }
 
 .workingProgressItems {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #fff;
-  position: relative;
-  box-shadow: 0px 0px 6px 1px rgb(203 203 203 / 61%);
-  padding: 26px 13px;
-  transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff;
+    position: relative;
+    box-shadow: 0px 0px 6px 1px rgb(203 203 203 / 61%);
+    padding: 26px 13px;
+    transition: 0.3s;
 }
 
 .workingProgressItems span.wpIcon {
-  background: #fcf4f5;
-  height: 85px;
-  width: 85px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  transition: 0.3s;
+    background: #fcf4f5;
+    height: 85px;
+    width: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.3s;
 }
 
 .workingProgressItems span.wpIcon svg {
-  color: var(--clr-primary);
-  font-size: 37px;
+    color: var(--clr-primary);
+    font-size: 37px;
 }
 
 .workingProgressItems h3 {
-  font-size: 25px;
-  line-height: 26px;
-  font-weight: 700;
-  color: #0b1e33;
-  margin: 22px 0;
+    font-size: 25px;
+    line-height: 26px;
+    font-weight: 700;
+    color: #0b1e33;
+    margin: 22px 0;
 }
 
 .workingProgressItems span.wpArrow {
-  height: 38px;
-  width: 38px;
-  background: #fff;
-  box-shadow: 0px 0px 6px 1px rgb(195 195 195 / 61%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  position: absolute;
-  bottom: -13px;
-  cursor: pointer;
-  transition: 0.3s;
+    height: 38px;
+    width: 38px;
+    background: #fff;
+    box-shadow: 0px 0px 6px 1px rgb(195 195 195 / 61%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -13px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .workingProgressItems span.wpArrow svg {
-  color: var(--clr-primary);
-  font-size: 18px;
-  transition: 0.3s;
+    color: var(--clr-primary);
+    font-size: 18px;
+    transition: 0.3s;
 }
 
 .workingProgressItems span.wpArrow:hover {
-  background: var(--clr-primary);
+    background: var(--clr-primary);
 }
 
 .workingProgressItems span.wpArrow:hover svg {
-  color: #fff;
+    color: #fff;
 }
 
 .workingProgressItems:hover {
-  background: #f1f5fe;
+    background: #f1f5fe;
 }
 
 .workingProgressItems:hover .wpIcon {
-  background: var(--clr-secondary);
+    background: var(--clr-secondary);
 }
 
 .workingProgressItems:hover span.wpIcon svg {
-  color: #fff;
+    color: #fff;
 }
 
 @media (min-width: 320px) and (max-width: 480.98px) {
-  .wpItem h2 {
-    font-size: 40px;
-  }
+    .wpItem h2 {
+        font-size: 40px;
+    }
 }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .workingProgressItems h3 {
+        font-size: 22px;
+    }
+}
+
 
 /* progress area */

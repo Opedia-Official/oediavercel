@@ -108,6 +108,8 @@
     transition: 0.5s;
     overflow: hidden;
     box-shadow: 0 2px 6px #777;
+    max-height: 500px;
+    overflow-y: scroll;
 }
 
 .dropdown1 {
@@ -191,6 +193,10 @@
 
 .dropdown__link:hover {
     color: #2f6eb5;
+}
+
+.hamburger {
+    display: none;
 }
 
 
@@ -327,94 +333,3 @@
         overflow-y: scroll;
     }
 }
-
-
-/* 
-@media (min-width: 1025px) and (max-width: 1199.98px) {
-    .dropdown {
-        left: -42rem;
-        width: 83rem;
-        height: 100%;
-    }
-    .dropdown1 {
-        background: #ffffff;
-        position: absolute;
-        background: #333;
-        left: 0;
-        top: 48px;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1023.98px) {
-    .dropdown1 {
-        background: #ffffff;
-        position: absolute;
-        background: #333;
-        left: 100px;
-        top: -160px;
-    }
-}
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-    .dropdown1 {
-        background: #ffffff;
-        position: fixed;
-        background: #333;
-        left: 56%;
-        top: 15%;
-    }
-    .dropdown {
-        left: -22%;
-        width: 70rem;
-        height: 100%;
-    }
-}
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-    .dropdown {
-        left: -22%;
-        width: 54rem;
-        height: 100%;
-    }
-    .dropdown1 {
-        background: #ffffff;
-        position: absolute;
-        background: #333;
-        left: -56%;
-        top: -160px;
-    }
-}
-
-@media (max-width: 575.98px) {
-    .dropdown1 {
-        background: #ffffff;
-        position: absolute;
-        background: #333;
-        left: -92%;
-        top: -160px;
-    }
-    a.Navbar_navlogo__SW1lT img {
-        width: 130px;
-    }
-    .dropdown {
-        left: -82px;
-        width: 50rem;
-        height: 100%;
-    }
-}
-
-@media all and (min-width: 481px) and (max-width: 575.98px) {
-    .dropdown {
-        left: -163px;
-        width: 50rem;
-        height: 100%;
-    }
-}
-
-@media all and (min-width: 320px) and (max-width: 480.98px) {
-    .dropdown {
-        left: -33%;
-        width: 40rem;
-        height: 100%;
-    }
-} */

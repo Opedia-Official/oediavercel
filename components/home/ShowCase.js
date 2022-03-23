@@ -43,13 +43,8 @@ export default function ShowCase({ portCats }) {
                   <div key={cat.id} className="col-md-5 col-sm-8">
                     <div className="showCase-wrap mb-4 mb-md-0">
                       <div className="show-case-features  s-img-wrap">
-                        {/* <img
-                          src={`${server}/${cat.img}`}
-                          alt={cat.category_name}
-                        /> */}
                         <Image
                           className="parent-pic"
-                          // loader={myLoader}
                           src={`${server}/${cat.img}`}
                           alt="category_name"
                           width={443}

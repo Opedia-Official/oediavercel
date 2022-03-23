@@ -46,6 +46,7 @@ export default function Portfolio({ categories }) {
                         alt="portfolio"
                         width={370}
                         height={367}
+                        
                       />
                     </Card>
                     <div className="portfolio-info">

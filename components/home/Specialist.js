@@ -78,20 +78,10 @@ export default function Specialist() {
                 <img
                   src="./specialist/pic-3.jpg"
                   alt=""
-                  className="sp-child  d-none d-md-block"
+                  className="sp-child  d-none d-lg-block"
                 />
-                {/* <Image
-                  className="sp-child "
-                  // loader={myLoader}
-                  src="/specialist/pic-3.png"
-                  alt="Support"
-                  width={234}
-                  height={210}
-                /> */}
               </div>
               <div className="sp-img-r-child d-none d-md-block wow bounceIn">
-                {/* <img src="./specialist/pic-2.jpg" alt="" /> */}
-
                 <Image
                   src="/specialist/pic-2.jpg"
                   alt=""

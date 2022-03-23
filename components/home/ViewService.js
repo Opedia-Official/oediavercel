@@ -69,7 +69,6 @@ export default function ViewService() {
                       data-wow-delay="1s"
                       key={service.id}
                     >
-                      {/* <p>{}</p> */}
                       <Card>
                         <Card.Body>
                           {index === 0 && <Badge bg="danger">Hot</Badge>}
@@ -84,7 +83,7 @@ export default function ViewService() {
                           <Card.Text>
                             <div>
                               <Link
-                                href={`/service/category/${service.service_slug}`}
+                                href={`/service/${service.service_slug}`}
                               >
                                 <a>
                                   Service Details <FaAngleRight />

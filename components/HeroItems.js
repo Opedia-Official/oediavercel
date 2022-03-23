@@ -99,7 +99,7 @@ export default class AsNavFor extends Component {
                   <h2>Web & Software</h2>
                   <div className="hero-action">
                     <Link href="/contact">
-                      <a className="btn-brand"> Get A Quate</a>
+                      <a className="btn-brand"> Get A Quote</a>
                     </Link>
                     <Link href="/service/category/web-software">
                       <a className="btn-two">Learn More</a>
@@ -135,7 +135,7 @@ export default class AsNavFor extends Component {
 
                   <div className="hero-action">
                     <Link href="/contact">
-                      <a className="btn-brand"> Get A Quate</a>
+                      <a className="btn-brand"> Get A Quote</a>
                     </Link>
                     <Link href="/service/category/product-design">
                       <a className="btn-two">Learn More</a>
@@ -166,7 +166,7 @@ export default class AsNavFor extends Component {
                   </h2>
                   <div className="hero-action">
                     <Link href="/contact">
-                      <a className="btn-brand"> Get A Quate</a>
+                      <a className="btn-brand"> Get A Quote</a>
                     </Link>
                     <Link href="/service/category/digital-marketing">
                       <a className="btn-two">Learn More</a>
@@ -194,7 +194,7 @@ export default class AsNavFor extends Component {
                   <h2>Ecommerce Solution</h2>
                   <div className="hero-action">
                     <Link href="/contact">
-                      <a className="btn-brand"> Get A Quate</a>
+                      <a className="btn-brand"> Get A Quote</a>
                     </Link>
                     <Link href="/service/category/ecommerce-solution">
                       <a className="btn-two">Learn More</a>
@@ -222,7 +222,7 @@ export default class AsNavFor extends Component {
                   <h2>Multimedia & Printing</h2>
                   <div className="hero-action">
                     <Link href="/contact">
-                      <a className="btn-brand"> Get A Quate</a>
+                      <a className="btn-brand"> Get A Quote</a>
                     </Link>
                     <Link href="/service/category/multimedia-printing">
                       <a className="btn-two">Learn More</a>

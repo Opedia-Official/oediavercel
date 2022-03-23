@@ -41,7 +41,7 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
           >
             {cats?.map((cat) => {
               return (
-                <div key={cat?.id} className="col-lg-4 col-sm-6">
+                <div key={cat?.id} className="col-lg-6 col-sm-6">
                   <div className="portfolio-items mb-100 mt-50">
                     <Card>
                       <Image
@@ -49,10 +49,11 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
                         alt="portfolio"
                         width={370}
                         height={367}
+                        objectFit= 'cover'
                       />
                     </Card>
                     <div className="portfolio-info">
-                      <span>{cat?.portfolio_title}</span>
+                      
                       <h2>{cat?.project_name}</h2>
                       <div>
                         <Link href={`/portfolio/${cat?.portfolio_slug}`}>

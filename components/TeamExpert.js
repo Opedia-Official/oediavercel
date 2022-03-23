@@ -33,26 +33,27 @@ function TeamExpert({ services }) {
                   <img src={`${server}/${item.img}`} alt="" />
                 </div>
                 <ul className="exp-social">
-                  <li>
+                {item.fb && <li>
                     <a href={item.fb}>
                       <FaFacebookF />
                     </a>
-                  </li>
-                  <li>
+                  </li>}
+                  {item.instagram && <li>
                     <a href={item.instagram}>
                       <FaInstagram />
                     </a>
-                  </li>
-                  <li>
+                  </li>}
+                  {item.twitter &&  <li>
                     <a href={item.twitter}>
                       <FaTwitter />
                     </a>
-                  </li>
-                  <li>
+                  </li>}
+                  {item.linkedin && <li>
                     <a href={item.linkedin}>
                       <FaLinkedinIn />
                     </a>
-                  </li>
+                  </li>}
+                  
                 </ul>
 
                 <div className="worker-info">

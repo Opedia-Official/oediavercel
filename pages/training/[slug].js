@@ -1,10 +1,15 @@
 import { FaPlay } from "react-icons/fa";
 import InnerHead from "../../components/innerHead";
 import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
+
 import { useState } from "react";
 import WhatsappChat from "../../components/whatsappChat";
 import dynamic from "next/dynamic";
-
+import {
+  FaRegEnvelope,
+  FaPhoneAlt,
+  FaFacebookF
+} from "react-icons/fa";
 import { server } from "../../config/index";
 
 import Meta from "../../components/Meta";
@@ -64,11 +69,15 @@ export default function TrainingDetails({ training }) {
             </div>
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="portfolio-details-left">
-                <MyVerticallyCentredModal
+
+                {
+                  training?.youtube_link &&  <MyVerticallyCentredModal
                   url={training?.youtube_link}
                   show={modalShow}
                   onHide={() => setModalShow(false)}
                 />
+                }
+                
                 <div className="portfolio-details-lft-img">
                   <Image
                     src={`${server}/${training?.Featured_img}`}
@@ -95,6 +104,42 @@ export default function TrainingDetails({ training }) {
                     __html: `${training?.description}`,
                   }}
                 ></div>
+
+                  <div className="training-contact">
+                  <ul className="social-info text-center text-md-start">
+                      <li><p style={{fontSize: '20px',
+                  color:'#133344',
+    lineHeight: '30px',
+    fontWeight: "600" }}>Contact Us at:</p></li>
+                    <li>
+                      <a
+                        className=''
+                        href="mailto: opedia.technologies@gmail.com"
+                      >
+                        <span className="s-icon">
+                          <FaRegEnvelope />
+                        </span>
+                        opedia.technologies@gmail.com
+                      </a>
+                    </li>
+                    <li style={{ marginLeft: "15px" }}>
+                      <a
+                        href="tel:+8801978159172"
+                        className=''
+                      >
+                        <span className="s-icon">
+                          <FaPhoneAlt />
+                        </span>
+                        +8801978159172
+                      </a>
+                    </li>
+                    {/* <li>
+                  <a href="https://www.facebook.com/Opediatech/">
+                    <FaFacebookF /> 
+                  </a>
+                </li> */}
+                  </ul>
+                  </div>
               </div>
             </div>
           </div>

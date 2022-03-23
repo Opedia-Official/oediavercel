@@ -317,6 +317,7 @@ label {
 
 .Link {
     color: #242323 !important;
+    font-size: 17px;
 }
 
 .Link:hover {
@@ -732,26 +733,30 @@ ul.social {
     border-right: 1px solid #d6d6d600 !important;
 }
 
+.training-contact {
+    text-align: center;
+    margin-top: 90px;
+}
 
-/* .Navbar_trainingNav {
-    background: #ffffff;
-    position: absolute;
-    left: -56rem;
-    z-index: 9999;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    width: 100rem;
-    top: 5rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.5s;
-} */
+.training-contact ul {
+    text-align: center;
+    display: block;
+    display: flex;
+    justify-content: center;
+}
 
+.training-contact li a {
+    font-size: 19px;
+    color: #333;
+}
 
-/* .slick-dots li.slick-active button:before {
-    opacity: .75;
-    color: #000;
-} */
+.training-contact li {
+    margin: 0 15px;
+}
+
+.training-contact li a:hover {
+    color: var(--clr-primary);
+}
 
 .slick-current .hero-bottom-section .hero-bottom-items {
     background: #fff;
@@ -1404,8 +1409,6 @@ img.service-f-mobile {
 .pCounterWrap {
     display: flex;
     align-items: center;
-    justify-content: center;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -1494,6 +1497,7 @@ img.service-f-mobile {
     box-shadow: 0 2px 7px #d7d8f978;
     height: 59px;
     padding-left: 10px;
+    padding-right: 160px;
 }
 
 .subscribe-section input:focus {
@@ -1919,7 +1923,6 @@ ul.pricing-items li {
 
 .testimonial-area {
     padding: 120px 0;
-    margin-bottom: 100px;
 }
 
 .testimonial-img {
@@ -2184,6 +2187,7 @@ ul.pricing-items li {
 
 .subscribe-section.f-subs input {
     width: 100%;
+    padding-right: 160px;
 }
 
 .footer-widget p {
@@ -2368,6 +2372,7 @@ ul.link-items li svg {
     color: #020307;
     line-height: 33px;
     transition: 0.3s ease-in;
+    margin-bottom: -3px;
 }
 
 .portfolio-info a {
@@ -2392,6 +2397,7 @@ ul.link-items li svg {
     bottom: -66px;
     text-transform: capitalize;
     transition: 0.3s ease-in;
+    padding-left: 45px;
 }
 
 .portfolio-items {
@@ -2785,6 +2791,11 @@ h3.contact-modal {
     margin-bottom: 20px;
     padding-bottom: 10px;
     font-size: 2.3rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    cursor: pointer;
 }
 
 

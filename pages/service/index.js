@@ -18,6 +18,8 @@ import SectionTitle from '../../components/SectionTitle'
 import ThreeDCard from 'react-animated-3d-card'
 import { Spinner } from "react-bootstrap";
 
+
+
 export default function Services({ categories }) {
 
   useEffect(() => {

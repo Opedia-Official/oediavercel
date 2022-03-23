@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FaAngleDoubleDown, FaAngleDown, FaAngleUp } from "react-icons/fa";
+import { FaAngleDoubleDown, FaAngleDown, FaAngleUp,FaRegTimesCircle } from "react-icons/fa";
 import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 import logo from "../public/logo/logo-blue.png";
@@ -38,9 +38,11 @@ const customStyles = {
     zIndex: 22342434234234,
     padding: "50px 0",
     border: "1px solid rgb(244, 151, 53)",
-    height: "70vh",
+    height: "70%",
   },
-};
+
+}
+
 Modal.setAppElement("body");
 
 export default function Navbar() {
@@ -49,8 +51,8 @@ export default function Navbar() {
   const [isSearch, setIsSearch] = useState(false);
   const [isMore, setIsMore] = useState(false);
   const [navChange, setNavChange] = useState(true);
-  const textInput = useRef(null);
 
+const [navActive, navSetActive] = useState(false)
 
   // validation
   const [alerts, setAlert] = useState(false);
@@ -119,7 +121,7 @@ export default function Navbar() {
       setMsg("Thanks for your Message");
     }
 
-    const posted = await fetch("https://admin.opediatech.com/api/message", {
+    const posted = await fetch( `${server}/api/message`, {
       method: "post",
       body: JSON.stringify({
         fname: fistName,
@@ -153,10 +155,8 @@ export default function Navbar() {
   };
 
   // modal
-
   const [modalIsOpen, setIsOpenModal] = useState(false);
   const [trainings, setTrainings] = useState([]);
-
 
 
   function openModal() {
@@ -176,8 +176,6 @@ export default function Navbar() {
     // router.pathname == "/" ? setLink(true) : setLink(false);
 
     // training
-    navChageRef.current.className = "header";
-
     const allData = axios
       .get(`${server}/api/course`)
       .then((res) => setTrainings(res.data));
@@ -191,18 +189,19 @@ export default function Navbar() {
 
       // Scroll top navbar hide open
       let currentPosition = e.target.documentElement.scrollTop;
+      
 
-      if (scrolTop > 50) {
+      if (scrolTop > 10) {
         if (previousPosition > currentPosition) {
-          navChageRef.current.className = "header activeNav";
           setNavChange(true);
+          navSetActive(true)
         } else {
-          navChageRef.current.className = "header";
           setNavChange(false);
+          navSetActive(false)
         }
         previousPosition = currentPosition;
       } else {
-        navChageRef.current.className = "header";
+        navSetActive(false)
       }
     });
 
@@ -247,7 +246,7 @@ export default function Navbar() {
                     <span className="s-icon">
                       <FaRegEnvelope />
                     </span>
-                    opedia.technologies@gmail.com
+                    business@opediatech.com
                   </a>
                 </li>
                 <li style={{ marginLeft: "15px" }}>
@@ -287,7 +286,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      <header ref={navChageRef}>
+      <header className={navActive ? 'header activeNav' : 'header'}>
         <div className="container">
           <nav className={styles.navbar}>
             <Link href="/">
@@ -298,7 +297,6 @@ export default function Navbar() {
                   width={163}
                   height={51}
                 />
-
               </a>
             </Link>
             <ul
@@ -433,13 +431,13 @@ export default function Navbar() {
                       (isOpen === false
                         ? styles.navlink
                         : styles.navlink + " " + styles.active,
-                        isActiveNav === "Team"
+                        isActiveNav === "training"
                           ? styles.activenav
                           : styles.navlink)
                     }
                     onClick={() => {
                       openMenu();
-                      setActiveNav("Team");
+                      setActiveNav("training");
                     }}
                   >
                     Training
@@ -544,11 +542,8 @@ export default function Navbar() {
                 >
                   <div className=" offset-2 col-8">
                     <div className="contact-right-form mt-5 mt-lg-0 ">
-                      <h3 className="contact-modal">Get A free Quote</h3>
+                      <h3 className="contact-modal">Get A free Quote    <span onClick={closeModal}> <FaRegTimesCircle/></span> </h3>
                       {alerts ? <Alert variant="danger">{msg}</Alert> : ""}
-                      {/* This is a alert—check it out! */}
-                      {/* <Alert variant="danger">A free Q</Alert> */}
-
                       <form action="#">
                         <div className="row">
                           <div className="col-lg-6 mb-5">
@@ -670,13 +665,12 @@ export default function Navbar() {
                 {/* modal items */}
               </li>
             </ul>
-
             {navChange ? (
-              <button
-                className={
+              <button 
+                className={ 
                   isOpen === false
                     ? styles.hamburger
-                    : styles.hamburger + " " + styles.active
+                    : styles.hamburger + " " + styles.active 
                 }
                 onClick={openMenu}
               >
@@ -684,17 +678,20 @@ export default function Navbar() {
                 <span className={styles.bar}></span>
                 <span className={styles.bar}></span>
               </button>
-            ) : (
-              <button
-                className={
-                  isOpen === true && styles.hamburger + " " + styles.active
-                }
-                onClick={openMenu}
-              >
-                <span className={styles.bar}></span>
-                <span className={styles.bar}></span>
-                <span className={styles.bar}></span>
-              </button>
+            ) : ( 
+                isOpen && (
+                  <button
+                  className={
+                    isOpen === true && styles.hamburger + " " + styles.active
+                  }
+                  onClick={openMenu}
+                >
+                  <span className={styles.bar}></span>
+                  <span className={styles.bar}></span>
+                  <span className={styles.bar}></span>
+                </button>
+                )
+              
             )}
           </nav>
         </div>

@@ -38,7 +38,6 @@ function SinglePage({ singleService, training }) {
     });
     setServicesSingle(training);
   }, [id]);
-  // console.log(servicesSingle.seo_description);
 
   return (
     <div className="container my-5 py-5">
@@ -46,28 +45,30 @@ function SinglePage({ singleService, training }) {
       <Meta title={id} description={servicesSingle?.seo_description} />
       <div className={"row"}>
         <div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">
+        {training ? <h2 className={Style.title}>{training?.service_title}</h2> : ""}
           <div className="">
             {featureImage && (
               <Image
                 src={`${server}/${featureImage}`}
-                alt="footer"
+                alt="Service"
                 width={750}
                 height={450}
                 priority
+               
               />
             )}
-
-            <ServiceDetails
+              <div className="mt-30">
+              <ServiceDetails
               setFeatureImage={setFeatureImage}
               training={servicesSingle}
               slug={id}
             />
+              </div>
           </div>
         </div>
         <div className={"col-lg-4 col-md-6 col-sm-12 col-xs-12 px-5"}>
           <div className="sidebarSingle">
             <h2 className={Style.title}>Related Service </h2>
-
             <div className={Style.service}>
               <ul>
                 {leftCategory &&
@@ -100,10 +101,8 @@ function ServiceDetails({ slug, setFeatureImage, training }) {
 
   return (
     <>
-
-      {content ? <h2 className={Style.title}>{content?.service_title}</h2> : ""}
       {content ? (
-        <div
+        <div  
           dangerouslySetInnerHTML={{
             __html: `${content?.service_desc}`,
           }}
@@ -112,14 +111,7 @@ function ServiceDetails({ slug, setFeatureImage, training }) {
       ) : (
         ""
       )}
-      <h2 className={Style.title}>{content?.service_title}</h2>
-
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${content?.service_desc}`,
-        }}
-        className={Style?.pera}
-      ></div>
+   
     </>
   );
 }

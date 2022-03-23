@@ -28,11 +28,6 @@ export default function PortfolioDetails({ portfolios }) {
           <div className="row">
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="portfolio-details-left ">
-                <MyVerticallyCentredModal
-                  url="https://youtu.be/iO40U7nP6mY"
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                />
                 <div className="portfolio-details-lft-img">
                   <Image
                     src={`${server}/${portfolio?.thambnail_image}`}
@@ -41,12 +36,6 @@ export default function PortfolioDetails({ portfolios }) {
                     height={495}
                     priority
                   />
-                </div>
-
-                <div className="ptflo-button">
-                  <span onClick={() => setModalShow(true)}>
-                    <FaPlay />
-                  </span>
                 </div>
               </div>
             </div>
@@ -80,30 +69,31 @@ export default function PortfolioDetails({ portfolios }) {
                   <li>
                     <h4>Share :</h4>
                     <ul className="share text-center text-md-end">
-                      <li>
-                        <a className="share-item" href={portfolio?.fbLink}>
-                          {" "}
-                          <FaFacebookF />{" "}
-                        </a>
-                      </li>
-                      <li>
+                    {portfolio?.fbLink &&  <li>
+                      <a className="share-item" href={portfolio?.fbLink}>
+                        {" "}
+                        <FaFacebookF />{" "}
+                      </a>
+                    </li>} 
+                    {portfolio?.twLink && <li>
                         <a className="share-item" href={portfolio?.twLink}>
                           {" "}
                           <FaTwitter />{" "}
                         </a>
-                      </li>
-                      <li>
+                      </li>}
+                      {portfolio?.inLink && <li>
                         <a className="share-item" href={portfolio?.inLink}>
                           {" "}
                           <FaLinkedinIn />{" "}
                         </a>
-                      </li>
-                      <li>
+                      </li>}
+                      {portfolio?.insLink &&  <li>
                         <a className="share-item" href={portfolio?.insLink}>
                           {" "}
                           <FaInstagram />{" "}
                         </a>
-                      </li>
+                      </li>}
+                     
                     </ul>
                   </li>
                 </ul>

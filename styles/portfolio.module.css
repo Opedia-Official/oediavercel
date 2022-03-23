@@ -1,0 +1,191 @@
+.portfolioDetailsFullWrap {
+    border-radius: 64px 64px 0 0;
+    overflow: hidden;
+}
+
+.portfolioBottomFullWrap {
+    background: #fff;
+    box-shadow: 0 5px 12px #eeeeee;
+    border-radius: 0 0 64px 64px;
+}
+
+.portfolioBottomWrap h3 {
+    font-size: 40px;
+    line-height: 60px;
+    padding: 20px 0;
+    padding-left: 64px;
+}
+
+img.portfolioImageImg {
+    border-radius: 40px;
+}
+
+.portfolioImage {
+    padding: 40px;
+}
+
+.portfolioTopWrap {
+    position: relative;
+}
+
+.ImgOrnaments {
+    position: absolute;
+    bottom: 17px;
+    right: 45px;
+    z-index: 3333;
+    animation: Rote .8s linear 2s infinite alternate;
+}
+
+@keyframes Rote {
+    0% {
+        transform: rotate(-20deg)
+    }
+    100% {
+        transform: rotate(0deg)
+    }
+}
+
+.portfolioBottomWrap a {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    background: linear-gradient(180deg, #FFDA76 0%, #FC9825 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+}
+
+.portfolioBottomWrap a:hover svg {
+    margin-left: 5px;
+}
+
+.portfolioBottomWrap svg {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    background: linear-gradient(180deg, #FFDA76 0%, #FC9825 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FC9825;
+    transition: .3s;
+}
+
+img.portfolioImageImg {
+    border-radius: 40px;
+}
+
+.portfolioImage {
+    padding: 40px;
+}
+
+.portfolioTopWrap {
+    position: relative;
+}
+
+.ImgOrnaments {
+    position: absolute;
+    bottom: 17px;
+    right: 45px;
+    z-index: 3333;
+}
+
+.portfolioDetailsRightSection {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+img.ornCircle {
+    position: absolute;
+    top: 0;
+}
+
+.ornCircle {
+    position: absolute;
+    top: -150px;
+    right: -22px;
+    transform: rotate(9deg);
+    z-index: -1;
+}
+
+span.portDots {
+    box-shadow: 0px 0px 0px #D6DADF, 0px 0px 0px #FFFFFF, 0px 0px 1px -1px rgba(169, 180, 203, 0.2), inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+    background: #fff;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -70px;
+    left: 30%;
+    z-index: 1;
+}
+
+.portMobImage {
+    position: absolute;
+    top: 32px;
+    right: 0;
+    right: 66px;
+    border-radius: 30px;
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .ImgOrnaments {
+        right: -17px;
+    }
+    span.portDots {
+        bottom: -50px;
+    }
+    .ornCircle {
+        right: -20px;
+    }
+    .portfolioBottomWrap h3 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .portfolioBottomWrap h3 {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .portfolioDetailsRightSection {
+        justify-content: center;
+        padding-right: 0;
+    }
+    .portfolioBottomWrap h3 {
+        font-size: 24px;
+        padding-left: 37px;
+    }
+    .portfolioBottomWrap a {
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .portfolioDetailsRightSection {
+        justify-content: center;
+        padding-right: 0;
+    }
+    .portfolioBottomWrap h3 {
+        font-size: 24px;
+        padding-left: 37px;
+    }
+    .portfolioBottomWrap a {
+        margin-right: 30px;
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 480.98px) {
+    .portfolioBottomWrap h3 {
+        font-size: 18px;
+        padding-left: 20px;
+        line-height: 1.5;
+    }
+}

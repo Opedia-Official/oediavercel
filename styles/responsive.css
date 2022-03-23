@@ -36,7 +36,7 @@
         margin: 260px 0 0px;
     }
     .workingProcess_workingProgressItems__PU27w h3 {
-        font-size: 23px;
+        font-size: 22px;
     }
     .section-title h3 {
         font-size: 37px;
@@ -62,8 +62,15 @@
         height: 248px;
     }
     .show-case-text h4 {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 20px;
+    }
+    .show-case-text p {
+        font-size: 12px;
+    }
+    .show-case-text {
+        left: 5px;
+        padding: 0 8px;
     }
     li.sp-item span {
         font-size: 26px;
@@ -132,6 +139,10 @@
         height: 400px !important;
         width: 360px!important;
     } */
+    .progress-info h4 {
+        font-size: 22px;
+        line-height: 34px;
+    }
 }
 
 
@@ -731,6 +742,9 @@
         text-align: center;
         margin-bottom: 35px;
     }
+    .subscribe-section.f-subs input {
+        padding-right: 100px;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -1286,6 +1300,7 @@
     }
     .subscribe-section input {
         width: 100%;
+        padding-right: 130px;
     }
     .subscribe-section input::placeholder {
         font-size: 14px;

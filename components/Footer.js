@@ -34,13 +34,10 @@ import Link from "next/link";
 import Image from "next/image";
 export default function Footer() {
   // https://admin.opediatech.com/api/subscribe
-
   const [emailTitle, setEmailTitle] = useState("");
-
   // subscription
   const Contacthandler = async (e) => {
     e.preventDefault();
-
     const posted = await fetch("https://admin.opediatech.com/api/subscribe", {
       method: "post",
       body: JSON.stringify({
@@ -49,7 +46,6 @@ export default function Footer() {
       headers: { "Content-Type": "application/json" },
     });
     setEmailTitle("");
-
     // console.log("posted email", posted);
   };
 
