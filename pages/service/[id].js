@@ -144,15 +144,15 @@ export async function getStaticProps(context) {
   });
   const service = await res.json();
 
-  const relRes =  await fetch(`${server}/api/related-service/${params?.id}`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'User-Agent': '*',
-    },
-  }); 
-  const relatedServices = await relRes.json();
+  // const relRes =  await fetch(`${server}/api/related-service/${params?.id}`,{
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Accept: 'application/json',
+  //     'User-Agent': '*',
+  //   },
+  // }); 
+  // const relatedServices = await relRes.json();
 
   return {
     props: {
