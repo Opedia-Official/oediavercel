@@ -129,7 +129,7 @@ export async function getStaticPaths() {
     },
   });
   const ports = await res.json();
-  const paths = ports.map((port) => {
+  const paths = ports?.map((port) => {
     return {
       params: {
         slug: `${port?.portfolio_slug}`,

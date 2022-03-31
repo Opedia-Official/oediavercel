@@ -9,9 +9,10 @@ import {
   FaRegEnvelope,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { useEffect } from "react";
 
 
-function SinglePage({service }) {
+function SinglePage({service,relatedServices}) {
 
   return (
     <div className="container my-5 py-5">
@@ -19,7 +20,7 @@ function SinglePage({service }) {
       <Meta title={service?.seo_title} description={service?.seo_description} />
       <div className={"row"}>
         <div className="col-lg-8  col-sm-12 col-xs-12">
-        {service ? <h2 className={Style.title}>{service?.service_title}</h2> : ""}
+        {<h2 className={Style.title}>{service?.service_title}</h2>}
           <div className="">
             {service?.featured_img && (
               <Image
@@ -31,18 +32,18 @@ function SinglePage({service }) {
             )}
               <div className="mt-30">
               <ServiceDetails
-              service={service}
+               service={service}
             />
               </div>
           </div>
         </div>
-        {/* <div className={"col-lg-4  col-sm-12 col-xs-12 px-5 mt-4 mt-lg-0"}>
+        <div className={"col-lg-4  col-sm-12 col-xs-12 px-5 mt-4 mt-lg-0"}>
           <div className="sidebarSingle">
             <h2 className={Style.title}>Related Service </h2>
             <div className={Style.service}>
               <ul>
-                {relatedServices?.map((item) => (
-                    <li key={item?.id}>
+                { relatedServices && relatedServices?.map((item) => (
+                    <li key={item.id}>
                       <Link href={`/service/${item?.service_slug}`}>
                         <a className="Link"> {item?.service_title} </a>
                       </Link>
@@ -51,7 +52,7 @@ function SinglePage({service }) {
               </ul>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );
@@ -119,10 +120,10 @@ export async function getStaticPaths() {
     },
   });
   const services = await resp.json();
-  const paths = services.map((service) => {
+  const paths = services?.map((service) => {
     return {
       params: {
-        id: `${service?.service_slug}`,
+        slug: `${service.service_slug}`,
       },
     };
   });
@@ -132,9 +133,9 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
-  const { params } = context;
-  const res = await fetch(`${server}/api/service/${params?.id}`,{
+
+export async function getStaticProps({params: {slug}}) {
+  const res = await fetch(`${server}/api/service/${slug}`,{
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -144,21 +145,25 @@ export async function getStaticProps(context) {
   });
   const service = await res.json();
 
-  // const relRes =  await fetch(`${server}/api/related-service/${params?.id}`,{
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     Accept: 'application/json',
-  //     'User-Agent': '*',
-  //   },
-  // }); 
-  // const relatedServices = await relRes.json();
+  const relRes =  await fetch(`${server}/api/related-service/${id}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  }); 
+  const relatedServices = await relRes.json();
 
   return {
     props: {
       service,
       relatedServices
+      
     },
     revalidate: 10,
   };
 }
+
+
+

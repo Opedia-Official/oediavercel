@@ -13,7 +13,6 @@ export default function CateWiseServices({ service }) {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, []);
 
@@ -40,23 +39,23 @@ export default function CateWiseServices({ service }) {
               <div className={"view-service-right-wrapper service"}>
                 <div className="row">
                   {service?.data?.length > 0 ? (
-                    service.data ? (
+                    service?.data ? (
                       service?.data?.map((item) => (
-                        <div key={item?.id} className="col-lg-6 col-sm-6">
+                        <div key={item.id} className="col-lg-6 col-sm-6">
                           <div>
                             <div className="portfolio-items mb-100">
                               <Card>
                                 <Image
-                                  src={`${server}/${item?.featured_img}`}
-                                  alt={item?.service_title}
+                                  src={`${server}/${item.featured_img}`}
+                                  alt={item.service_title}
                                   width={400}
                                   height={367}
                                 />
                               </Card>
                               <div className="portfolio-info">
-                                <h2>{item?.service_title}</h2>
+                                <h2>{item.service_title}</h2>
                                 <div>
-                                  <Link href={`/service/${item?.service_slug}`}>
+                                  <Link href={`/service/${item.service_slug}`}>
                                     <a>
                                       Service Details <FaAngleRight />
                                     </a>
@@ -116,17 +115,10 @@ export default function CateWiseServices({ service }) {
 
 
 export async function getStaticPaths() {
-  const resp = await fetch(`${server}/api/serviceAllCategory`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'User-Agent': '*',
-    },
-  });
+  const resp = await fetch(`${server}/api/serviceAllCategory`);
   const services = await resp.json();
 
-  const paths = services.map((service) => {
+  const paths = services?.map((service) => {
     return {
       params: {
         slug: `${service?.category_slug}`,
@@ -141,14 +133,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const res = await fetch(`${server}/api/service-category/${params.slug}`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'User-Agent': '*',
-    },
-  });
+  const res = await fetch(`${server}/api/service-category/${params.slug}`);
   const service = await res.json();
   
   return {
@@ -158,3 +143,5 @@ export async function getStaticProps(context) {
     revalidate: 10,
   };
 }
+
+

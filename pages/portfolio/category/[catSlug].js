@@ -73,19 +73,12 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${server}/api/portfolio/category`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'User-Agent': '*',
-    },
-  });
+  const res = await fetch(`${server}/api/portfolio/category`);
   const categories = await res.json();
-  const paths = categories.map((category) => {
+  const paths = categories?.map((category) => {
     return {
       params: {
-        catSlug: `${category?.category_slug}`,
+        catSlug: `${category.category_slug}`,
       },
     };
   });

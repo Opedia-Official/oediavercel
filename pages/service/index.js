@@ -67,8 +67,6 @@ export default function Services({ categories }) {
                             <h3 style={{ color: '#Fff' }}>{category?.category_name}</h3>
                           </div>
                           <SingleService singleCategories={category?.services} />
-
-
                         </div>
                       </div>
                     </div>
