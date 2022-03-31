@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 
 
-function SinglePage({service,relatedServices }) {
+function SinglePage({service }) {
 
   return (
     <div className="container my-5 py-5">
