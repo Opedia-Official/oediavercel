@@ -123,7 +123,7 @@ export async function getStaticPaths() {
   const paths = services?.map((service) => {
     return {
       params: {
-        slug: `${service.service_slug}`,
+        slug: `${service?.service_slug}`,
       },
     };
   });
