@@ -36,7 +36,7 @@ function SinglePage({service,relatedServices }) {
               </div>
           </div>
         </div>
-        <div className={"col-lg-4  col-sm-12 col-xs-12 px-5 mt-4 mt-lg-0"}>
+        {/* <div className={"col-lg-4  col-sm-12 col-xs-12 px-5 mt-4 mt-lg-0"}>
           <div className="sidebarSingle">
             <h2 className={Style.title}>Related Service </h2>
             <div className={Style.service}>
@@ -51,7 +51,7 @@ function SinglePage({service,relatedServices }) {
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
