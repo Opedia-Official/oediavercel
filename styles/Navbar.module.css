@@ -97,7 +97,7 @@
 .dropdown {
     background: #ffffff;
     position: absolute;
-    left: -79rem;
+    left: -78rem;
     z-index: 9999;
     padding: 2rem;
     border-radius: 0.5rem;
@@ -128,19 +128,7 @@
 
 .dropdown__inner {
     position: relative;
-    /* border-right: 1px solid #2f6eb5 !important; */
 }
-
-
-/* .dropdown__inner:after {
-    position: absolute;
-    content: '';
-    background-color: #2f6eb5;
-    height: 160%;
-    width: 1px;
-    right: 0;
-    top: 0;
-} */
 
 .borderLeft {
     border-left: 1px solid red !important;
@@ -171,7 +159,7 @@
 
 .dropdown__title {
     color: var(--clr-primary);
-    font-size: 1.7rem;
+    font-size: 1.65rem;
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 700;

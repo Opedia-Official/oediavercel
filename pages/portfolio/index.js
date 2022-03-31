@@ -1,10 +1,9 @@
 import { Card } from "react-bootstrap";
-// import { BiRightArrowAlt } from "react-icons/bi";
-import InnerHead from "../../components/innerHead";
+
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../components/whatsappChat";
-// import AnimatedCursor from "react-animated-cursor";
+
 import { server } from "../../config";
 import Meta from "../../components/Meta";
 import { FaAngleRight } from "react-icons/fa";
@@ -43,10 +42,9 @@ export default function Portfolio({ categories }) {
                     <Card>
                       <Image
                         src={`${server}/${category.img}`}
-                        alt="portfolio"
+                        alt={category.title}
                         width={370}
                         height={367}
-                        
                       />
                     </Card>
                     <div className="portfolio-info">
@@ -78,7 +76,14 @@ export default function Portfolio({ categories }) {
 // }
 
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/portfolio/category`);
+  const res = await fetch(`${server}/api/portfolio/category`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const categories = await res.json();
 
   return {

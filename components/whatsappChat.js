@@ -15,7 +15,6 @@ function WhatsappChat() {
         message="Hello! 👋🏼 Wanna contact wiht us?"
         companyName="Opedia Technologies Limited "
       />
-
       <a href="#">
         <p className="Top"><FaAngleUp/></p>
       </a>

@@ -1,28 +1,9 @@
-import { Card } from "react-bootstrap";
-// import {
-//   FaCloud,
-//   FaDatabase,
-//   FaRegHeart,
-//   FaHeart,
-//   FaRegSmileBeam,
-//   FaFacebookF,
-//   FaRegPaperPlane,
-//   FaRegLightbulb,
-//   FaPlaneDeparture,
-//   FaAngleDoubleRight,
-//   FaInstagram,
-//   FaTwitter,
-//   FaGithub,
-//   FaHeadphonesAlt,
-// } from "react-icons/fa";
-// import { GiHelicopter } from "react-icons/Gi";
 
-// Import Swiper styles
 import "swiper/css";
 import { dataPricing } from "../../Utils/fakeData";
 import PricingCard from "../PricingCard";
 
-export default function Pricing({ pricingData }) {
+export default function Pricing() {
   return (
     <div className="our-pricing-area">
       <div className="container">
@@ -37,7 +18,7 @@ export default function Pricing({ pricingData }) {
         <div className="row justify-content-center">
           {dataPricing?.length > 0 ? (
             dataPricing?.map((item, index) => (
-              <PricingCard key={item} index={index} item={item} />
+              <PricingCard key={item.id} index={index} item={item} />
             ))
           ) : (
             <p>Loading </p>

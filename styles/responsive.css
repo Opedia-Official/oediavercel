@@ -259,6 +259,9 @@
         font-size: 15px;
         right: 5px;
     }
+    .subscribe-section.f-subs input {
+        padding-right: 107px;
+    }
     .subscribe-section input {
         width: 100%;
     }
@@ -745,6 +748,9 @@
     .subscribe-section.f-subs input {
         padding-right: 100px;
     }
+    .Link {
+        font-size: 16px;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -821,7 +827,7 @@
     .view-service-section-wrapper>p {
         font-size: 14px;
         line-height: 25px;
-        margin: 30px 10px;
+        margin: 30px 0px;
     }
     .btn-two {
         padding: 10px 20px;
@@ -848,12 +854,14 @@
         padding-right: 00px;
         flex-direction: column;
         align-items: center;
-        padding: 0 50px;
+        padding: 0 0px;
+    }
+    .sp-item-info p {
+        text-align: center;
     }
     li.sp-item span {
         margin-right: 0;
         width: 63px;
-        display: inline-block;
         margin-bottom: 13px;
     }
     .section-title p {
@@ -863,14 +871,13 @@
         max-width: 59%;
     }
     ul.f-social {
-        margin-top: 60px;
+        margin-top: 40px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
     .footer-logo a {
         transition: all 0.3s ease-out 0s;
         display: flex;
-        justify-content: center;
     }
     .footer-widget p {
         font-size: 14px;
@@ -878,7 +885,7 @@
     .footer-logo ul {
         margin: 0px;
         padding: 0px;
-        text-align: center;
+        text-align: left;
     }
     ul.link-items li a {
         font-size: 14px;
@@ -1072,7 +1079,7 @@
         padding: 20px 6px;
     }
     .footer-middle {
-        padding: 180px 12px 105px;
+        padding: 79px 12px 65px;
     }
     .hero-section-area {
         margin-bottom: 0;
@@ -1123,6 +1130,23 @@
     }
     .portfolio-details-right-wrap {
         padding: 0px 8px;
+    }
+    .Link {
+        font-size: 15px;
+    }
+    .sp-feature-img {
+        height: 100%;
+    }
+    .footer-bottom-wrap p.copyright {
+        font-size: 13px;
+        line-height: 28px;
+    }
+    .terms-and-condition a {
+        font-size: 13px;
+        line-height: 34px;
+    }
+    .service-all-right {
+        margin-left: 0px;
     }
 }
 
@@ -1217,11 +1241,7 @@
         font-size: 12px;
     }
     .expTeam-youtube-section li a {
-        font-size: 13px;
-        right: 45%;
-        top: 100px;
-        transform: translateY(-50%);
-        padding: 11px 16px;
+        display: none;
     }
     .hero-left h4:before {
         left: 18%;
@@ -1237,20 +1257,13 @@
         margin-left: 6rem;
     }
     .hero-bottom-info h4 {
-        font-size: 20px;
+        font-size: 19px;
     }
     .icons svg {
         font-size: 32px;
     }
-    .exp-left-text {
-        left: 25px;
-        bottom: -87px;
-    }
     .exp-left-text h3 {
         font-size: 50px;
-    }
-    .expTeam-right {
-        margin-top: 80px;
     }
     .section-title h3 {
         font-size: 37px;
@@ -1414,8 +1427,8 @@
     .footer-widget h4.footer-title {
         color: #fff;
         font-weight: 700;
-        font-size: 24px;
-        line-height: 50px;
+        font-size: 20px;
+        line-height: 40px;
         margin-bottom: 13px;
     }
     .section-title h3 {
@@ -1435,8 +1448,8 @@
         font-size: 35px;
     }
     .section-title p {
-        font-size: 12px;
-        line-height: 18px;
+        font-size: 14px;
+        line-height: 22px;
     }
     .view-service-right-wrapper .card-body>svg {
         display: inline;

@@ -38,20 +38,11 @@ export default function Home({ portCats }) {
       <ExpTeam />
       <LogoSlider />
       <ViewService />
-
       <ShowCase portCats={portCats} />
 
       <ShowCaseCounter />
-
-      {/* <ExpTeam expertTeams = {expertTeams}/>
-
-  
-
-      <ShowCaseCounter projectsAll ={projects} /> */}
-
       <Update />
 
-      {/* <ExpartWorkers /> */}
       <WorkingProcess />
 
       <Specialist />

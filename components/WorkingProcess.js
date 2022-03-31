@@ -7,10 +7,7 @@ import {
   FaHandsHelping,
   FaPaperPlane,
 } from "react-icons/fa";
-// import { FiSettings } from "react-icons/fi";
-// import { BsArrowRight } from "react-icons/Bs";
-// import { BiDonateBlood } from "react-icons/Bi";
-// import { GiStairsGoal } from "react-icons/Gi";
+
 import style from "../styles/workingProcess.module.css";
 import CountUp from "react-countup";
 
@@ -28,32 +25,6 @@ export default function WorkingProcess() {
                 </h3>
               </div>
             </div>
-            {/* <div className="col-lg-5  wow fadeIn" data-wow-duration="2s">
-              <div className={`${style.workingProcessWrap} mt-4 mt-lg-0`}>
-                <div className={style.wpItem}>
-                  <div className={style.wpCountWrap}>
-                    <h2>
-                      <CountUp end={365} duration={5} />{" "}
-                    </h2>
-                    <span className={style.wpPlus}>
-                      <FaPlus />
-                    </span>
-                  </div>
-                  <p>Succed Project</p>
-                </div>
-                <div className={style.wpItem}>
-                  <div className={style.wpCountWrap}>
-                    <h2>
-                      <CountUp end={365} duration={5} />{" "}
-                    </h2>
-                    <span className={style.wpPlus}>
-                      <FaPlus />
-                    </span>
-                  </div>
-                  <p>Succed Project</p>
-                </div>
-              </div>
-            </div> */}
           </div>
           <div className="row justify-content-center align-items-center mt-50">
             <div
@@ -66,9 +37,6 @@ export default function WorkingProcess() {
                     <FaRegSun />
                   </span>
                   <h3>Choose Service</h3>
-                  {/* <span className={style.wpArrow}>
-                                            <FaArrowRight/>
-                                            </span> */}
                 </div>
               </div>
             </div>
@@ -82,9 +50,6 @@ export default function WorkingProcess() {
                     <FaPeopleArrows />
                   </span>
                   <h3>Request Meeting</h3>
-                  {/* <span className={style.wpArrow}>
-                                            <BsArrowRight/>
-                                            </span> */}
                 </div>
               </div>
             </div>
@@ -98,9 +63,6 @@ export default function WorkingProcess() {
                     <FaLightbulb />
                   </span>
                   <h3>Custom Plan</h3>
-                  {/* <span className={style.wpArrow}>
-                                            <BsArrowRight/>
-                                            </span> */}
                 </div>
               </div>
             </div>
@@ -114,9 +76,6 @@ export default function WorkingProcess() {
                     <FaHandsHelping />
                   </span>
                   <h3>Make Final Work</h3>
-                  {/* <span className={style.wpArrow}>
-                                            <BsArrowRight/>
-                                            </span> */}
                 </div>
               </div>
             </div>

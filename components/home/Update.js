@@ -6,7 +6,6 @@ import Progressbar from "../../components/Progressbar";
 
 export default function Update() {
   const [emailTitle, setEmailTitle] = useState("");
-
   // subscription
   const Contacthandler = async (e) => {
     e.preventDefault();
@@ -20,7 +19,6 @@ export default function Update() {
     });
     setEmailTitle("");
 
-    // console.log("posted email", posted);
   };
 
   return (
@@ -35,7 +33,6 @@ export default function Update() {
           >
             <div className="project-update-section-wrap">
               <div className="section-title">
-                {/* <h5>Get Newsletter</h5> */}
                 <h3>Don,t miss our update</h3>
               </div>
               <p className="pr-140p pera">
@@ -58,7 +55,7 @@ export default function Update() {
                     className="btn-brand"
                     onClick={Contacthandler}
                   >
-                    Subscribed
+                    Subscribe
                   </button>
                 </form>
               </div>

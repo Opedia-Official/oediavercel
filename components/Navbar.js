@@ -2,16 +2,15 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 
 import axios from "axios";
-import { toast } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
-import { FaAngleDoubleDown, FaAngleDown, FaAngleUp,FaRegTimesCircle } from "react-icons/fa";
+import { FaAngleDown, FaAngleUp,FaRegTimesCircle } from "react-icons/fa";
 import Image from "next/image";
 import styles from "../styles/Navbar.module.css";
 import logo from "../public/logo/logo-blue.png";
 import {
   FaRegEnvelope,
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
   FaPhoneAlt,
@@ -38,9 +37,8 @@ const customStyles = {
     zIndex: 22342434234234,
     padding: "50px 0",
     border: "1px solid rgb(244, 151, 53)",
-    height: "70%",
+    maxHeight: "653px",
   },
-
 }
 
 Modal.setAppElement("body");
@@ -172,8 +170,10 @@ const [navActive, navSetActive] = useState(false)
   const navChageRef = useRef();
   const router = useRouter();
 
+
+
+
   useEffect(() => {
-    // router.pathname == "/" ? setLink(true) : setLink(false);
 
     // training
     const allData = axios
@@ -186,11 +186,8 @@ const [navActive, navSetActive] = useState(false)
 
     window.addEventListener("scroll", (e) => {
       let scrolTop = e.target.documentElement.scrollTop;
-
       // Scroll top navbar hide open
       let currentPosition = e.target.documentElement.scrollTop;
-      
-
       if (scrolTop > 10) {
         if (previousPosition > currentPosition) {
           setNavChange(true);
@@ -207,11 +204,12 @@ const [navActive, navSetActive] = useState(false)
 
     // allcategory called
     const allCategory = axios
-      .get(`${server}/api/serviceAllCategory`)
+      .get(`${server}/api/cat-to-service`)
       .then((res) => {
         setAllCategory(res.data);
-        // console.log("allCategory", res.data);
       });
+
+    
   }, [router.pathname]);
 
   // Service Toggle
@@ -222,14 +220,13 @@ const [navActive, navSetActive] = useState(false)
     setIsService(!isService);
 
   }
-  // Training Toggle
 
+  // Training Toggle
   const [isToggleTraining, SetToggleTraining] = useState(false);
   const TrainingToggleHandler = (e) => {
     SetToggleTraining(!isToggleTraining);
-
   }
-  // console.log(allCategory, "allCategory");
+
 
   return (
     <>
@@ -368,26 +365,25 @@ const [navActive, navSetActive] = useState(false)
                   </a>
                 </Link>
 
-
                 <div className={isService == false ? styles.dropdown : " "}>
                   <div className={styles.containerr}>
                     <div className="row justify-content-center">
-                      {allCategory.map((singleCategory) => (
+                      {allCategory.map((singleCategory,index) => (
                         <div
-                          key={singleCategory.id}
+                          key={index}
                           className="col-12 col-xl text-center text-xl-start   borderLeft  mb-4 mb-xl-0"
                         >
                           <div className={styles.dropdown__inner}>
                             <Link
-                              href={`/service/category/${singleCategory.category_slug}`}
+                              href={`/service/category/${singleCategory?.category_slug}`}
                             >
                               <h2 className={styles.dropdown__title} onClick={openMenu}    >
-                                {singleCategory.category_name}
+                                {singleCategory?.category_name}
                               </h2>
                             </Link>
                             <SingleServiceCompo
                               isMore={isMore}
-                              singleCategory={singleCategory}
+                              singleCategory={singleCategory?.services}
                               openHandlebar={openMenu}
                             />
                           </div>
@@ -490,31 +486,6 @@ const [navActive, navSetActive] = useState(false)
                   </a>
                 </Link>
               </li>
-              {/* {isLink && (
-                <li className={styles.navitem}>
-                  <Link href="/portfolio">
-                  <a
-                    id="#portfolio"
-                    href="#portfolio"
-                    className={
-                      (isOpen === false
-                        ? styles.navlink
-                        : styles.navlink + " " + styles.active,
-                        isActiveNav === "Portfolio"
-                          ? styles.activenav
-                          : styles.navlink)
-                    }
-                    onClick={() => {
-                      openMenu();
-                      setActiveNav("Portfolio");
-                    }}
-                  >
-                    Portfolio
-                  </a>
-                  </Link>
-                </li>
-              )} */}
-
               <li className={styles.navitem}>
                 <Link href="#">
                   <a
@@ -530,9 +501,7 @@ const [navActive, navSetActive] = useState(false)
                     Get a Quote{" "}
                   </a>
                 </Link>
-
                 {/* modal items */}
-
                 <Modal
                   isOpen={modalIsOpen}
                   // onAfterOpen={afterOpenModal}
@@ -701,29 +670,20 @@ const [navActive, navSetActive] = useState(false)
 }
 
 function SingleServiceCompo({ singleCategory, isMore, openHandlebar }) {
-  const [marketing, setMarketing] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${server}/api/service-category/${singleCategory.category_slug}`)
-      .then((res) => {
-        setMarketing(res.data.data);
-      });
-  }, []);
-
   return (
     <ul className={styles.dropdown__list}>
       {isMore
-        ? marketing.map((item) => (
-          <li key={item.id} className={styles.dropdown__item}>
-            <Link href={`/service/${item.service_slug}`}>
-              <a className={styles.dropdown__link} onClick={openHandlebar}  >{item.service_title}</a>
+        ? singleCategory?.map((item) => (
+          <li key={item?.id} className={styles.dropdown__item}>
+            <Link href={`/service/${item?.service_slug}`}>
+              <a className={styles.dropdown__link} onClick={openHandlebar}  >{item?.service_title}</a>
             </Link>
           </li>
         ))
-        : marketing.slice(0, 5).map((item) => (
-          <li key={item.id} className={styles.dropdown__item}>
-            <Link href={`/service/${item.service_slug}`}>
-              <a className={styles.dropdown__link} onClick={openHandlebar} >{item.service_title}</a>
+        : singleCategory?.slice(0, 5).map((item) => (
+          <li key={item?.id} className={styles.dropdown__item}>
+            <Link href={`/service/${item?.service_slug}`}>
+              <a className={styles.dropdown__link} onClick={openHandlebar} >{item?.service_title}</a>
             </Link>
           </li>
         ))}

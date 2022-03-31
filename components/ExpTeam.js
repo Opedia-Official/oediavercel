@@ -1,14 +1,12 @@
-import { FaPlay, FaYoutube } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
 import SectionTitle from "./SectionTitle";
 import { useState } from "react";
 import Image from "next/image";
 
 import MyVerticallyCentredModal from "../components/MyVerticallyCentredModal";
 
-const myLoader = ({ src, width, quality }) => {
-  return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
-};
-export default function ExpTeam({ expertTeams }) {
+
+export default function ExpTeam() {
   const [modalShow, setModalShow] = useState(false);
 
   return (
@@ -21,24 +19,15 @@ export default function ExpTeam({ expertTeams }) {
               data-wow-duration="2s"
             >
               <div className="expTeam-left ">
-                {/* <img
-                  className="parent-pic"
-                  src="/experienceTeam/pic-1.png"
-                  alt=""
-                /> */}
                 <Image
                   className="parent-pic"
-                  // loader={myLoader}
                   src="/experienceTeam/pic-1.jpg"
                   alt="experienceTeam"
                   width={442}
                   height={506}
                 />
-
                 <div className="child d-none d-xl-block">
-                  {/* <img src="./experienceTeam/pic-2.png" alt="" /> */}
                   <Image
-                    // loader={myLoader}
                     src="/experienceTeam/pic-2.jpg"
                     alt="experienceTeam"
                     width={228}
@@ -72,7 +61,6 @@ export default function ExpTeam({ expertTeams }) {
                   <h3> <span className="s-t">Your Digital Assets,</span> <br /> Our Responsibility</h3>
                 </div>
                 <SectionTitle
-
                   description="3 years+ serving as a leading software company. A unique workflow and high-quality services are what sets us apart from competitors. 
                   We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate are:
                   "
@@ -86,7 +74,7 @@ export default function ExpTeam({ expertTeams }) {
                             <input
                               className="styled-checkbox"
                               id="styled-checkbox-1"
-                              checked
+                              defaultChecked
                               type="checkbox"
                               value="value2"
                             />
@@ -98,7 +86,7 @@ export default function ExpTeam({ expertTeams }) {
                             <input
                               className="styled-checkbox"
                               id="styled-checkbox-2"
-                              checked
+                              defaultChecked
                               type="checkbox"
                               value="value2"
                             />
@@ -120,7 +108,7 @@ export default function ExpTeam({ expertTeams }) {
                             <input
                               className="styled-checkbox"
                               id="styled-checkbox-3"
-                              checked
+                              defaultChecked
                               type="checkbox"
                               value="value2"
                             />

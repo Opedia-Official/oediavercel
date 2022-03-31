@@ -15,29 +15,24 @@
 /* custome fonts:  */
 
 @font-face {
-    font-family: Axiforma;
+    font-family: 'Axiforma';
     src: url("../public/fonts/Axiforma/Kastelov - Axiforma Light.otf");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
-    font-family: Axiforma;
+    font-family: 'Axiforma';
     src: url("../public/fonts/Axiforma/Kastelov - Axiforma SemiBold.otf");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: Axiforma;
+    font-family: 'Axiforma';
     src: url("../public/fonts/Axiforma/Kastelov - Axiforma Bold.otf");
     font-weight: 800;
     font-style: normal;
-}
-
-* {
-    font-family: Axiforma;
-    /* src: url("../public/font/Kastelov\ -\ Axiforma\ Regular.otf"); */
 }
 
 html {
@@ -76,10 +71,14 @@ ul.social {
 }
 
 body {
-    /* font-family: "Nunito", sans-serif; */
+    font-family: 'Axiforma' !important;
+    src: url("../public/fonts/Axiforma/Kastelov - Axiforma Light.otf");
+    font-weight: 400;
     font-weight: normal;
     font-style: normal;
     background-color: #fefefe;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 .img {
@@ -127,8 +126,7 @@ h3,
 h4,
 h5,
 h6 {
-    /* font-family: "Rajdhani", sans-serif; */
-    /* font-family: Axiforma; */
+    font-family: 'Axiforma' !important;
     font-weight: 800;
     color: #14212b;
     margin-top: 0px;
@@ -148,7 +146,7 @@ h5 a,
 h6 a {
     color: inherit;
     font-weight: 400;
-    /* font-family: "Nunito", sans-serif; */
+    font-family: 'Axiforma' !important;
 }
 
 h1 {
@@ -186,7 +184,7 @@ li {
 }
 
 p {
-    /* font-family: "Nunito", sans-serif; */
+    font-family: 'Axiforma' !important;
     font-size: 16px;
     font-weight: normal;
     line-height: 20px;
@@ -214,7 +212,7 @@ hr {
 .featureservices .badge {
     display: inline-block;
     padding: 0.4em 0.8em;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     font-weight: 700;
     line-height: 1;
     color: #fff;
@@ -229,7 +227,7 @@ hr {
 }
 
 label {
-    /* font-family: "Nunito", sans-serif; */
+    font-family: 'Axiforma' !important;
     color: #5c727d;
     cursor: pointer;
     font-size: 14px;
@@ -307,12 +305,6 @@ label {
 ::-webkit-scrollbar-thumb {
     background: rgb(179, 195, 253);
     border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:horizontal {
-    /* background: rgba(0, 0, 0, 0);
-  border-radius: 10px;
-  display: none; */
 }
 
 .Link {
@@ -397,7 +389,7 @@ html {
     background: var(--clr-primary) none repeat scroll 0 0;
     border: none;
     border-radius: 0;
-    font-family: "Nunito", sans-serif;
+    font-family: 'Axiforma' !important;
     color: #fff;
     display: inline-block;
     font-weight: 600;
@@ -438,7 +430,7 @@ html {
     background: var(--clr-secondary) none repeat scroll 0 0;
     border: none;
     border-radius: 0;
-    font-family: "Nunito", sans-serif;
+    font-family: 'Axiforma' !important;
     color: #fff;
     display: inline-block;
     font-weight: 600;
@@ -743,6 +735,7 @@ ul.social {
     display: block;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .training-contact li a {
@@ -751,7 +744,7 @@ ul.social {
 }
 
 .training-contact li {
-    margin: 0 15px;
+    margin: 5px 15px;
 }
 
 .training-contact li a:hover {
@@ -818,11 +811,6 @@ ul.social {
     color: #14212b;
     margin: 10px 0 40px;
 }
-
-
-/* .hero-section-area {
-  margin-bottom: 190px;
-} */
 
 .hero-bottom-section {
     width: 370px !important;
@@ -1051,12 +1039,6 @@ ul.social {
     border-radius: 0px;
 }
 
-
-/* .expTeam-youtube-section li:hover a {
-  visibility: visible;
-  opacity: 1;
-} */
-
 .expTeam-youtube-section li label {
     font-size: 17px;
     color: #363636;
@@ -1099,14 +1081,14 @@ ul.social {
     color: #0b1e33;
     font-weight: 700;
     text-transform: capitalize;
-    line-height: 30px;
-    margin-top: 20px;
     transition: 0.3s;
-    height: 45px;
+    height: 26px;
+    overflow: hidden;
+    margin-top: 15px;
 }
 
 .view-service-right-wrapper .card-body>svg {
-    font-size: 50px;
+    font-size: 45px;
     text-align: left !important;
     color: var(--clr-primary);
     margin-bottom: 10px;
@@ -1120,9 +1102,10 @@ ul.social {
     line-height: 26px;
     margin-top: 10px;
     transition: 0.3s;
-    white-space: nowrap;
+    white-space: pre-wrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-height: 45px;
 }
 
 .view-service-right-wrapper .card-body a {
@@ -1228,12 +1211,8 @@ img.service-f-mobile {
 .serviceItems-nonfeatured li a {
     color: #fff;
     font-size: 17px;
-    /* line-height: 20px; */
     display: -webkit-box;
     display: -ms-flexbox;
-    /* display: flex; */
-    /* position: relative; */
-    /* margin-left: 22px; */
     padding: 10px 0;
 }
 
@@ -1242,7 +1221,7 @@ img.service-f-mobile {
     margin-left: 22px;
     position: relative;
     margin-right: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     height: 25px;
     overflow-y: clip;
 }
@@ -1288,14 +1267,12 @@ img.service-f-mobile {
     max-height: 613px;
     width: 100%;
     height: 613px;
-    object-fit: cover;
     max-height: 613px;
     width: 100%;
 }
 
 .showCase-wrap {
     position: relative;
-    margin-right: 1px;
 }
 
 .s-action {
@@ -1353,7 +1330,7 @@ img.service-f-mobile {
     position: absolute;
     content: "";
     background: var(--clr-primary);
-    height: 99%;
+    height: 97.5%;
     width: 100%;
     left: 0;
     top: 0;
@@ -1380,18 +1357,11 @@ img.service-f-mobile {
 }
 
 .show-case-child img {
-    width: 100%;
-    max-height: 297px;
-    height: 297px;
-    object-fit: cover;
-    width: 100%;
-    max-height: 297px;
-    height: 297px;
     object-fit: cover;
 }
 
-.show-case-features {
-    width: 90%;
+.show-case-features.s-img-wrap:after {
+    height: 98.8% !important;
 }
 
 
@@ -1542,8 +1512,8 @@ img.service-f-mobile {
 }
 
 .div ul li {
+    list-style: none;
     padding: 10px;
-    list-style: initial;
     font-size: 16px;
     line-height: 30px;
     color: #2f6eb5;
@@ -1806,21 +1776,6 @@ li.sp-item:hover span {
     transform: scaleY(1.1);
 }
 
-
-/* .our-pricing-wrap {
-  text-align: center;
-  animation: shadows 2s linear infinite alternate;
-}
-
-@keyframes shadows {
-  0% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-  }
-} */
-
 .our-pricing-wrap .card-body>span {
     height: 125px;
     width: 125px;
@@ -1857,12 +1812,7 @@ li.sp-item:hover span {
     box-shadow: 0px 0px 0px 1px #2f6eb5;
 }
 
-.borderE {
-    /* border: 1px solid salmon; */
-}
-
 .our-pricing-wrap .card-title.h5 {
-    /* display: flex; */
     justify-content: center;
     align-items: center;
 }
@@ -1995,142 +1945,6 @@ ul.pricing-items li {
 /* *******************************TESTIMONIAL AREA********************************** */
 
 
-/* *******************************BLOG HOME AREA********************************** */
-
-.blog-home-text.blg-text-right h3 a {
-    font-family: "Rajdhani";
-}
-
-.blog-home-text h3 a {
-    font-family: "Rajdhani";
-}
-
-.blog-f-image-info img {
-    width: 100%;
-    max-height: 409px;
-    border-radius: 10px 10px 0 0;
-}
-
-.blog-f-image-info {
-    position: relative;
-}
-
-.blog-date {
-    background: #14212b;
-    height: 87px;
-    width: 96px;
-    color: #fff;
-    border-radius: 6px;
-    text-align: center;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.blog-date h4 {
-    color: #fff;
-    font-size: 34px;
-    font-weight: 700;
-    line-height: 28px;
-    padding-top: 20px;
-}
-
-.blog-date p {
-    font-size: 22px;
-}
-
-.blog-home-text h3 {
-    font-size: 40px;
-    font-weight: 700;
-    color: #000000;
-    line-height: 50px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-.blog-home-text p {
-    font-size: 16px;
-    line-height: 30px;
-    color: #505975;
-    padding-right: 90px;
-}
-
-.blog-a-img-name img {
-    max-width: 44px;
-    max-height: 44px;
-}
-
-.blog-a-img-name a {
-    display: flex;
-    align-items: center;
-}
-
-.blog-a-img-name p {
-    padding-top: 10px;
-    margin-left: 10px;
-    font-size: 14px;
-    color: #000;
-    font-weight: 700;
-    line-height: 32px;
-}
-
-.blog-h-author {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.blog-h-author a {
-    font-size: 20px;
-    color: #000;
-    line-height: 30px;
-    font-family: "Rajdhani";
-}
-
-.blog-h-author a svg {
-    font-size: 18px;
-    display: inline-block;
-    margin-left: 2px;
-}
-
-.blog-h-author a:hover {
-    color: var(--clr-primary);
-}
-
-.blog-home-text-wrap {
-    padding: 30px;
-    background: #fff;
-}
-
-.blog-home-text.blg-text-right h3 {
-    font-size: 28px;
-    line-height: 37px;
-    margin: 0;
-}
-
-.blog-features-wrap {
-    box-shadow: 0 3px 15px -8px #0e2531;
-    border-radius: 10px;
-}
-
-.blog-home-text.blg-text-right h3 {
-    font-size: 28px;
-    line-height: 37px;
-    margin: 0;
-}
-
-.blog-home-text h3:hover a {
-    color: var(--clr-primary);
-}
-
-.blog-area {
-    padding: 100px 0;
-}
-
-
-/* *******************************BLOG HOME AREA********************************** */
-
-
 /* *******************************FOOTER AREA********************************** */
 
 .footer-top-wrap {
@@ -2168,13 +1982,10 @@ ul.pricing-items li {
 }
 
 
-/* FOOTER MIDDLE */
-
-
 /*  */
 
 .footer-middle {
-    padding: 180px 0 105px;
+    padding: 50px 0;
 }
 
 .footer-widget h4.footer-title {
@@ -2355,7 +2166,6 @@ ul.link-items li svg {
 .portfolio-items .card img {
     width: 100%;
     height: 367px;
-    object-fit: cover;
 }
 
 .portfolio-info>span {
@@ -2388,13 +2198,13 @@ ul.link-items li svg {
     background: #fff;
     box-shadow: 1px 4px 6px -1px #e3e3e3;
     padding: 25px;
-    max-width: 337px;
+    max-width: 520px;
     position: absolute;
     z-index: 222;
     width: 100%;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -66px;
+    bottom: -55px;
     text-transform: capitalize;
     transition: 0.3s ease-in;
     padding-left: 45px;
@@ -2428,11 +2238,6 @@ ul.link-items li svg {
 
 /* *******************************PORTFOLIO DETAILS PAGE AREA********************************** */
 
-
-/* .portfolio-details {
-  margin-top: -90px;
-} */
-
 .portfolio-details-left {
     position: relative;
 }
@@ -2457,7 +2262,6 @@ ul.link-items li svg {
 .portfolio-details-lft-img img {
     max-height: 495px;
     height: 495px;
-    object-fit: cover;
 }
 
 .ptflo-button {
@@ -2730,7 +2534,7 @@ ul.contact-info-text li:hover:after {
 
 .ReactModal__Overlay.ReactModal__Overlay--after-open {
     background: rgb(47, 110, 181, 0.3) !important;
-    z-index: 9999999999999999999999999999;
+    z-index: 99 !important;
 }
 
 .c-input-wrap input {
@@ -2813,9 +2617,9 @@ img.ge-dots {
     width: 150px;
     height: 150px;
     position: absolute;
-    right: 73px;
+    right: 72px;
     z-index: -1;
-    bottom: -40px;
+    bottom: -50px;
 }
 
 .about.great-experience-left-wrap {
@@ -2992,6 +2796,7 @@ span.youtube-play svg {
 
 .client-feedback-wrap .card {
     border: 1px solid #707070;
+    max-height: 337px;
 }
 
 ul.review {
@@ -3007,6 +2812,3 @@ ul.review {
 .react-multi-carousel-list button {
     display: none !important;
 }
-
-
-/* Logo Slider */

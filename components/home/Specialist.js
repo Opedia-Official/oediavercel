@@ -1,18 +1,6 @@
 import Image from "next/image";
 import {
-  FaCloud,
-  FaDatabase,
-  FaRegHeart,
-  FaHeart,
-  FaRegSmileBeam,
-  FaFacebookF,
-  FaRegPaperPlane,
   FaRegLightbulb,
-  FaPlaneDeparture,
-  FaAngleDoubleRight,
-  FaInstagram,
-  FaTwitter,
-  FaGithub,
   FaHeadphonesAlt,
 } from "react-icons/fa";
 
@@ -28,7 +16,7 @@ export default function Specialist() {
             <div className="section-title">
               <h5>Our Support</h5>
               <h3>IT professionals are at your service</h3>
-              <p className="pera pr-45">
+              <p className="pera pe-md-5">
                 Every project is handled by a team of industry experts. The
                 proper knowledge, research, analysis, and implementation help us
                 develop your business.
@@ -65,8 +53,6 @@ export default function Specialist() {
           <div className="col-md-6">
             <div className="sp-r-section-wrap">
               <div className="sp-feature-img">
-
-
                 <Image
                   className="sp-feature  wow pulse"
                   src="/specialist/pic-1.jpg"
@@ -86,7 +72,7 @@ export default function Specialist() {
                   src="/specialist/pic-2.jpg"
                   alt=""
                   width={194}
-                  height={205}
+                  height={250}
                 />
               </div>
             </div>

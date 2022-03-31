@@ -7,7 +7,6 @@ function TestimonialSlider({ itam }) {
     <div className="testimonial-wrapper text-center">
       <div className="testimonial-img">
         <img src="./testimonial/pic-1.png" alt="" />
-        {/* <IoIosArrowRoundDown/> */}
         {icons}
       </div>
       <p>{description}</p>

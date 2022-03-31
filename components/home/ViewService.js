@@ -2,23 +2,24 @@ import { Badge, Card } from "react-bootstrap";
 import { FaAngleRight } from "react-icons/fa";
 
 import { FaCloud } from "react-icons/fa";
-
 import HomeStyle from "../../styles/Home.module.css";
 import SectionTitle from "../SectionTitle";
 import axios from "axios";
 import Link from "next/link";
-
 import { useEffect } from "react";
 import { useState } from "react";
 import { server } from "../../config";
 
+
 export default function ViewService() {
   const [services, setServices] = useState([]);
+
   useEffect(() => {
     axios.get(`${server}/api/featured-service`).then((res) => {
       setServices(res.data);
     });
   }, []);
+
 
   return (
     <div className="view-service-section">
@@ -75,13 +76,15 @@ export default function ViewService() {
                           <FaCloud />
 
                           <Card.Title>{service.service_title}</Card.Title>
-                          <Card.Text
-                            dangerouslySetInnerHTML={{
-                              __html: `${service.service_desc}`,
+                          {/* <Card.Text
+                          
+                             dangerouslySetInnerHTML={{
+                              __html: `${service.service_desc.split(' ', 20)}`,
                             }}
-                          ></Card.Text>
+                          ></Card.Text> */}
+                          
                           <Card.Text>
-                            <div>
+                           
                               <Link
                                 href={`/service/${service.service_slug}`}
                               >
@@ -89,7 +92,7 @@ export default function ViewService() {
                                   Service Details <FaAngleRight />
                                 </a>
                               </Link>
-                            </div>
+                            
                           </Card.Text>
                         </Card.Body>
                       </Card>

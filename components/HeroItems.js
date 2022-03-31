@@ -15,7 +15,6 @@ export default class AsNavFor extends Component {
       nav2: null,
     };
   }
-
   componentDidMount() {
     this.setState({
       nav1: this.slider1,
@@ -73,7 +72,7 @@ export default class AsNavFor extends Component {
           <link
             rel="stylesheet"
             type="text/css"
-            charset="UTF-8"
+            charSet="UTF-8"
             href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
           />
           <link
@@ -87,7 +86,6 @@ export default class AsNavFor extends Component {
           asNavFor={this.state.nav2}
           ref={(slider) => (this.slider1 = slider)}
         >
-          {/* <ReactWOW animation='fadeIn'> */}
 
           {/* hero top */}
           <div className="hero-wrap">
@@ -95,14 +93,13 @@ export default class AsNavFor extends Component {
               {/* left part */}
               <div className="col-md-6 wow bounceInLeft" data-wow-duration="3s">
                 <div className="hero-left">
-                  {/* <h4>Optimized It System</h4> */}
                   <h2>Web & Software</h2>
                   <div className="hero-action">
                     <Link href="/contact">
                       <a className="btn-brand"> Get A Quote</a>
                     </Link>
                     <Link href="/service/category/web-software">
-                      <a className="btn-two">Learn More</a>
+                      <a className="btn-two mt-3 mt-lg-0">Learn More</a>
                     </Link>
                   </div>
                 </div>
@@ -128,7 +125,6 @@ export default class AsNavFor extends Component {
               {/* left part */}
               <div className="col-md-6">
                 <div className="hero-left">
-                  {/* <h4>Optimized It System2</h4> */}
                   <h2>
                     Product <br /> Design{" "}
                   </h2>
@@ -159,7 +155,6 @@ export default class AsNavFor extends Component {
               {/* left part */}
               <div className="col-md-6">
                 <div className="hero-left ">
-                  {/* <h4>Optimized It System3</h4> */}
                   <h2>
                     Digital Marketing
                     <br />
@@ -190,7 +185,6 @@ export default class AsNavFor extends Component {
               {/* left part */}
               <div className="col-md-6">
                 <div className="hero-left">
-                  {/* <h4>Optimized It System4</h4> */}
                   <h2>Ecommerce Solution</h2>
                   <div className="hero-action">
                     <Link href="/contact">
@@ -218,7 +212,6 @@ export default class AsNavFor extends Component {
               {/* left part */}
               <div className="col-md-6">
                 <div className="hero-left">
-                  {/* <h4>Optimized It System4</h4> */}
                   <h2>Multimedia & Printing</h2>
                   <div className="hero-action">
                     <Link href="/contact">

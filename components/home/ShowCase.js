@@ -1,24 +1,16 @@
-import { useState } from "react";
-
-import { FaRegHeart, FaHeart } from "react-icons/fa";
 // import { FiShare2 } from "react-icons/Fi";
 
 import SectionTitle from "../SectionTitle";
 // Import Swiper styles
 import "swiper/css";
-import { gallaries, sliderData } from "../../Utils/fakeData";
 import Link from "next/link";
 import { server } from "../../config";
 import Image from "next/image";
+
 export default function ShowCase({ portCats }) {
-  // const [isReact, setIsReact] = useState(false);
-
-  console.log("portfolios posts: ", portCats);
-
   return (
     <>
       {/* SHOWCASE GALLARY AREA */}
-
       <div id="portfolio" className="showCase-area">
         <div className="container">
           <div className="row align-items-center">
@@ -42,27 +34,16 @@ export default function ShowCase({ portCats }) {
                 cat.isFeatured == 1 && (
                   <div key={cat.id} className="col-md-5 col-sm-8">
                     <div className="showCase-wrap mb-4 mb-md-0">
-                      <div className="show-case-features  s-img-wrap">
+                      <div className="show-case-features s-img-wrap"  >
                         <Image
-                          className="parent-pic"
                           src={`${server}/${cat.img}`}
-                          alt="category_name"
-                          width={443}
+                          alt={cat.category_name}
+                          width={500}
                           height={635}
                         />
                       </div>
                       <div className="show-case-info">
                         <div className="s-action">
-                          {/* {isReact ? (
-                            <span onClick={() => setIsReact(!isReact)}>
-                              <FaHeart />
-                            </span>
-                          ) : (
-                            <span onClick={() => setIsReact(!isReact)}>
-                              <FaRegHeart />
-                            </span>
-                          )} */}
-                          <span>{/* <FiShare2 /> */}</span>
                         </div>
                         <div className="show-case-text">
                           <h4>
@@ -80,7 +61,6 @@ export default function ShowCase({ portCats }) {
                 )
               );
             })}
-
             <div className="col-md-7">
               <div className="row justify-content-center">
                 {portCats.map((port) => {
@@ -94,31 +74,15 @@ export default function ShowCase({ portCats }) {
                       >
                         <div className="showCase-wrap mb-3 ">
                           <div className="show-case-child s-img-wrap">
-                            {/* <img
-                              src={`${server}/${port.img}`}
-                              alt={port.category_name}
-                            /> */}
                             <Image
-                              className="parent-pic"
-                              // loader={myLoader}
                               src={`${server}/${port.img}`}
                               alt="category_name"
-                              width={338}
-                              height={305}
+                              width={400}
+                              height={357 }
                             />
                           </div>
                           <div className="show-case-info">
                             <div className="s-action">
-                              {/* {isReact ? (
-                                <span onClick={() => setIsReact(!isReact)}>
-                                  <FaHeart />
-                                </span>
-                              ) : (
-                                <span onClick={() => setIsReact(!isReact)}>
-                                  <FaRegHeart />
-                                </span>
-                              )} */}
-                              <span>{/* <FiShare2 /> */}</span>
                             </div>
                             <div className="show-case-text">
                               <h4>

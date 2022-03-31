@@ -1,42 +1,26 @@
-import InnerHead from "../../components/innerHead";
 
 import WhatsappChat from "../../components/whatsappChat";
-import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import ServiceItem from "./serviceItem";
+import { useEffect } from "react";
 import Meta from "../../components/Meta";
-import axios from "axios";
 import { server } from "../../config/index";
-
-import { Card } from "react-bootstrap";
 import Link from "next/link";
 import serviceImage from "/public/page-image/service.jpg";
-
-import { FaCloud, FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
-import SectionTitle from '../../components/SectionTitle'
 import ThreeDCard from 'react-animated-3d-card'
 import { Spinner } from "react-bootstrap";
 
-
-
 export default function Services({ categories }) {
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, []);
-  console.log(categories)
 
   return (
     <>
-
       <Meta title="Service" />
       <WhatsappChat />
-
       <div className="service-all-area mt-50">
         <div className="container">
           <div className="row">
@@ -46,11 +30,10 @@ export default function Services({ categories }) {
                 <p style={{ textAlign: 'center' }} >Since the inception of our company putting service first for clients has been an obvious ethical element for Opedia technologies. The range of bespoke software, IT solutions, consultancy, and technical support we offer is designed to aid the pain point of our clients.</p>
               </div>
             </div>
-
             <div className="col-md-12">
               {
-                categories?.map(category => (
-                  <div key={category.id} className="service-all-wrap mb-40">
+                categories?.map((category,index )=> (
+                  <div key={index} className="service-all-wrap mb-40">
                     <div className="row align-items-center">
                       <div className="col-md-5">
                         <div className="service-all-left">
@@ -62,14 +45,14 @@ export default function Services({ categories }) {
                               backgroundSize: 'cover',
                               backgroundPosition: 'center',
                               backgroundRepeat: 'no-repeat',
-                              backgroundImage: `url(${server}/${category.image})`,
+                              backgroundImage: `url(${server}/${category?.image})`,
                             }} />
                           </div>
 
                           <div className="d-lg-none">
                             <Image
-                              src={`${server}/${category.image}`}
-                              alt="Service"
+                              src={`${server}/${category?.image}`}
+                              alt={category?.category_name}
                               width={400}
                               height={435}
                               objectFit="cover"
@@ -81,9 +64,9 @@ export default function Services({ categories }) {
                       <div className="col-md-7">
                         <div className="service-all-right">
                           <div className="section-title">
-                            <h3 style={{ color: '#Fff' }}>{category.category_name}</h3>
+                            <h3 style={{ color: '#Fff' }}>{category?.category_name}</h3>
                           </div>
-                          <SingleService singleCategory={category} />
+                          <SingleService singleCategories={category?.services} />
 
 
                         </div>
@@ -92,11 +75,7 @@ export default function Services({ categories }) {
                   </div>
                 ))
               }
-
-
               <div className="service-content">
-
-
                 <h2>Your achievement is our success</h2>
                 <div className="row mt-4">
                   <div className="col-md-4">
@@ -114,9 +93,6 @@ export default function Services({ categories }) {
                       We help to improve your business agility and scalability through digital aid and compatible technologies. By adopting modern digitized platforms we optimize infrastructure, brand value, and required service.</p>
                   </div>
                 </div>
-
-
-
 
                 <h2>We approach systematically</h2>
 
@@ -152,55 +128,39 @@ export default function Services({ categories }) {
         </div>
       </div>
 
-
-
-
-
       {/* VIEW SERVICE AREA */}
     </>
   );
 }
 
 
-function SingleService({ singleCategory }) {
-  const [serviceItems, setServiceItems] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`${server}/api/service-category/${singleCategory.category_slug}`)
-      .then((res) => {
-        setServiceItems(res.data.data);
-      });
-  }, []);
-
+function SingleService({ singleCategories }) {
 
   return (
     <>
       {
-        serviceItems.length > 0 ?
+        singleCategories?.length > 0 ?
           <div>
             <div className="serviceItems-featured">
               <ul>
                 <div className="row">
                   {
-                    serviceItems?.map((item, index) => (
-                      item.isFeatured == 1 && (
-                        index % 2 == 0 ? <div key={item.id} className="col-md-6">
+                    singleCategories?.map((item, index) => (
+                      item?.isFeatured == 1 && (
+                        index % 2 == 0 ? <div key={item?.id} className="col-md-6">
                           <li>
-                            <Link href={`service/${item.service_slug}`}>
-                              <a >{item.service_title}</a>
+                            <Link href={`/service/${item?.service_slug}`}>
+                              <a >{item?.service_title}</a>
                             </Link>
 
                           </li>
-                        </div> : <div key={item.id} className="col-md-6">
+                        </div> : <div key={item?.id} className="col-md-6">
                           <li >
-                            <Link href={`service/${item.service_slug}`}>
-                              <a >{item.service_title}</a>
+                            <Link href={`/service/${item?.service_slug}`}>
+                              <a >{item?.service_title}</a>
                             </Link>
                           </li>
                         </div>
-
-
                       )
                     ))
                   }
@@ -208,31 +168,28 @@ function SingleService({ singleCategory }) {
               </ul>
             </div>
 
-
             <div className="serviceItems-nonfeatured">
               <div className="row">
                 <div className="col-md-12">
                   <ul>
                     <div className="row">
                       {
-                        serviceItems?.map((item, index) => (
+                        singleCategories?.map((item, index) => (
                           item.isFeatured == 0 && (
-                            index % 2 == 0 ? <div key={item.id} className="col-md-6">
+                            index % 2 == 0 ? <div key={item?.id} className="col-md-6">
                               <li>
-                                <Link href={`service/${item.service_slug}`}>
-                                  <a >{item.service_title}</a>
+                                <Link href={`/service/${item?.service_slug}`}>
+                                  <a >{item?.service_title}</a>
                                 </Link>
 
                               </li>
                             </div> : <div key={item.id} className="col-md-6">
                               <li >
-                                <Link href={`service/${item.service_slug}`}>
-                                  <a >{item.service_title}</a>
+                                <Link href={`/service/${item?.service_slug}`}>
+                                  <a >{item?.service_title}</a>
                                 </Link>
                               </li>
                             </div>
-
-
                           )
                         ))
                       }
@@ -254,7 +211,7 @@ function SingleService({ singleCategory }) {
 
 
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/serviceAllCategory`);
+  const res = await fetch(`${server}/api/cat-to-service`);
   const categories = await res.json();
 
   return {

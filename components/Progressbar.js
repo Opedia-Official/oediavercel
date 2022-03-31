@@ -17,7 +17,7 @@ export default function Progressbar() {
               <AnimatedProgressProvider
                 valueStart={0}
                 valueEnd={88}
-                duration={1.4}
+                duration={2}
                 easingFunction={easeQuadInOut}
               >
                 {(value) => {
@@ -26,8 +26,6 @@ export default function Progressbar() {
                     <CircularProgressbar
                       value={value}
                       text={`${roundedValue}%`}
-                      /* This is important to include, because if you're fully managing the
-                          animation yourself, you'll want to disable the CSS animation. */
                       styles={buildStyles({ pathTransition: "none" })}
                     />
                   );
@@ -43,7 +41,7 @@ export default function Progressbar() {
               <AnimatedProgressProvider
                 valueStart={0}
                 valueEnd={90}
-                duration={1.4}
+                duration={2}
                 easingFunction={easeQuadInOut}
               >
                 {(value) => {
@@ -52,8 +50,6 @@ export default function Progressbar() {
                     <CircularProgressbar
                       value={value}
                       text={`${roundedValue}%`}
-                      /* This is important to include, because if you're fully managing the
-                          animation yourself, you'll want to disable the CSS animation. */
                       styles={buildStyles({ pathTransition: "none" })}
                     />
                   );

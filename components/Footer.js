@@ -1,7 +1,6 @@
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from "swiper";
 
+import SwiperCore, { Autoplay } from "swiper";
 import client1 from "../public/footer/client- (1).png";
 import client2 from "../public/footer/client- (2).png";
 import client3 from "../public/footer/client- (3).png";
@@ -14,7 +13,7 @@ import client9 from "../public/footer/client- (9).png";
 import client10 from "../public/footer/client- (10).png";
 import client11 from "../public/footer/client- (11).png";
 
-import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import {  FaMapMarkerAlt } from "react-icons/fa";
 
 SwiperCore.use([Autoplay]);
 
@@ -24,16 +23,14 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-// import { GoLocation } from "react-icons/Go";
 
 // Import Swiper styles
 import "swiper/css";
 import { useState } from "react";
-
 import Link from "next/link";
 import Image from "next/image";
+
 export default function Footer() {
-  // https://admin.opediatech.com/api/subscribe
   const [emailTitle, setEmailTitle] = useState("");
   // subscription
   const Contacthandler = async (e) => {
@@ -265,7 +262,7 @@ export default function Footer() {
                                 className="btn-brand"
                                 onClick={Contacthandler}
                               >
-                                Subscribed
+                                Subscribe
                               </button>
                             </form>
                           </div>

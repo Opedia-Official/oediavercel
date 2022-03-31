@@ -1,23 +1,14 @@
-import { Card } from "react-bootstrap";
-import InnerHead from "../../../components/innerHead";
-
+import { Card, Spinner } from "react-bootstrap";
 import WhatsappChat from "../../../components/whatsappChat";
 import { useEffect } from "react";
 import { FaAngleRight } from "react-icons/fa";
 
-import ServiceItem from "../serviceItem";
-import { useRouter } from "next/router";
-import { useState } from "react";
-import axios from "axios";
 import { server } from "../../../config";
 import Meta from "../../../components/Meta";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function CateWiseServices({ services }) {
-  const router = useRouter();
-  const { id } = router.query;
-
+export default function CateWiseServices({ service }) {
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
@@ -26,42 +17,17 @@ export default function CateWiseServices({ services }) {
     new WOW.WOW().init();
   }, []);
 
-  const [service, setService] = useState(null);
-  const [descriptionCat, setDescriptionCat] = useState("");
-  const [seo, setSeo] = useState("");
-
-  // console.log("service", service);
-
-  useEffect(() => {
-    axios.get(`${server}/api/service-category/${id}`).then((res) => {
-      // console.log("allData Single compornent single data ", res.data.data);
-      setService(res.data.data);
-      setDescriptionCat(res.data.desc);
-      setSeo(res.data.seo_desc);
-    });
-  }, [id]);
-
-  // console.log("services id3..3: ", id);
-
-
-  const servicesTitle =
-    id && id.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, " ");
-
-
   return (
     <>
-      <Meta title={servicesTitle} description={seo} />
+      <Meta title={service?.seo_title} description={service?.seo_desc} />
       <WhatsappChat />
-
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 ">
         <div className="container">
-
           <div className="row justify-content-center mt-50">
             <div className="col-md-6">
               <div className="section-title text-center mb-50">
-                {/* <h5>Services</h5> */}
-                <h3>{servicesTitle}</h3>
+                <h3>{service?.category_name}</h3>
               </div>
             </div>
           </div>
@@ -73,32 +39,23 @@ export default function CateWiseServices({ services }) {
             >
               <div className={"view-service-right-wrapper service"}>
                 <div className="row">
-                  {service?.length > 0 ? (
-                    service ? (
-                      service?.map((item) => (
-                        <div key={item.id} className="col-lg-4 col-sm-6">
-                          {/* <ServiceItem item={item} /> */}
-                          <div key={10}>
+                  {service?.data?.length > 0 ? (
+                    service.data ? (
+                      service?.data?.map((item) => (
+                        <div key={item?.id} className="col-lg-6 col-sm-6">
+                          <div>
                             <div className="portfolio-items mb-100">
                               <Card>
                                 <Image
-                                  // src="/blog/pic-1.png"
-                                  src={`${server}/${item.featured_img}`}
-                                  alt="footer"
-                                  width={370}
+                                  src={`${server}/${item?.featured_img}`}
+                                  alt={item?.service_title}
+                                  width={400}
                                   height={367}
                                 />
-                                {/* <Card.Img src={`${server}/${course.Featured_img}`} /> */}
                               </Card>
                               <div className="portfolio-info">
-                                <span>{servicesTitle}</span>
                                 <h2>{item?.service_title}</h2>
                                 <div>
-                                  {/* <Link href={`/training/`}>
-                                    <a>
-                                      View details <FaAngleRight />
-                                    </a>
-                                  </Link> */}
                                   <Link href={`/service/${item?.service_slug}`}>
                                     <a>
                                       Service Details <FaAngleRight />
@@ -111,15 +68,22 @@ export default function CateWiseServices({ services }) {
                         </div>
                       ))
                     ) : (
-                      " Loading"
+                      <div className="  d-flex justify-content-center align-items-center pt-50">
+                      <Spinner animation="border" role="status">
+                        <span className="visually-hidden text-center">Loading...</span>
+                      </Spinner>
+                    </div>
                     )
                   ) : (
                     <div>
                       <br />
                       <br />
-                      <br />
                       <p style={{ textAlign: "center" }}>
-                        No Service available
+                      <div className="  d-flex justify-content-center align-items-center pt-50">
+                        <Spinner animation="border" role="status">
+                          <span className="visually-hidden text-center">Loading...</span>
+                        </Spinner>
+                      </div>
                       </p>
                     </div>
                   )}
@@ -128,17 +92,15 @@ export default function CateWiseServices({ services }) {
             </div>
           </div>
 
-
           <div className="row justify-content-center mt-50">
             <div className="col-md-12">
               <div className="section-titlee text-center mb-50">
                 <p style={{ textAlign: "center" }}>
-                  {descriptionCat.length && (
+                  {service?.desc?.length > 0 && (
                     <div
                       dangerouslySetInnerHTML={{
-                        __html: `${descriptionCat}`,
+                        __html: `${service?.desc}`,
                       }}
-                    // className={Style?.pera}
                     ></div>
                   )}
                 </p>
@@ -152,25 +114,47 @@ export default function CateWiseServices({ services }) {
   );
 }
 
-// export async function getStaticProps() {
-//   const res = await fetch("http://admin.opediatech.com/api/service");
-//   const services = await res.json();
 
-//   return {
-//     props: {
-//       services,
-//     },
-//     revalidate: 10,
-//   };
-// }
+export async function getStaticPaths() {
+  const resp = await fetch(`${server}/api/serviceAllCategory`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
+  const services = await resp.json();
 
-// export async function getServerSideProps() {
-//   const res = await fetch("http://admin.opediatech.com/api/service");
-//   const services = await res.json();
+  const paths = services.map((service) => {
+    return {
+      params: {
+        slug: `${service?.category_slug}`,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
-//   return {
-//     props: {
-//       services,
-//     },
-//   };
-// }
+export async function getStaticProps(context) {
+  const { params } = context;
+  const res = await fetch(`${server}/api/service-category/${params.slug}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
+  const service = await res.json();
+  
+  return {
+    props: {
+      service
+    },
+    revalidate: 10,
+  };
+}

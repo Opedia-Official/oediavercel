@@ -1,88 +1,56 @@
 // import React from "react";
 import Style from "../../styles/singleService.module.css";
-
-import dynamic from "next/dynamic";
 import WhatsappChat from "../../components/whatsappChat";
 import Image from "next/image";
-import InnerHead from "../../components/innerHead";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { server } from "../../config";
-import axios from "axios";
-import { useState } from "react";
 import Meta from "../../components/Meta";
 import Link from "next/link";
-import { Spinner } from "react-bootstrap";
+import {
+  FaRegEnvelope,
+  FaPhoneAlt,
+} from "react-icons/fa";
 
 
-function SinglePage({ singleService, training }) {
-  const router = useRouter();
-  const { id } = router.query;
-
-  const [leftCategory, setLeftCategory] = useState([]);
-  const [featureImage, setFeatureImage] = useState(null);
-  const [servicesSingle, setServicesSingle] = useState(training);
-
-
-  useEffect(() => {
-    axios.get(`${server}/api/service-category/${id}`).then((res) => {
-      // console.log("allData Single compornent single data ", res.data.data);
-      setService(res.data.data);
-
-      setDescriptionCat(res.data.desc);
-    });
-
-    axios.get(`${server}/api/releted-service/${id}`).then((res) => {
-      // console.log("all left categories: ", res.data);
-      setLeftCategory(res.data);
-    });
-    setServicesSingle(training);
-  }, [id]);
+function SinglePage({service,relatedServices }) {
 
   return (
     <div className="container my-5 py-5">
       <WhatsappChat />
-      <Meta title={id} description={servicesSingle?.seo_description} />
+      <Meta title={service?.seo_title} description={service?.seo_description} />
       <div className={"row"}>
-        <div className="col-lg-8 col-md-6 col-sm-12 col-xs-12">
-        {training ? <h2 className={Style.title}>{training?.service_title}</h2> : ""}
+        <div className="col-lg-8  col-sm-12 col-xs-12">
+        {service ? <h2 className={Style.title}>{service?.service_title}</h2> : ""}
           <div className="">
-            {featureImage && (
+            {service?.featured_img && (
               <Image
-                src={`${server}/${featureImage}`}
-                alt="Service"
+                src={`${server}/${service?.featured_img}`}
+                alt={service?.service_title}
                 width={750}
                 height={450}
-                priority
-               
               />
             )}
               <div className="mt-30">
               <ServiceDetails
-              setFeatureImage={setFeatureImage}
-              training={servicesSingle}
-              slug={id}
+              service={service}
             />
               </div>
           </div>
         </div>
-        <div className={"col-lg-4 col-md-6 col-sm-12 col-xs-12 px-5"}>
+        <div className={"col-lg-4  col-sm-12 col-xs-12 px-5 mt-4 mt-lg-0"}>
           <div className="sidebarSingle">
             <h2 className={Style.title}>Related Service </h2>
             <div className={Style.service}>
               <ul>
-                {leftCategory &&
-                  leftCategory.map((item) => (
-                    <li key={item.id}>
-                      <Link href={`/service/${item.service_slug}`}>
-                        <a className="Link"> {item.service_title} </a>
+                {relatedServices?.map((item) => (
+                    <li key={item?.id}>
+                      <Link href={`/service/${item?.service_slug}`}>
+                        <a className="Link"> {item?.service_title} </a>
                       </Link>
                     </li>
                   ))}
               </ul>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -91,39 +59,70 @@ function SinglePage({ singleService, training }) {
 
 export default SinglePage;
 
-function ServiceDetails({ slug, setFeatureImage, training }) {
-  const [content, setContent] = useState(training);
-
-  useEffect(() => {
-    setFeatureImage(content.featured_img);
-    setContent(training);
-  }, [slug, training]);
-
+function ServiceDetails({ service }) {
   return (
     <>
-      {content ? (
-        <div  
-          dangerouslySetInnerHTML={{
-            __html: `${content?.service_desc}`,
-          }}
-          className={Style?.pera}
+      {service ? (
+        <div>
+            <div  
+            dangerouslySetInnerHTML={{
+              __html: `${service?.service_desc}`,
+            }}
+          className={Style.pera}
         ></div>
+        <div className="training-contact">
+        <ul className="social-info text-center text-md-start">
+            <li><p style={{fontSize: '20px',
+              color:'#133344',
+              lineHeight: '30px',
+              fontWeight: "600" }}>Contact Us at:</p></li>
+          <li>
+            <a
+              className=''
+              href="mailto: info@opediatech.com"
+            >
+              <span className="s-icon">
+                <FaRegEnvelope />
+              </span>
+              info@opediatech.com
+            </a>
+          </li>
+          <li style={{ marginLeft: "15px" }}>
+            <a
+              href="tel:+8801978159172"
+              className=''
+            >
+              <span className="s-icon">
+                <FaPhoneAlt />
+              </span>
+              +8801978159172
+            </a>
+          </li>
+        </ul>
+        </div>
+        </div>
       ) : (
         ""
       )}
-   
     </>
   );
 }
 
-export async function getStaticPaths() {
-  const resp = await fetch(`${server}/api/service`);
-  const trainings = await resp.json();
 
-  const paths = trainings.map((training) => {
+export async function getStaticPaths() {
+  const resp = await fetch(`${server}/api/service`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
+  const services = await resp.json();
+  const paths = services.map((service) => {
     return {
       params: {
-        id: `${training?.service_slug}`,
+        id: `${service?.service_slug}`,
       },
     };
   });
@@ -135,11 +134,30 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const res = await fetch(`${server}/api/service/${params.id}`);
-  const training = await res.json();
+  const res = await fetch(`${server}/api/service/${params?.id}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
+  const service = await res.json();
+
+  const relRes =  await fetch(`${server}/api/related-service/${params?.id}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  }); 
+  const relatedServices = await relRes.json();
+
   return {
     props: {
-      training,
+      service,
+      relatedServices
     },
     revalidate: 10,
   };

@@ -1,17 +1,8 @@
-import { useState } from "react";
 
-import {
-  FaChalkboard,
-  FaSearchLocation,
-  FaVideo,
-  FaBandcamp,
-  FaJsfiddle
-} from "react-icons/fa";
 
 import CountUp from "react-countup";
 
 export default function Home({ projectsAll }) {
-
 
   return (
     <>
@@ -20,9 +11,6 @@ export default function Home({ projectsAll }) {
           <div className="row justify-content-center">
           <div className="pCounterWrap justify-content-center justify-content-md-between">
                 <div className="counter-up-wrap mb-3">
-                  {/* <span>
-                    <FaJsfiddle />
-                  </span> */}
                   <h3>
                     {" "}
                     <CountUp end={133} />{" "}
@@ -30,9 +18,6 @@ export default function Home({ projectsAll }) {
                   <p> Web & Soft </p>
                 </div>
                 <div className="counter-up-wrap mb-3 ">
-                  {/* <span>
-                    <FaSearchLocation />
-                  </span> */}
                   <h3>
                     {" "}
                     <CountUp end={118} />{" "}
@@ -40,9 +25,6 @@ export default function Home({ projectsAll }) {
                   <p>Digital Marketing </p>
                 </div>
                 <div className="counter-up-wrap mb-3">
-                  {/* <span>
-                    <FaVideo />
-                  </span> */}
                   <h3>
                     {" "}
                     <CountUp end={221} />{" "}
@@ -50,9 +32,6 @@ export default function Home({ projectsAll }) {
                   <p>Motion Graphics </p>
                 </div>
                 <div className="counter-up-wrap">
-                  {/* <span>
-                    <FaBandcamp />
-                  </span> */}
                   <h3>
                     {" "}
                     <CountUp end={53} />{" "}

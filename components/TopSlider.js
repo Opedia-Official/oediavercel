@@ -1,10 +1,7 @@
 import React from "react";
 
-// import { FaRegLightbulb } from "react-icons/fa";
-
 function TopSlider({ item }) {
   const { image, header, subHeader1, subHeader2, quote, learnMore } = item;
-
   return (
     <div className="row align-items-center">
       <div className="col-md-7">
@@ -24,7 +21,6 @@ function TopSlider({ item }) {
           </div>
         </div>
       </div>
-
       <div className="col-md-5">
         <div className="hero-right pb-50 pt-50">
           <img src={image} alt="" />

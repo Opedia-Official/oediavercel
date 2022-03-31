@@ -1,6 +1,4 @@
-import { Card } from "react-bootstrap";
-
-import InnerHead from "../../components/innerHead";
+import { Card, Spinner } from "react-bootstrap";
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../components/whatsappChat";
@@ -39,20 +37,22 @@ export default function Training({ courses }) {
             data-wow-duration="1s"
             data-wow-delay="1s"
           >
-            {courses?.map((course) => {
+            {courses.length > 0 ? 
+            courses?.map((course) => {
               return (
-                <div key={course.id} className="col-lg-4 col-sm-6">
+                <div key={course.id} className="col-lg-6 col-sm-6">
                   <div className="portfolio-items mb-100">
                     <Card>
                       <Image
                         src={`${server}/${course.Featured_img}`}
-                        alt="footer"
-                        width={370}
+                        alt={course.title}
+                        width={400}
                         height={367}
+                        priority
                       />
                     </Card>
                     <div className="portfolio-info">
-                      <span>{course.title}</span>
+                     
                       <h2>{course.course_name}</h2>
                       <div>
                         <Link href={`/training/${course.slug}`}>
@@ -65,7 +65,13 @@ export default function Training({ courses }) {
                   </div>
                 </div>
               );
-            })}
+            }):
+            <div className="  d-flex justify-content-center align-items-center pt-50">
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden text-center">Loading...</span>
+            </Spinner>
+          </div>
+            }
             <div className="col-md-12 training-details-sec mt-5">
 
               <div className="row">
@@ -113,7 +119,14 @@ export default function Training({ courses }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/course`);
+  const res = await fetch(`${server}/api/course`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const courses = await res.json();
 
   return {

@@ -6,7 +6,7 @@ import {
   FaTwitter,
   FaInstagram,
   FaLinkedinIn,
-  FaPlay,
+  FaRegWindowMaximize,
 } from "react-icons/fa";
 import Image from "next/image";
 import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
@@ -29,17 +29,18 @@ export default function PortfolioDetails({ portfolios }) {
             <div className="col-lg-6 mb-5 mb-lg-0">
               <div className="portfolio-details-left ">
                 <div className="portfolio-details-lft-img">
+                  <a href={portfolio?.twLink} target='_blank' rel="noreferrer">
                   <Image
                     src={`${server}/${portfolio?.thambnail_image}`}
-                    alt="portfolio"
+                    alt={portfolio?.portfolio_title}
                     width={570}
                     height={495}
                     priority
-                  />
+                  />  
+                  </a>
                 </div>
               </div>
             </div>
-
             <div className="col-lg-6">
               <div className="portfolio-details-right-wrap">
                 <h3 className="ptf-details-title">{portfolio?.portfolio_title}</h3>
@@ -75,10 +76,11 @@ export default function PortfolioDetails({ portfolios }) {
                         <FaFacebookF />{" "}
                       </a>
                     </li>} 
+                    {/* site link */}
                     {portfolio?.twLink && <li>
-                        <a className="share-item" href={portfolio?.twLink}>
+                        <a className="share-item" target='_blank' rel="noreferrer" href={portfolio?.twLink}>
                           {" "}
-                          <FaTwitter />{" "}
+                          <FaRegWindowMaximize />{" "}
                         </a>
                       </li>}
                       {portfolio?.inLink && <li>
@@ -118,9 +120,15 @@ export default function PortfolioDetails({ portfolios }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${server}/api/portfolio`);
+  const res = await fetch(`${server}/api/portfolio`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const ports = await res.json();
-
   const paths = ports.map((port) => {
     return {
       params: {
@@ -137,7 +145,14 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { params } = context;
 
-  const res = await fetch(`${server}/api/portfolio/${params.slug}`);
+  const res = await fetch(`${server}/api/portfolio/${params.slug}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const portfolios = await res.json();
 
   return {

@@ -150,7 +150,7 @@ export default function Contact({ posts }) {
                               </div>
                               <div className="contact-info-text">
                                 <h4>Mail Address:</h4>
-                                <p>opedia.technologies@gmail.com</p>
+                                <p>business@opediatech.com</p>
                               </div>
                             </li>
                             <li>

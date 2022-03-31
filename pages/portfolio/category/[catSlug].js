@@ -1,6 +1,5 @@
 import { Card } from "react-bootstrap";
 import { FaAngleRight } from "react-icons/fa";
-import InnerHead from "../../../components/innerHead";
 import Link from "next/link";
 import { useEffect } from "react";
 import WhatsappChat from "../../../components/whatsappChat";
@@ -13,7 +12,6 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, [params?.catSlug]);
 
@@ -21,6 +19,7 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
     /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,
     " "
   );
+
   return (
     <>
       <Meta title={portsTitle} />
@@ -46,14 +45,13 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
                     <Card>
                       <Image
                         src={`${server}/${cat?.thambnail_image}`}
-                        alt="portfolio"
-                        width={370}
-                        height={367}
-                        objectFit= 'cover'
+                        alt={cat?.project_name}
+                        width={570}
+                        height={370}
+                        priority
                       />
                     </Card>
                     <div className="portfolio-info">
-                      
                       <h2>{cat?.project_name}</h2>
                       <div>
                         <Link href={`/portfolio/${cat?.portfolio_slug}`}>
@@ -75,9 +73,15 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${server}/api/portfolio/category`);
+  const res = await fetch(`${server}/api/portfolio/category`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const categories = await res.json();
-
   const paths = categories.map((category) => {
     return {
       params: {
@@ -93,10 +97,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-
-  const res = await fetch(`${server}/api/portfolio/category/${params.catSlug}`);
+  const res = await fetch(`${server}/api/portfolio/category/${params.catSlug}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const cats = await res.json();
-
   return {
     props: {
       cats,
