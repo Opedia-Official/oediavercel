@@ -445,7 +445,7 @@ const [navActive, navSetActive] = useState(false)
                       <div className="col-12">
                         <div className={styles.dropdown__inner2}>
                           <ul className={styles.dropdown__list}>
-                            {trainings.map((training) => (
+                            {trainings?.map((training) => (
                               <li
                                 key={training.id}
                                 className={styles.dropdown__item}
@@ -674,15 +674,15 @@ function SingleServiceCompo({ singleCategory, isMore, openHandlebar }) {
     <ul className={styles.dropdown__list}>
       {isMore
         ? singleCategory?.map((item) => (
-          <li key={item?.id} className={styles.dropdown__item}>
-            <Link href={`/service/${item?.service_slug}`}>
+          <li key={item.id} className={styles.dropdown__item}>
+            <Link href={`/service/${item.service_slug}`}>
               <a className={styles.dropdown__link} onClick={openHandlebar}  >{item?.service_title}</a>
             </Link>
           </li>
         ))
         : singleCategory?.slice(0, 5).map((item) => (
-          <li key={item?.id} className={styles.dropdown__item}>
-            <Link href={`/service/${item?.service_slug}`}>
+          <li key={item.id} className={styles.dropdown__item}>
+            <Link href={`/service/${item.service_slug}`}>
               <a className={styles.dropdown__link} onClick={openHandlebar} >{item?.service_title}</a>
             </Link>
           </li>
