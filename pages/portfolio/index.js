@@ -9,16 +9,16 @@ import Meta from "../../components/Meta";
 import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
 export default function Portfolio({ categories }) {
+  
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, []);
   return (
     <>
-      <Meta title="Our Portfolio" />
+      <Meta seo_title="Our Portfolio" />
       <WhatsappChat />
       <div className="portfolio-area ">
         <div className="container">
@@ -67,13 +67,11 @@ export default function Portfolio({ categories }) {
           </div>
         </div>
       </div>
-
-
     </>
   );
 }
 
-// }
+
 
 export async function getStaticProps() {
   const res = await fetch(`${server}/api/portfolio/category`,{
@@ -93,3 +91,5 @@ export async function getStaticProps() {
     revalidate: 10,
   };
 }
+
+

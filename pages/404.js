@@ -1,11 +1,6 @@
 export default function  Opedia404() {
 
-const backgroundC = {
-    // backgroundColor: '#f5ddda',
-
-}
 const styling = {
-    // backgroundImage: `${img}`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width:'25vw',

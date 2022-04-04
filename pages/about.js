@@ -25,15 +25,12 @@ export default function Abouta({ services }) {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
-
     new WOW.WOW().init();
   }, []);
   return (
     <>
-      <Meta title="About" />
+      <Meta seo_title="About" />
       <WhatsappChat />
-      {/* Youtube section */}
-
       {/* Youtube section */}
 
       <div className="about-youtube-section-area about-bg">

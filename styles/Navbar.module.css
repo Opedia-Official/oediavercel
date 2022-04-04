@@ -34,6 +34,7 @@
 .navitem {
     margin-left: 3rem;
     position: relative;
+    list-style: none;
 }
 
 .navlink {
@@ -170,6 +171,7 @@
     list-style-type: none;
     display: block;
     margin: 1rem 0;
+    list-style: none;
 }
 
 .dropdown__link {

@@ -8,7 +8,7 @@ import trainingImage from "/public/page-image/privacy.jpg";
 function Privacy() {
   return (
     <>
-      <Meta title="Privacy" />
+      <Meta seo_title="Privacy" />
       <WhatsappChat />
       <InnerHead title="Privacy" img={trainingImage} isDynamic={false} />
 

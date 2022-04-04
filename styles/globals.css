@@ -179,9 +179,10 @@ ul {
     padding: 0px;
 }
 
-li {
+
+/* li {
     list-style: none;
-}
+} */
 
 p {
     font-family: 'Axiforma' !important;
@@ -640,6 +641,7 @@ a.Navbar_navlogo__SW1lT img {
     display: inline-block;
     margin: 5px 0;
     margin-right: 10px;
+    list-style: none;
 }
 
 .top-header li:last-child {
@@ -745,6 +747,7 @@ ul.social {
 
 .training-contact li {
     margin: 5px 15px;
+    list-style: none;
 }
 
 .training-contact li a:hover {
@@ -1224,6 +1227,7 @@ img.service-f-mobile {
     margin-bottom: 10px;
     height: 25px;
     overflow-y: clip;
+    list-style: none;
 }
 
 .serviceItems-nonfeatured li:before {
@@ -1834,6 +1838,7 @@ ul.pricing-items li {
     font-size: 16px;
     color: #505975;
     line-height: 40px;
+    list-style: none;
 }
 
 .pricing-level {
@@ -2029,6 +2034,11 @@ ul.f-social li a svg {
 ul.f-social li {
     display: inline-block;
     margin-right: 10px;
+    list-style: none;
+}
+
+ul.link-items li {
+    list-style: none;
 }
 
 ul.f-social li:hover a {
@@ -2328,6 +2338,7 @@ ul.portfolio-details-info li {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 5px;
+    list-style: none;
 }
 
 ul.portfolio-details-info li h4 {
@@ -2360,6 +2371,7 @@ ul.portfolio-details-info li {
     border-bottom: 1px solid #ced6e6;
     margin-top: 20px;
     align-items: flex-start;
+    list-style: none;
 }
 
 ul.share {
@@ -2379,6 +2391,7 @@ ul.share li a.share-item {
 ul.share li {
     border-bottom: 0;
     margin: 0;
+    list-style: none;
 }
 
 ul.share li a.share-item:hover {
@@ -2460,6 +2473,7 @@ ul.contact-info-text li {
     position: relative;
     z-index: 3;
     cursor: pointer;
+    list-style: none;
 }
 
 ul.contact-info-text .contact-icon span {

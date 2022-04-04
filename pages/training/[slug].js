@@ -15,7 +15,7 @@ export default function TrainingDetails({ training }) {
 
   return (
     <>
-      <Meta title={training?.seo_title} description={training?.seo_description} />
+      <Meta seo_title={training?.seo_title} description={training?.seo_description} />
       <WhatsappChat />
       <div className="portfolio-details mt-70 mb-100">
         <div className="container">
@@ -156,7 +156,7 @@ export async function getStaticPaths() {
   const paths = trainings.map((training) => {
     return {
       params: {
-        slug: `${training?.slug}`,
+        slug: `${training.slug}`,
       },
     };
   });
@@ -177,6 +177,7 @@ export async function getStaticProps(context) {
     },
   });
   const training = await res.json();
+
   return {
     props: {
       training,

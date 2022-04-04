@@ -19,7 +19,7 @@ export default function Training({ courses }) {
 
   return (
     <>
-      <Meta title="training" />
+      <Meta seo_title="training" />
       <WhatsappChat />
 
       <div className="portfolio-area ">

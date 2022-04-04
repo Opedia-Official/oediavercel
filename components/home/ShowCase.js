@@ -29,15 +29,15 @@ export default function ShowCase({ portCats }) {
             data-wow-duration="1s"
             data-wow-delay="0.5s"
           >
-            {portCats.map((cat) => {
+            {portCats?.map((cat) => {
               return (
-                cat.isFeatured == 1 && (
+                cat?.isFeatured == 1 && (
                   <div key={cat.id} className="col-md-5 col-sm-8">
                     <div className="showCase-wrap mb-4 mb-md-0">
                       <div className="show-case-features s-img-wrap"  >
                         <Image
                           src={`${server}/${cat.img}`}
-                          alt={cat.category_name}
+                          alt={cat?.category_name}
                           width={500}
                           height={635}
                         />
@@ -48,12 +48,12 @@ export default function ShowCase({ portCats }) {
                         <div className="show-case-text">
                           <h4>
                             <Link
-                              href={`/portfolio/category/${cat.category_slug}`}
+                              href={`/portfolio/category/${cat?.category_slug}`}
                             >
-                              <a> {cat.category_name}</a>
+                              <a> {cat?.category_name}</a>
                             </Link>
                           </h4>
-                          <p>{cat.title}</p>
+                          <p>{cat?.title}</p>
                         </div>
                       </div>
                     </div>
@@ -63,19 +63,19 @@ export default function ShowCase({ portCats }) {
             })}
             <div className="col-md-7">
               <div className="row justify-content-center">
-                {portCats.map((port) => {
+                {portCats?.map((port) => {
                   return (
-                    port.isFeatured == null && (
+                    port?.isFeatured == null && (
                       <div
                         className="col-md-6 col-sm-6 wow fadeIn"
                         data-wow-duration="1s"
                         data-wow-delay="0.5s"
-                        key={port.id}
+                        key={port?.id}
                       >
                         <div className="showCase-wrap mb-3 ">
                           <div className="show-case-child s-img-wrap">
                             <Image
-                              src={`${server}/${port.img}`}
+                              src={`${server}/${port?.img}`}
                               alt="category_name"
                               width={400}
                               height={357 }
@@ -87,12 +87,12 @@ export default function ShowCase({ portCats }) {
                             <div className="show-case-text">
                               <h4>
                                 <Link
-                                  href={`/portfolio/category/${port.category_slug}`}
+                                  href={`/portfolio/category/${port?.category_slug}`}
                                 >
-                                  <a> {port.category_name}</a>
+                                  <a> {port?.category_name}</a>
                                 </Link>
                               </h4>
-                              <p>{port.title}</p>
+                              <p>{port?.title}</p>
                             </div>
                           </div>
                         </div>

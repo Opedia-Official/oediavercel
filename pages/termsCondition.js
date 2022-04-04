@@ -8,7 +8,7 @@ import trainingImage from "/public/page-image/types.jpg";
 function termsCondition() {
   return (
     <>
-      <Meta title="Terms & condition" />
+      <Meta seo_title="Terms & condition" />
       <WhatsappChat />
       <InnerHead
         title="Terms & condition"

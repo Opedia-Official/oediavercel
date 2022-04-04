@@ -1,6 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
-
 import { Alert, Card } from "react-bootstrap";
 
 import {
@@ -14,7 +12,7 @@ import {
 import InnerHead from "../components/innerHead";
 import Meta from "../components/Meta";
 import WhatsappChat from "../components/whatsappChat";
-import dynamic from "next/dynamic";
+
 import { server } from "../config/index";
 import contactImage from "/public/page-image/contact.png";
 export default function Contact({ posts }) {
@@ -86,7 +84,7 @@ export default function Contact({ posts }) {
       setMsg("Thanks for your Message");
     }
 
-    const posted = await fetch("https://admin.opediatech.com/api/message", {
+    const posted = await fetch(`${server}/api/message`, {
       method: "post",
       body: JSON.stringify({
         fname: fistName,
@@ -99,8 +97,6 @@ export default function Contact({ posts }) {
       headers: { "Content-Type": "application/json" },
     });
 
-    console.log("posted", posted);
-    console.log("contactData", contactData);
     if (posted.status === 200) {
       alert("Message Sent");
     } else {
@@ -115,7 +111,7 @@ export default function Contact({ posts }) {
 
   return (
     <>
-      <Meta title="Contact" />
+      <Meta seo_title="Contact" />
       <WhatsappChat />
       <InnerHead title="Contact Us" img={contactImage} isDynamic={false} />
       <div className="contact-us-area pt-80 pb-90">

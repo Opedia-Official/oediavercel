@@ -9,6 +9,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function CateWiseServices({ service }) {
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
@@ -18,7 +19,7 @@ export default function CateWiseServices({ service }) {
 
   return (
     <>
-      <Meta title={service?.seo_title} description={service?.seo_desc} />
+      <Meta seo_title={service?.seo_title } description={service?.seo_desc} />
       <WhatsappChat />
       {/* VIEW SERVICE AREA */}
       <div className="view-service-page mb-100 ">
@@ -38,24 +39,24 @@ export default function CateWiseServices({ service }) {
             >
               <div className={"view-service-right-wrapper service"}>
                 <div className="row">
-                  {service?.data?.length > 0 ? (
+                  {service?.data.length > 0 ? (
                     service?.data ? (
-                      service?.data?.map((item) => (
-                        <div key={item.id} className="col-lg-6 col-sm-6">
+                      service?.data.map((item) => (
+                        <div key={item?.id} className="col-lg-6 col-sm-6">
                           <div>
                             <div className="portfolio-items mb-100">
                               <Card>
                                 <Image
-                                  src={`${server}/${item.featured_img}`}
-                                  alt={item.service_title}
+                                  src={`${server}/${item?.featured_img}`}
+                                  alt={item?.service_title}
                                   width={400}
                                   height={367}
                                 />
                               </Card>
                               <div className="portfolio-info">
-                                <h2>{item.service_title}</h2>
+                                <h2>{item?.service_title}</h2>
                                 <div>
-                                  <Link href={`/service/${item.service_slug}`}>
+                                  <Link href={`/service/${item?.service_slug}`}>
                                     <a>
                                       Service Details <FaAngleRight />
                                     </a>
@@ -95,7 +96,7 @@ export default function CateWiseServices({ service }) {
             <div className="col-md-12">
               <div className="section-titlee text-center mb-50">
                 <p style={{ textAlign: "center" }}>
-                  {service?.desc?.length > 0 && (
+                  {service?.desc.length > 0 && (
                     <div
                       dangerouslySetInnerHTML={{
                         __html: `${service?.desc}`,
@@ -115,13 +116,14 @@ export default function CateWiseServices({ service }) {
 
 
 export async function getStaticPaths() {
+
   const resp = await fetch(`${server}/api/serviceAllCategory`);
   const services = await resp.json();
 
-  const paths = services?.map((service) => {
+  const paths = services.map((service) => {
     return {
       params: {
-        slug: `${service?.category_slug}`,
+        slug: `${service.category_slug}`,
       },
     };
   });
@@ -133,9 +135,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const { params } = context;
-  const res = await fetch(`${server}/api/service-category/${params.slug}`);
+  const res = await fetch(`${server}/api/service-category/${params.slug}`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const service = await res.json();
-  
   return {
     props: {
       service
@@ -143,5 +151,4 @@ export async function getStaticProps(context) {
     revalidate: 10,
   };
 }
-
 

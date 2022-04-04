@@ -1,27 +1,22 @@
-import { Card } from "react-bootstrap";
-// import { BsPlayFill} from "react-icons/Bs";
-import InnerHead from "../../components/innerHead";
+
 import {
   FaFacebookF,
-  FaTwitter,
   FaInstagram,
   FaLinkedinIn,
   FaRegWindowMaximize,
 } from "react-icons/fa";
 import Image from "next/image";
-import MyVerticallyCentredModal from "../../components/MyVerticallyCentredModal";
-import { useState } from "react";
+
 import WhatsappChat from "../../components/whatsappChat";
 import { server } from "../../config/index";
 import Meta from "../../components/Meta";
 
 export default function PortfolioDetails({ portfolios }) {
   const portfolio = portfolios?.length ? portfolios[0] : [];
-
-  const [modalShow, setModalShow] = useState(false);
+ 
   return (
     <>
-      <Meta title={portfolio?.portfolio_title} />
+      <Meta seo_title={portfolio?.portfolio_title} />
       <WhatsappChat />
       <div className="portfolio-details mt-50 mb-100">
         <div className="container">
@@ -129,10 +124,10 @@ export async function getStaticPaths() {
     },
   });
   const ports = await res.json();
-  const paths = ports?.map((port) => {
+  const paths = ports.map((port) => {
     return {
       params: {
-        slug: `${port?.portfolio_slug}`,
+        slug: `${port.portfolio_slug}`,
       },
     };
   });
@@ -143,8 +138,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { params } = context;
 
+  const { params } = context;
   const res = await fetch(`${server}/api/portfolio/${params.slug}`,{
     method: 'GET',
     headers: {
@@ -153,6 +148,7 @@ export async function getStaticProps(context) {
       'User-Agent': '*',
     },
   });
+  
   const portfolios = await res.json();
 
   return {
@@ -162,3 +158,5 @@ export async function getStaticProps(context) {
     revalidate: 10,
   };
 }
+
+

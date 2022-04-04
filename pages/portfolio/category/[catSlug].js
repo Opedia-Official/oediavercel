@@ -7,13 +7,14 @@ import Image from "next/image";
 import { server } from "../../../config";
 import Meta from "../../../components/Meta";
 
-export default function PortfolioCategtoryDetails({ cats, params }) {
+export default function PortfolioCategtoryDetails({ cats,params }) {
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       window.WOW = require("wowjs");
     }
     new WOW.WOW().init();
-  }, [params?.catSlug]);
+  });
 
   const portsTitle = params?.catSlug.replace(
     /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,
@@ -22,7 +23,7 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
 
   return (
     <>
-      <Meta title={portsTitle} />
+      <Meta seo_title={portsTitle} />
       <WhatsappChat />
       <div className="portfolio-area ">
         <div className="container">
@@ -72,10 +73,19 @@ export default function PortfolioCategtoryDetails({ cats, params }) {
   );
 }
 
+
 export async function getStaticPaths() {
-  const res = await fetch(`${server}/api/portfolio/category`);
+  const res = await fetch(`${server}/api/portfolio/category`,{
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const categories = await res.json();
-  const paths = categories?.map((category) => {
+
+  const paths = categories.map((category) => {
     return {
       params: {
         catSlug: `${category.category_slug}`,
@@ -98,6 +108,7 @@ export async function getStaticProps(context) {
       'User-Agent': '*',
     },
   });
+
   const cats = await res.json();
   return {
     props: {
@@ -107,3 +118,5 @@ export async function getStaticProps(context) {
     revalidate: 10,
   };
 }
+
+

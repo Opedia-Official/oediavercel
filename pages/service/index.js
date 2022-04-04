@@ -19,7 +19,7 @@ export default function Services({ categories }) {
 
   return (
     <>
-      <Meta title="Service" />
+      <Meta seo_title="Service" />
       <WhatsappChat />
       <div className="service-all-area mt-50">
         <div className="container">
@@ -211,7 +211,6 @@ function SingleService({ singleCategories }) {
 export async function getStaticProps() {
   const res = await fetch(`${server}/api/cat-to-service`);
   const categories = await res.json();
-
   return {
     props: {
       categories,

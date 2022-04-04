@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import axios from "axios";
 
@@ -43,7 +43,8 @@ const customStyles = {
 
 Modal.setAppElement("body");
 
-export default function Navbar() {
+export default function Navbar({categories,trainings}) {
+
   const [isOpen, setIsOpen] = useState(false);
   const [isActiveNav, setActiveNav] = useState("Home");
   const [isSearch, setIsSearch] = useState(false);
@@ -65,7 +66,7 @@ const [navActive, navSetActive] = useState(false)
   const [service, setService] = useState("");
 
   // services state
-  const [allCategory, setAllCategory] = useState([]);
+  // const [allCategory, setAllCategory] = useState([]);
 
   const contactData = {
     fname: fistName,
@@ -154,8 +155,6 @@ const [navActive, navSetActive] = useState(false)
 
   // modal
   const [modalIsOpen, setIsOpenModal] = useState(false);
-  const [trainings, setTrainings] = useState([]);
-
 
   function openModal() {
     setIsOpenModal(true);
@@ -165,21 +164,11 @@ const [navActive, navSetActive] = useState(false)
     setIsOpenModal(false);
   }
 
-  // const [isLink, setLink] = useState(false);
-
-  const navChageRef = useRef();
   const router = useRouter();
-
-
 
 
   useEffect(() => {
 
-    // training
-    const allData = axios
-      .get(`${server}/api/course`)
-      .then((res) => setTrainings(res.data));
-    // training
 
     let previousPosition =
       window.pageYOffset || document.documentElement.scrollTop;
@@ -201,14 +190,6 @@ const [navActive, navSetActive] = useState(false)
         navSetActive(false)
       }
     });
-
-    // allcategory called
-    const allCategory = axios
-      .get(`${server}/api/cat-to-service`)
-      .then((res) => {
-        setAllCategory(res.data);
-      });
-
     
   }, [router.pathname]);
 
@@ -368,7 +349,7 @@ const [navActive, navSetActive] = useState(false)
                 <div className={isService == false ? styles.dropdown : " "}>
                   <div className={styles.containerr}>
                     <div className="row justify-content-center">
-                      {allCategory.map((singleCategory,index) => (
+                      {categories?.map((singleCategory,index) => (
                         <div
                           key={index}
                           className="col-12 col-xl text-center text-xl-start   borderLeft  mb-4 mb-xl-0"

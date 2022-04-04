@@ -57,7 +57,15 @@ export default function Home({ portCats }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${server}/api/portfolio/category`);
+  const res = await fetch(`${server}/api/portfolio/category`,
+  {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent': '*',
+    },
+  });
   const portCats = await res.json();
 
   return {

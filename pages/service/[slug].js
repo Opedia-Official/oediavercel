@@ -13,11 +13,11 @@ import {
 
 
 function SinglePage({services,relatedServices}) {
-
+  
   return (
     <div className="container my-5 py-5">
       <WhatsappChat />
-      <Meta title={services?.seo_title} description={services?.seo_description} />
+      <Meta seo_title={services?.seo_title} description={services?.seo_description} />
       <div className={"row"}>
         <div className="col-lg-8  col-sm-12 col-xs-12">
         {<h2 className={Style.title}>{services?.service_title}</h2>}
@@ -108,35 +108,10 @@ function ServiceDetails({ service }) {
     </>
   );
 }
+   
 
-
-
-// export async function getStaticPaths() {
-//   const resp = await fetch(`${server}/api/service`,{
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Accept: 'application/json',
-//       'User-Agent': '*',
-//     },
-//   });
-//   const services = await resp.json();
-//   const paths = services?.map((service) => {
-//     return {
-//       params: {
-//         slug: `${service?.service_slug}`,
-//       },
-//     };
-//   });
-//   return {
-//     paths,
-//     fallback: true,
-//   };
-// }
-
-
-// export async function getStaticProps({params: {slug}}) {
-//   const res = await fetch(`${server}/api/service/${slug}`,{
+// export async function getServerSideProps({params: {slug}}) {
+//     const res = await fetch(`${server}/api/service/${slug}`,{
 //     method: 'GET',
 //     headers: {
 //       'Content-Type': 'application/json',
@@ -155,23 +130,32 @@ function ServiceDetails({ service }) {
 //     },
 //   }); 
 //   const relatedServices = await relRes.json();
-
-//   return {
-//     props: {
-//       services,
-//       relatedServices
-      
-//     },
-//     revalidate: 10,
-//   };
+//   return { props: { services,relatedServices } }
 // }
 
 
-export async function getServerSideProps({params: {slug}}) {
+export async function getStaticPaths() {
+
+  const resp = await fetch(`${server}/api/service`);
+
+  const services = await resp.json();
+  const paths = services.map((service) => {
+    return {
+      params: {
+        slug: `${service.service_slug}`,
+      },
+    };
+  });
+  return {
+    paths,
+    fallback: true,
+  };
+}
 
 
-
-    const res = await fetch(`${server}/api/service/${slug}`,{
+export async function getStaticProps(context) {
+  const { params } = context;
+  const res = await fetch(`${server}/api/service/${params.slug}`,{
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -179,19 +163,27 @@ export async function getServerSideProps({params: {slug}}) {
       'User-Agent': '*',
     },
   });
-  const services = await res.json();
 
-  const relRes =  await fetch(`${server}/api/related-service/${slug}`,{
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
-      'User-Agent': '*',
-    },
-  }); 
+ const services = await res.json();
+
+const relRes =  await fetch(`${server}/api/related-service/${params.slug}`,{
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    Accept: 'application/json',
+    'User-Agent': '*',
+  },
+}); 
+
   const relatedServices = await relRes.json();
 
-  // Pass data to the page via props
-  return { props: { services,relatedServices } }
+  return {
+    props: {
+      services,
+      relatedServices,
+  
+    },
+    revalidate: 10,
+  };
 }
 
