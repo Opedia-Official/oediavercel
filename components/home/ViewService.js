@@ -32,15 +32,12 @@ export default function ViewService() {
             <div className="view-service-section-wrapper">
               <SectionTitle
                 section="Services at a glance"
-                title="Software & IT services for you"
+                title="Software Company At Your Service "
               />
               <p className="pera">
-                We help businesses to boost performance technically and work on
-                initiatives to enhance brand presence on the market, develop a
-                digital platform that fits your exact needs in terms of
-                real-time solutions, and define a clear roadmap for improvement.
+              We As A Software Company Help Businesses To Boost Performance And Work On Initiatives To Enhance Brand Presence On The Market, Develop A Digital Platform That Fits Your Exact Needs In Terms Of Real-Time Solutions, And Define A Clear Roadmap For Improvement.
               </p>
-              <SectionTitle description="Our professional services include Web & Software Solutions, E-commerce Development, User Experience (UI/UX) Design, Digital Marketing, Multimedia and Printing. Using our experienced professionals, we help businesses grow and prosper. " />
+              <SectionTitle description="Our Professional Services Include Web & Software Solutions, E-Commerce Development, User Experience (UI/UX) Design, Digital Marketing, Multimedia & Printing. Using Our Experienced Professionals, We Help Businesses Grow And Prosper." />
               <Link href="/service">
                 <a className="btn-two mt-35">View Services</a>
               </Link>

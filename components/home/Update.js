@@ -33,7 +33,7 @@ export default function Update() {
           >
             <div className="project-update-section-wrap">
               <div className="section-title">
-                <h3>Don,t miss our update</h3>
+                <h3>Don’t Miss Updates </h3>
               </div>
               <p className="pr-140p pera">
                 Let us help you to build up your business the way you always

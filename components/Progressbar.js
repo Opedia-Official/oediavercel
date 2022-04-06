@@ -56,7 +56,7 @@ export default function Progressbar() {
                 }}
               </AnimatedProgressProvider>
               <div className="progress-info">
-                <h4>Successful Project</h4>
+                <h4>Successful Projects</h4>
               </div>
             </div>
           </div>

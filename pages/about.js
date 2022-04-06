@@ -84,24 +84,50 @@ export default function Abouta({ services }) {
 
             <div className="col-lg-6 wow slideInRight" data-wow-duration="1s">
               <div className="about great-exp-right ">
-                <p className="a-title-top">Great Experience In Building</p>
+                <p className="a-title-top">EXCELLENCE IN SOFTWARE AND DIGITAL TECHNOLOGY </p>
                 <div className="section-title">
                   <h5> About Company</h5>
                   <h3 >
-                    We team of experience
-                    IT Specialties.
+                    A Community of Experienced People
                   </h3>
                   <p>
-                  Opedia Technologies is a growing technological and digital service provider. We create value for your business by providing technological and digital solutions through interaction and integration.
+                      Opedia Technologies Ltd. is a growing software and digital service provider. We create value for your business by providing technological and digital solutions through interaction and integration.
                   </p>
                 </div>
-                <p>
-                  <div className="section-title">
+
+                <div className="section-title">
                     <h5>Our Goal</h5>
+                    <p> We commit to serve within the IT environment and empower the future with a broad prospect of technological solutions. We guide businesses to strengthen their performance technically and work with initiatives to make a positive impact on customers. We thrive to increase brand presence in the marketplace by developing a digital platform tailoring to your specific need for real-time solutions defining a clear roadmap. Again, implementing digital technological solutions in a range of areas including software, business and system analysis, and network infrastructure enables a business to develop using an industry standard.</p>
                   </div>
-              
-The world before us to explore the essence of digital & technological advancement. We gain commitment to serve IT and empower the future with a broad prospect of technological solutions. We guide businesses to strengthen the performance technically and work with initiatives to make a positive impact on customers, increase brand presence in the market place develop a digital platform tailoring to your specific need of real-time solution defining a clear roadmap. Again, implementing digital technological solutions in a range of areas including software, business and system analysis, network infrastructure that enable a business to develop using an industry standard.
-                </p>
+               
+                
+                <div className="section-title">
+                    <h5> Mission: </h5>
+                    <p> Offering cutting-edge IT services and software solutions within a fair package and premium standard, proven beneficial for clients, employees and people connected inside and outside of the company. </p>
+                  </div>
+                  <div className="section-title">
+                    <h5 className="mb-3">Vision:</h5>
+                    <span>To contribute and grow as a company within the digitalized and technological advancement.
+                       </span>
+                       <h5 className="mt-2" >Value statement:</h5>
+
+                      <ul className="bulletBathekeDane">
+                        <li>Focus on the commitments we make to our people.  </li>
+                        <li>Practice pain point-based problem solving and clarity in all actions we take.  </li>
+                        <li>Bold to embrace innovation and social changes toward prosperity. </li>
+                        <li> Practice intellectual and knowledge-based growth and initiate innovation.  </li>
+                        <li>We value creativity and are optimistic about uniqueness.   </li>
+                        <li>	Aim to lead in the path of the IT and digital service industry.  </li>
+
+                      </ul>
+                  </div>
+                  
+ 
+
+
+
+
+
                 <Link href="/contact">
                   <a className="btn-two mt-5"> Contuct Us</a>
                 </Link>
@@ -118,7 +144,7 @@ The world before us to explore the essence of digital & technological advancemen
             <div className="col-md-6">
               <div className="section-title text-center mb-50">
                 <h5>Our Tech Services</h5>
-                <h3>Client,S Feedback</h3>
+                <h3>Client’s Feedback</h3>
               </div>
             </div>
           </div>

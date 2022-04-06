@@ -15,10 +15,14 @@ export default function ShowCase({ portCats }) {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <SectionTitle
+            <SectionTitle
                 section="Check Our Portfolio"
-                title="Our Recent Projects Showcase Gallery.  "
+                // title="Our Recent '<br/>' Projects "
               />
+              <div className="section-title">
+                  <h3> Our Recent <br/> Projects</h3>
+                </div>
+            
             </div>
             <div className="col-md-6">
               <SectionTitle description="230+ clients are already growing their businesses. With our quality service, they are able to stand out from the crowd. Let us put your vision into practice." />

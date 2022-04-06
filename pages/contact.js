@@ -15,6 +15,7 @@ import WhatsappChat from "../components/whatsappChat";
 
 import { server } from "../config/index";
 import contactImage from "/public/page-image/contact.png";
+
 export default function Contact({ posts }) {
   // all states
   const [fistName, setFirstName] = useState("");

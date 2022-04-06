@@ -21,7 +21,7 @@ export default function WorkingProcess() {
               <div className="section-title text-center">
                 <h5> Working Process</h5>
                 <h3>
-                  Our Working Process For <br /> Clients Work
+                The Way We Work For Clients 
                 </h3>
               </div>
             </div>

@@ -46,7 +46,7 @@ export default function ExpTeam() {
                       {" "}
                       03 <span>+</span>
                     </h3>
-                    <h4>Years of experience we just achived </h4>
+                    <h4>Years of experience</h4>
                   </div>
                 </div>
               </div>
@@ -57,12 +57,11 @@ export default function ExpTeam() {
             >
               <div className="expTeam-right">
                 <div className="section-title">
-                  <h5> Our Professionalism</h5>
-                  <h3> <span className="s-t">Your Digital Assets,</span> <br /> Our Responsibility</h3>
+                  <h5> Our Commitment </h5>
+                  <h3> <span className="s-t">Your Digital Assets</span> <br /> Our Responsibility</h3>
                 </div>
                 <SectionTitle
-                  description="3 years+ serving as a leading software company. A unique workflow and high-quality services are what sets us apart from competitors. 
-                  We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate are:
+                  description="It’s been 3 years+ of us serving as a leading software company within the IT industry. A unique workflow and high-quality services are what set us apart from competitors. We are the professionals you can turn to when you need help. By utilizing our expertise, we will find the right solution for you as soon as possible. The way we operate:
                   "
                 />
                 <div className="expTeam-youtube-section">
@@ -78,7 +77,7 @@ export default function ExpTeam() {
                               type="checkbox"
                               value="value2"
                             />
-                            <label htmlFor="styled-checkbox-1">First, We Identify Your Problem</label>
+                            <label htmlFor="styled-checkbox-1">We Identify Your Problem</label>
                           </div>
                         </li>
                         <li>
@@ -90,7 +89,7 @@ export default function ExpTeam() {
                               type="checkbox"
                               value="value2"
                             />
-                            <label htmlFor="styled-checkbox-2">Second, We Analyze & Build a Strategy</label>
+                            <label htmlFor="styled-checkbox-2">We Analyze & Build a Strategy</label>
                           </div>
 
                           <a onClick={() => setModalShow(true)}>
@@ -112,7 +111,7 @@ export default function ExpTeam() {
                               type="checkbox"
                               value="value2"
                             />
-                            <label htmlFor="styled-checkbox-3">Third, We Design & Develop The Strategy</label>
+                            <label htmlFor="styled-checkbox-3">We Design & Develop The Strategy</label>
                           </div>
                         </li>
                       </ul>

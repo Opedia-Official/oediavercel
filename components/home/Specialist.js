@@ -15,7 +15,7 @@ export default function Specialist() {
           <div className="col-md-6 wow fadeInLeft">
             <div className="section-title">
               <h5>Our Support</h5>
-              <h3>IT professionals are at your service</h3>
+              <h3>IT professionals at your service</h3>
               <p className="pera pe-md-5">
                 Every project is handled by a team of industry experts. The
                 proper knowledge, research, analysis, and implementation help us
